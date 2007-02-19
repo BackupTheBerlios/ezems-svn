@@ -1,0 +1,134 @@
+div.head {
+	margin-bottom: 15px;
+    font-size: 12px;
+    font-weight: bold;
+	vertical-align: middle;
+	width: 100%;
+}
+table.table {
+	width: 100%;
+}
+
+#save  
+{   
+	background-image: url(images/buttons/save.png);  
+	background-repeat: no-repeat;  
+	background-position: left center;  
+}  
+  
+#reset  
+{   
+	background-image: url(images/buttons/no.png);  
+	background-repeat: no-repeat;  
+	background-position: left center;  
+}
+ 
+ 
+div.clickTabBox ul.clickTabNav {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	background: url(images/tabs/tab-border.gif) bottom repeat-x;
+	height: 21px;
+}
+
+div.clickTabBox ul.clickTabNav li {
+	display: block;
+	float: left;
+	text-align:center;
+	margin-right: 1px;
+	
+}
+
+div.clickTabBox ul.clickTabNav li a {
+	display: block;
+	float: left;
+	line-height: 21px;
+	text-decoration: none;
+	padding: 0px 12px;
+	color: #666666;
+	font-weight: normal;
+	cursor: pointer;
+}
+
+div.clickTabBox div.clickTab {
+	clear: both;
+	color: #061a3d;
+	margin-bottom: 15px;
+}
+
+div.clickTab-inner {
+	padding: 12px;
+}
+
+div.clickTabBox div.hideTab {
+	display: none;
+}
+
+div.clickTabBox ul.clickTabNav li div {
+	float: left;
+	height: 100%;
+}
+
+
+/********************************************************/
+/*** Template Div Tags **********************************/
+/********************************************************/
+
+div.tabWrapper1, div.tabWrapper2, div.tabWrapper3 {
+	width: 100%;
+	height: 100%;
+}
+
+div.tabNavWrapper6 {
+	background: url(images/tabs/tab-inactive-tl.gif) top left no-repeat;
+}
+
+div.tabNavWrapper5 {
+	background: url(images/tabs/tab-inactive-tr.gif) top right no-repeat;
+}
+
+div.tabNavWrapper4 {
+	background: url(images/tabs/tab-border.gif) bottom repeat-x;
+}
+
+div.tabNavWrapper3 {
+	background: url(images/tabs/tab-inactive-border.gif) top right repeat-y;
+}
+
+div.tabNavWrapper2 {
+	background: url(images/tabs/tab-inactive-border.gif) top left repeat-y;
+}
+
+div.tabNavWrapper1 {
+	background: url(images/tabs/tab-inactive-bg.gif) #eaf0f4 top repeat-x;
+}
+
+li.activeTab div.tabNavWrapper6 {
+	background: url(images/tabs/tab-active-tl.gif) top left no-repeat;
+}
+
+li.activeTab div.tabNavWrapper5 {
+	background: url(images/tabs/tab-active-tr.gif) top right no-repeat;
+}
+
+li.activeTab div.tabNavWrapper4 {
+	background: none;
+}
+
+
+li.activeTab div.tabNavWrapper1 {
+	background: url(images/tabs/tab-active-bg.gif) #FFFFFF top repeat-x;
+}
+
+div.tabWrapper1 {
+	background: url(images/tabs/tab-border.gif) left repeat-y;
+}
+
+div.tabWrapper2 {
+	background: url(images/tabs/tab-border.gif) right repeat-y;
+}
+
+div.tabWrapper3 {
+	background: url(images/tabs/tab-border.gif) bottom repeat-x;
+}

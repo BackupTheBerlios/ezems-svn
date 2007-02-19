@@ -1,0 +1,43 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:users}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?siteTitle}</a></li>
+	</ul>
+<!-siteHead>
+<!+loginError>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td>
+				<table>
+				  <tr>
+    <td class="cellmiddle"><strong>{?loginError}:</strong> <br />
+      <br />
+      {$loginError}</td>
+  </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div></div>
+<!-loginError>
+<!+loginOk>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td>
+				<table>
+				  <tr>
+    <td class="cellmiddle"><strong>{?loginOk}</strong><br />
+      <br />
+      {$next}</td>
+  </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div></div>
+<!-loginOk>

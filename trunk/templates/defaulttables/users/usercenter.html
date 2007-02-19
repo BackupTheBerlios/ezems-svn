@@ -1,0 +1,35 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:users}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?siteTitle}</a></li>
+	</ul>
+	<!-siteHead>
+	
+	
+
+<!+usercenterHead>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td>
+				<table>
+          <!-usercenterHead>
+          <!+usercenterData>
+          <tr>
+            <td width="10%" rowspan="2"><a href="index.php?view={$pluginPath}&amp;site={$sitePath}"><img src="{icon:usercenter:{$pluginPath}_{$sitePath}}" alt="{$pluginPath}_{$sitePath}" width="48" height="48" border="0" /></a></td>
+            <td width="90%"><a href="index.php?view={$pluginPath}&amp;site={$sitePath}"><strong>{$usersiteName}</strong></a></td>
+          </tr>
+          <tr>
+            <td>{$usersiteDescription}</td>
+          </tr>
+          <!-usercenterData>
+          <!+usercenterFoot>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div></div>
+<!-usercenterFoot>

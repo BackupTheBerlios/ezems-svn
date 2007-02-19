@@ -1,0 +1,101 @@
+<!+siteTitle>
+<div class="head">
+	<img src="{icon:32:about}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?aboutTitle}</a></li>
+		<li><a>{?licenceTitle}</a></li>
+	</ul>
+<!-siteTitle>
+<!+siteAbout>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td>
+				<table>
+				  <tr>
+          <td colspan="2"><strong>{?aboutTitle} - {$scriptVersion} </strong></td>
+        </tr>
+        <tr>
+          <td colspan="2">{?aboutText} <a href="http://www.ezems.net">EZEMS.NET </a></td>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div>
+<!-siteAbout>
+<!+siteLicence>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td>
+				<table>
+				  <tr>
+          <td colspan="2"><strong>{?licenceTitle} - <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/legalcode" target="_blank">{?readMore}</a> </strong></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <br />
+            {?licenceMsg1}<br />
+            <br />
+            <table width="100%" border="0">
+                <tr>
+                  <td colspan="4"><p><strong>{?licenceRights}:</strong></p></td>
+                </tr>
+                <tr>
+                  <td width="10" rowspan="3">&nbsp;</td>
+                  <td colspan="3">- {?licencePoint1}</td>
+                </tr>
+                <tr>
+                  <td colspan="3">- {?licencePoint2} </td>
+                </tr>
+                <tr>
+                  <td colspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td colspan="4"><strong>{?licenceConditions}: </strong>
+                  </p></td>
+                </tr>
+                <tr>
+                  <td rowspan="3">&nbsp;</td>
+                  <td width="5"><img src="{icon:licence:attribution}" alt="title" width="64" height="64" /></td>
+                  <td width="5">&nbsp;</td>
+                  <td>{?licenceAttribution}</td>
+                </tr>
+                <tr>
+                  <td><img src="{icon:licence:noncommercial}" alt="title" width="64" height="64" /></td>
+                  <td>&nbsp;</td>
+                  <td>{?licenceNoncommercial}</td>
+                </tr>
+                <tr>
+                  <td><img src="{icon:licence:sharealike}" alt="title" width="64" height="64" /></td>
+                  <td>&nbsp;</td>
+                  <td>{?licenceShareAlike}</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td colspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td rowspan="2">&nbsp;</td>
+                  <td colspan="3">- {?licencePoint3}</td>
+                </tr>
+                <tr>
+                  <td colspan="3">- {?licencePoint4}</td>
+                </tr>
+              </table>
+              <br />
+            <div align="center"><strong>{?licenceMsg2}</strong><br />
+	          <br />
+            {?licenceMsg3}</div></td>
+        </tr>
+        <tr>
+          <td colspan="2">&nbsp;</td>
+        </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div></div>
+<!-siteLicence>

@@ -1,0 +1,211 @@
+ body {
+  background: #3b3b3b;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  font: 70% Verdana, Arial, Tahoma, Helvetica, sans-serif;
+ }
+ 
+ ul, li, h1, h2, p { 
+  margin: 0; padding: 0;
+ }
+ 
+ h1 {
+  font-size: 180%;
+  color: #061a3d;
+  margin-bottom: 20px;
+ }
+ 
+ h2 {
+  font-size: 105%;
+  margin-bottom: 4px;
+ }
+ 
+ p { 
+  margin-bottom: 10px;
+  line-height: 130%;
+ }
+ 
+ a {
+  text-decoration: none;
+  color: #061a3d;
+ }
+ 
+ a:hover {
+  text-decoration: underline;
+ }
+ 
+ img {
+  border: 0;
+ }
+ 
+ hr { 
+  background:#e5e5e5;
+  color:#e5e5e5;
+  border: #e5e5e5;
+  height: 1px;
+ }
+ 
+ td { 
+  padding: 2px;
+ }
+ 
+ input {
+  font-size: 12px;
+  border: 1px solid #c0c0c0;
+  margin-bottom: 5px;
+  width: 130px;
+ }
+ 
+ select {
+  font-size: 12px;
+  border: 1px solid #c0c0c0;
+  margin-bottom: 5px;
+ }
+ 
+ form {
+  margin: 0;
+  padding: 5px;
+ }
+ 
+ fieldset {
+  border: 0;
+  padding: 0;
+  margin:0;
+ }
+ 
+ #infolayer {
+  position:absolute;
+  width:250px;
+  height:150px;
+  z-index:1;
+  left: 500px;
+  top: 100px;
+  background: #e5e5e5;
+  color: #061a3d;
+  border: 1px solid #c0c0c0;
+  padding: 5px;
+  margin-bottom: 15px;
+  visibility:hidden
+ }
+ #main {
+  width: 950px;
+  margin: 0 auto;
+  background: #f8f8f8;
+ }
+ 
+ #logo {
+  background: #000 url(images/logo.jpg) no-repeat;
+  height: 200px;
+ }
+
+ #nav {
+  border-top: 1px solid white;
+ }
+ 
+ #nav ul {
+  padding-left: 0;
+  margin-left: 0;
+  background: #061a3d;
+  color: White;
+  float: left;
+  width: 100%;
+ }
+
+ #nav ul li { 
+  display: inline;
+ }
+
+ #nav ul li a {
+  padding: 0.4em 1em;
+  background: #061a3d;
+  color: white;
+  float: left;
+  border-right: 1px solid #fff;
+ }
+
+ #nav ul li a:hover {
+  background: #485a7e;
+  color: #fff;
+  text-decoration: none;
+ }
+ 
+ #line {
+  background: url(images/line.jpg);
+  height: 5px;
+  font-size: 5px;
+ }
+ 
+ #left { 
+  float: left; 
+  width: 200px;
+ }
+ 
+ #middle { 
+  float: left; 
+  width: 550px;
+ }
+  
+ #right {
+  float: left;
+  width: 200px;
+ }
+ 
+ #rightin, #middlein, #leftin {
+  padding: 10px;
+ }
+
+ #rightin div {
+  background: #f8f8f8;
+  color: #061a3d;
+  border: 1px solid #b9cfd8;
+  padding: 5px;
+  margin-bottom: 15px;
+ }
+ 
+ #rightin div ul {
+  list-style: square;
+ }
+ 
+ #rightin div li {
+  margin-left: 20px;
+ }
+
+ #leftin div {
+  background: #f8f8f8;
+  color: #061a3d;
+  border: 1px solid #b9cfd8;
+  padding: 5px;
+  margin-bottom: 15px;
+ }
+ 
+ #leftin div ul {
+  list-style: square;
+ }
+ 
+ #leftin div li {
+  margin-left: 20px;
+ }
+ 
+ #foot {
+  clear: both;
+  padding: 3px 10px 20px 10px;
+ }
+ 
+ #sql {
+  clear: both;
+  padding: 3px 10px 20px 10px;
+ }
+ 
+ #foot img {
+  vertical-align: middle;
+ }
+ 
+ #foot li { 
+  display: inline;
+  padding-right: 15px;
+ }
+
+ #middlein ul li { 
+  list-style: square
+ }

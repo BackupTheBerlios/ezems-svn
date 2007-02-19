@@ -1,0 +1,55 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:password}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?siteTitle}</a></li>
+		<li><a>{?usersNew}</a></li>
+	</ul>
+<!-siteHead>
+<!+usersHead>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td>
+				<table>
+  <tr>
+            <td width="20%"><strong>{?usersId}</strong></td>
+            <td width="30%"><strong>{?usersUsername}</strong></td>
+            <td width="50%"><strong>{?usersFirstname} {?usersLastname}</strong></td>
+            <td width="5%"><img src="{icon:16:edit}" width="16" height="16" border="0" /></td>
+            <td width="5%"><img src="{icon:16:delete}" width="16" height="16" border="0" /></td>
+          </tr>
+		  <!-usersHead>
+		  <!+usersData>
+		  <tr>
+            <td># {$usersId}<a href="index.php?view={$pluginFolder}&amp;site=manage"></a></td>
+            <td><a href="index.php?view=users&amp;site=details&amp;id={$usersId}">{$usersUsername}</a></td>
+            <td>{$usersFirstname} {$usersLastname} </td>
+            <td><a href="index.php?view=users&amp;site=edit&amp;id={$usersId}"><img src="{icon:16:edit}" width="16" height="16" border="0" /></a></td>
+            <td><a href="index.php?view=users&amp;site=remove&amp;id={$usersId}"><img src="{icon:16:delete}" width="16" height="16" border="0" /></a></td>
+          </tr>
+		  <!-usersData>
+		  <!+usersFoot>
+      </table>        
+					</td>
+		  </tr>
+		</table>
+	</div>
+<!-usersFoot>
+<!+usersNew>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td>
+				<table>
+  <tr>
+    <td class="cellmiddle"><strong>{?usersNew} </strong><br />    
+        <img src="{icon:16:new}" width="16" height="16" border="0" /> <a href="index.php?view=users&amp;site=add">{?usersAdd}</a> </td>
+      </table>        
+					</td>
+		  </tr>
+		</table>
+	</div></div>
+<!-usersNew>

@@ -1,0 +1,68 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:groups}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<form id="form1" name="form1" method="post" action="index.php?view=groups&amp;site=add">
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?groupsMain}</a></li>
+	</ul>
+
+<!-siteHead>
+<!+groupsAdd>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle"><strong>{?groupsMain}</strong><br />
+    <span style="color:#FF0000">{$errorMsg}</span>
+      <table width="100%" border="0">
+        <tr>
+          <td width="40%">{?groupsName}*</td>
+          <td width="60%"><input name="groupsName" type="text" id="groupsName" value="{$groupsName}" /></td>
+        </tr>
+        <tr>
+          <td>{?groupsWWW}</td>
+          <td><input name="groupsWWW" type="text" id="groupsWWW" value="{$groupsWWW}" /></td>
+        </tr>
+        <tr>
+          <td>{?groupsInfo}</td>
+          <td><textarea name="groupsInfo" id="groupsInfo">{$groupsInfo}</textarea></td>
+        </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div></div>
+	
+	<div class="clickTabBox">
+	<ul>
+		<li><a>{?groupsSave}</a></li>
+	</ul>
+	<div class="clickTab">
+	
+        <table width="100%" border="0">
+          <tr></tr>
+
+          <tr>
+            <td colspan="2"><input name="save" type="submit" id="save" value="{?save}" />
+              <input name="reset"  type="reset" id="reset" value="{?reset}" /></td>
+          </tr>
+        </table>
+	</div>
+</div>
+</form>
+<!-groupsAdd>
+<!+groupsAdded>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td>
+    <td class="cellmiddle"><strong>{?groupsAdded}<br />
+      </strong><br />
+      {$next}</td>
+  </tr>
+</table></div></div>
+<!-groupsAdded>
+<!+select>
+<option value="{$value}"{$checked}>{$description}</option>
+<!-select>

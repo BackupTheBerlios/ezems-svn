@@ -1,0 +1,171 @@
+<!+siteTitle>
+<div class="head">
+	<img src="{icon:32:database}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?optimizeTitle}</a></li>
+		<li><a>{?tablesTitle}</a></li>
+		<li><a>{?dumpTitle}</a></li>
+		<li><a>{?backupsTitle}</a></li>
+	</ul>
+<!-siteTitle>
+<!+tablesHead>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td>
+				<table>
+				  <tr>
+        <td colspan="4"><strong>{?tablesTitle}</strong></td>
+      </tr>
+      <tr>
+        <td colspan="2">{?tablesName}</td>
+        <td width="30%">{?tablesRows}</td>
+        <td width="30%">{?tablesOptimized}</td>
+      </tr>
+	  <!-tablesHead>
+	  <!+tablesData>
+      <tr>
+        <td colspan="2">{$tablesName}</td>
+        <td>{$tablesRows}</td>
+        <td>{$tablesOptimized}</td>
+      </tr>
+	  <!-tablesData>
+	  <!+tablesFoot>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div>
+<!-tablesFoot>
+<!+dbOptimized>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle"><table width="100%" border="0">
+      <tr>
+        <td colspan="3"><strong>{?optimizeSaved}<br />
+        </strong><br />
+{$next}</td>
+      </tr>
+      
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div></div>
+<!-dbOptimized>
+<!+dbOptimize>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle"><table width="100%" border="0">
+      <tr>
+        <td colspan="3"><strong>{?optimizeTitle}</strong></td>
+      </tr>
+      <tr>
+        <td colspan="3"><img src="{icon:16:pfeil}" width="16" height="16" /> <a href="index.php?view=system&amp;site=database&amp;do=optimize">{?dboptimize}</a></td>
+      </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div>
+<!-dbOptimize>
+<!+backupsHead>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle"><table width="100%" border="0">
+      <tr>
+        <td colspan="2"><strong>{?backupsTitle}</strong></td>
+      </tr>
+      <tr>
+        <td width="80%">{?name}</td>
+        <td width="20%">{?action}</td>
+      </tr>
+	  <!-backupsHead>
+	  <!+backupsData>
+      <tr>
+        <td><img src="{icon:extensions:{$typ}}" alt="{$typ}" width="16" height="16" /> <a href="backups/database/{$name}" target="_blank">{$name}</a></td>
+        <td><div align="center"><a href="index.php?view=system&amp;site=database&amp;do=delete&amp;backup={$name}"><img src="{icon:16:delete}" width="16" height="16" border="0" /></a> <a href="index.php?view=system&amp;site=database&amp;do=import&amp;backup={$name}"><img src="{icon:16:save}" width="16" height="16" border="0" /></a></div></td>
+      </tr>
+	  <!-backupsData>
+	  <!+backupsFoot>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div></div>
+<!-backupsFoot>
+<!+dbDumpHead>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle"><table width="100%" border="0">
+      <tr>
+        <td colspan="3"><strong>{?dumpTitle}</strong></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+		<img src="{icon:16:pfeil}" width="16" /> <a href="index.php?view=system&amp;site=database&amp;do=backup">{?dbDump}</a> <br />
+	  <!-dbDumpHead>
+	  <!+dbDumpCompression>
+		<img src="{icon:16:pfeil}" width="16" /> <a href="index.php?view=system&amp;site=database&amp;do=backup&amp;compression=1">{?dbDumpGZip}</a></td>
+      <!-dbDumpCompression>
+	  <!+dbDumpFoot>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div>
+<!-dbDumpFoot>
+<!+dbDumped>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle"><table width="100%" border="0">
+      <tr>
+        <td colspan="3"><strong>{?dumpSaved}<br />
+          </strong><br />
+          {$next}</td>
+      </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div></div>
+<!-dbDumped>
+<!+backupImported>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle"><table width="100%" border="0">
+      <tr>
+        <td colspan="3"><strong>{?importSaved}<br />
+          </strong><br />
+          {$next}</td>
+      </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div></div>
+<!-backupImported>
+<!+backupDeleted>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle"><table width="100%" border="0">
+      <tr>
+        <td colspan="3"><strong>{?deleteSaved}<br />
+          </strong><br />
+          {$next}</td>
+      </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div></div>
+<!-backupDeleted>

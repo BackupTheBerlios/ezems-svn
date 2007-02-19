@@ -1,0 +1,145 @@
+<!+siteTitle>
+<div class="head">
+	<img src="{icon:32:development}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?pluginAddTitle}</a></li>
+		<li><a>{?siteAddTitle}</a></li>
+	</ul>
+<!-siteTitle>
+<!+pluginAdd>
+	<div class="clickTab">
+	  <form id="form" name="form" method="post" action="index.php?view=system&amp;site=development&amp;do=addplugin">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle">
+    <table width="100%" border="0">
+        <tr>
+          <td colspan="2"><strong>{?pluginAddTitle}</strong></td>
+        </tr>
+        <tr>
+          <td width="40%">{?pluginPath}</td>
+          <td width="60%"><input name="pluginsPath" type="text" id="pluginsPath" /></td>
+        </tr>
+        <tr>
+          <td>{?pluginName}</td>
+          <td>
+            <input name="pluginsName" type="text" id="pluginsName" />          </td>
+        </tr>
+        <tr>
+          <td>{?pluginAutor}</td>
+          <td><input name="pluginsAutor" type="text" id="pluginsAutor" /></td>
+        </tr>
+        <tr>
+          <td>{?pluginWWW}</td>
+          <td><input name="pluginsWWW" type="text" id="pluginsWWW" value="http://" /></td>
+        </tr>
+        <tr>
+          <td>{?pluginInfo}</td>
+          <td><textarea name="pluginsInfo" id="pluginsInfo"></textarea></td>
+        </tr>
+        <tr>
+          <td>{?pluginReqPlugins}</td>
+          <td><input name="pluginsReqPlugins" type="text" id="pluginsReqPlugins" />
+            ({?btwComma})</td>
+        </tr>
+        <tr>
+          <td>{?pluginReqTables}</td>
+          <td><input name="pluginsReqTables" type="text" id="pluginsReqTables" />
+            ({?btwComma})</td>
+        </tr>
+        <tr>
+          <td colspan="2"><label>
+            <input name="save" type="submit" id="save" value="{?save}" />
+            <input name="reset" type="reset" id="reset" value="{?reset}" />
+          </label></td>
+          </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	  </form>
+	</div>
+<!-pluginAdd>
+<!+siteAdd>
+	<div class="clickTab">
+<form id="form" name="form" method="post" action="index.php?view=system&amp;site=development&amp;do=addsite">
+		<table class="table">
+  <tr>
+    <td class="cellmiddle">
+    <table width="100%" border="0">
+        <tr>
+          <td colspan="2"><strong>{?siteAddTitle}</strong></td>
+        </tr>
+        <tr>
+          <td width="40%">{?sitePlugin}</td>
+          <td width="60%"><select name="sitesPluginId" id="sitesPluginId">{$pluginsList}
+          </select></td>
+        </tr>
+        <tr>
+          <td>{?siteName}</td>
+          <td>
+            <input name="sitesName" type="text" id="sitesName" />
+          </td>
+        </tr>
+        <tr>
+          <td>{?siteTyp}</td>
+          <td><select name="sitesTyp" id="sitesTyp">
+            <option value="1">{?siteTyp1}</option>
+            <option value="2">{?siteTyp2}</option>
+            <option value="3">{?siteTyp3}</option>
+            <option value="4">{?siteTyp4}</option>
+            <option value="5">{?siteTyp5}</option>
+            <option value="6">{?siteTyp6}</option>
+			<option value="7">{?siteTyp7}</option>
+                    </select></td>
+        </tr>
+        <tr>
+          <td colspan="2"><label>
+            <input name="save" type="submit" id="save" value="{?save}" />
+            <input name="reset" type="reset" id="reset" value="{?reset}" />
+          </label></td>
+          </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	  </form>
+	</div></div>
+<!-siteAdd>
+<!+pluginAdded>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle"><table width="100%" border="0">
+      <tr>
+        <td colspan="3"><strong>{?pluginAdded}<br />
+          </strong><br />
+          {$next}</td>
+      </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div></div>
+<!-pluginAdded>
+<!+siteAdded>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle"><table width="100%" border="0">
+      <tr>
+        <td colspan="3"><strong>{?siteAdded}<br />
+          </strong><br />
+          {$next}</td>
+      </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div></div>
+<!-siteAdded>
+<!+listData>
+<option value="{$listValue}"{$listSelected}>{$listName}</option>
+<!-listData>

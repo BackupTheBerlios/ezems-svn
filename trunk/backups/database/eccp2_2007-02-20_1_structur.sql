@@ -189,7 +189,7 @@ CREATE TABLE ezems_plugins (
     pluginsInstall longtext NOT NULL,
     pluginsReqPlugins varchar(255) NOT NULL,
     pluginsReqTables varchar(255) NOT NULL,
-  PRIMARY KEY (pluginsId),
+  PRIMARY KEY (pluginsId)
 );
 
 

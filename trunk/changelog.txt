@@ -9,6 +9,8 @@
 ##                                                                  ##
 ######################################################################
 
-[dd.mm.YY - hh:mm]	- DEVELOPER - 	What you do
+[dd.mm.YY - hh:mm]	- Revision	- DEVELOPER - 	What you do
 
-[20.02.07 - 18:00]	- COOLover - 	Adds masters clanwar
+[20.02.07 - 18:00]	- 24		- COOLover - 	Adds masters clanwar
+
+[20.02.07 - 22:00]	- 25		- Phoenix - 	Add clanwars icon (SVN Test)

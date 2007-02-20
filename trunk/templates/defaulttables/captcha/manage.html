@@ -1,0 +1,96 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:captcha}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?captchaTest}</a></li>
+		<li><a>{?titleFont}</a></li>
+	</ul>
+
+<!-siteHead>
+<!+siteView>
+	<div class="clickTab">
+	<form id="form1" name="form1" method="post" action="index.php?view=captcha&amp;site=manage">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle"><table width="100%" border="0">
+          <tr>
+            <td colspan="2"><strong>{?captchaTest}</strong></td>
+          </tr>
+          <tr>
+            <td width="40%">{?testText}</td>
+            <td><input name="testtext" type="text" id="testtext" value="{$testText}" maxlength="6" /></td>
+          </tr>
+          <tr>
+            <td>{?sendTest}</td>
+            <td><input name="renew" type="submit" id="renew" value="{?renew}" />
+                <input name="reset" type="reset" id="reset" value="{?reset}" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><img src="plugins/captcha/generate.php?test={$testText}" /></td>
+          </tr>
+				</table>
+			</td>
+		  </tr>
+		</table></form>
+	</div>
+	<div class="clickTab">
+	<form id="form" name="form" method="post" action="index.php?view=captcha&amp;site=manage">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle">
+        <table width="100%" border="0">
+          <tr>
+            <td colspan="2"><strong>{?titleFont}</strong></td>
+          </tr>
+          <tr>
+            <td width="40%">{?calibri}</td>
+            <td><input name="font" type="radio" id="online" style="width:20px" value="CALIBRI"{$calibri} /></td>
+          </tr>
+          <tr>
+            <td>{?arial}</td>
+            <td><input name="font" type="radio" id="today" style="width:20px" value="ARIAL"{$arial} /></td>
+          </tr>
+          <tr>
+            <td>{?agencyr}</td>
+            <td><input name="font" type="radio" id="yesterday" style="width:20px" value="AGENCYR"{$agencyr} /></td>
+          </tr>
+          <tr>
+            <td>{?playbill}</td>
+            <td><input name="font" type="radio" id="month" style="width:20px" value="PLAYBILL"{$playbill} /></td>
+          </tr>
+          <tr>
+            <td>{?showg}</td>
+            <td><input name="font" type="radio" id="all" style="width:20px" value="SHOWG"{$showg} /></td>
+          </tr>
+          <tr>
+            <td>{?ravie}</td>
+            <td><input name="font" type="radio" id="hits" style="width:20px" value="RAVIE"{$ravie} /></td>
+          </tr>
+        </table>
+        <table width="100%" border="0">
+          <tr>
+            <td colspan="2"><strong>{?titleSave}</strong></td>
+          </tr>
+          <tr>
+            <td colspan="2"><input name="save" type="submit" id="save" value="{?save}" />
+              <input name="reset" type="reset" id="reset" value="{?reset}" /></td>
+          </tr>
+				</table>
+			</td>
+		  </tr>
+		</table></form>
+	</div></div>
+<!-siteView>
+<!+captchaSaved>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td>
+    <td class="cellmiddle"><strong>{?titleSaved}<br />
+      </strong><br />
+      {$next}</td>
+  </tr>
+</table></div></div>
+<!-captchaSaved>

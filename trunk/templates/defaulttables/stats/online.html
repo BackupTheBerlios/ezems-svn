@@ -1,0 +1,35 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:stats}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?onlineTitle}</a></li>
+	</ul>
+<!-siteHead>
+<!+onlineHead>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle"><strong>{?onlineTitle} </strong><br />
+        <table width="100%" border="0">
+		  <tr>
+            <td width="20%"><strong>{?statsId}</strong></td>
+            <td width="30%"><strong>{?statsBrowser}</strong></td>
+            <td width="50%"><strong>{?statsUri}</strong></td>
+          </tr>
+		  <!-onlineHead>
+		  <!+onlineData>
+		  <tr>
+            <td># {$statsId}</td>
+            <td>{$statsBrowser}</td>
+            <td><a href="index.php?view={$statsPlugin}&amp;site={$statsSite}">{$statsPlugin} / {$statsSite}</a></td>
+          </tr>
+		  <!-onlineData>
+		  <!+onlineFoot>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div></div>
+<!-onlineFoot>

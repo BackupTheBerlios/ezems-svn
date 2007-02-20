@@ -1,0 +1,117 @@
+<!+siteTitle>
+<div class="head">
+	<img src="{icon:32:database}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?server}</a></li>
+		<li><a>{?php}</a></li>
+		<li><a>{?space}</a></li>
+	</ul>
+<!-siteTitle>
+<!+siteOverview>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle"><table width="100%" border="0">
+        <tr>
+          <td colspan="2"><strong>{?server}</strong></td>
+        </tr>
+        <tr>
+          <td width="40%">{?cpu}</td>
+          <td width="60%">{$cpu}</td>
+        </tr>
+        <tr>
+          <td>{?os}</td>
+          <td>{$os} - {$osVersion} </td>
+        </tr>
+        <tr>
+          <td>{?hostname}</td>
+          <td>{$hostname}</td>
+        </tr>
+        <tr>
+          <td>{?phpversion}</td>
+          <td>{$phpversion}</td>
+        </tr>
+        <tr>
+          <td>{?zendversion}</td>
+          <td>{$zendversion}</td>
+        </tr>
+        <tr>
+          <td>{?software}</td>
+          <td>{$software}</td>
+        </tr>
+        <tr>
+          <td>{?db}</td>
+          <td>{$db}</td>
+        </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+		  <td class="cellmiddle"><table width="100%" border="0">
+        <tr>
+          <td colspan="2"><strong>{?php}</strong></td>
+        </tr>
+        <tr>
+          <td width="40%">{?displayErrors}</td>
+          <td width="60%">{$displayErrors}</td>
+        </tr>
+        <tr>
+          <td>{?registerGlobals}</td>
+          <td>{$registerGlobals}</td>
+        </tr>
+        <tr>
+          <td>{?magicQuotes}</td>
+          <td>{$magicQuotes}</td>
+        </tr>
+        <tr>
+          <td>{?safeMode}</td>
+          <td>{$safeMode}</td>
+        </tr>
+        <tr>
+          <td>{?postMaxSize}</td>
+          <td>{$postMaxSize}</td>
+        </tr>
+        <tr>
+          <td>{?maxExecutionTime}</td>
+          <td>{$maxExecutionTime} {?secounds} </td>
+        </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle"><table width="100%" border="0">
+        <tr>
+          <td colspan="2"><strong>{?space}</strong></td>
+        </tr>
+        <tr>
+          <td width="40%">{?spaceTotal}</td>
+          <td width="60%">{$spaceTotal} ({$spaceTotalPercent}%)</td>
+        </tr>
+        <tr>
+          <td>{?spaceFree}</td>
+          <td>{$spaceFree} ({$spaceFreePercent}%)</td>
+        </tr>
+        <tr>
+          <td>{?spaceUsed}</td>
+          <td>{$spaceUsed} ({$spaceUsedPercent}%) </td>
+        </tr>
+        <tr>
+          <td>{?memory}</td>
+          <td>{$memory}</td>
+        </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div></div>
+<!-siteOverview>

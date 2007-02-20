@@ -1,0 +1,49 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:users}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?siteTitle}</a></li>
+	</ul>
+<!-siteHead>
+<!+welcomeMessage>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td>
+				<table>
+				  <tr>
+    <td class="cellmiddle"><p><strong>{?hello} {$user} </strong></p>
+        <p> {?pMs1} {$pMcount} {?pMs2} </p></td>
+  </tr>
+				</table>
+<!-welcomeMessage>
+<!+personalData>
+				<table>
+				  <tr>
+			<td colspan="4" width="2%"><strong>{?personalData}</strong><br />&nbsp;</td>
+			</tr><tr>
+            <td width="25%"><strong>{?username}</strong></td>
+            <td width="25%">{$username}</td>
+            <td width="25%"><strong>{?userid}</strong></td>
+            <td width="25%">{$userid}</td>
+          </tr>
+          <tr>
+            <td><strong>{?email}</strong></td>
+            <td>{$email}</td>
+            <td><strong>{?firstname}</strong></td>
+            <td>{$firstname}</td>
+          </tr>
+          <tr>
+            <td><strong>{?ip}</strong></td>
+            <td>{$ip}</td>
+            <td><strong>{?lastname}</strong></td>
+            <td>{$lastname}</td>
+          </tr>
+				</table>
+			</td>
+		  </tr>
+		</table>
+	</div></div>
+<!-personalData>

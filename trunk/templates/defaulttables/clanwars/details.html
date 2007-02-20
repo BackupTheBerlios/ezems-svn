@@ -1,0 +1,137 @@
+<!+siteEntry>
+<table style="width:{ecTableWidth}" border="0" class="table">
+	<tr>
+		<td colspan=3><strong>{$gameName}</strong></td>
+	</tr>
+	<tr>
+		<td align="center" width="40%"><img src="uploads/squads/{$squadPic}" width="100px" height="100px"><br />{$squadName}</td>
+		<td align="center" width="10%">{?vs}</td>
+		<td align="center" width="40%"><img src="uploads/clandb/{$enemyPic}" width="100px" height="100px"><br />{$enemyName}</td>
+	</tr>
+</table>
+
+<table style="width:{ecTableWidth}" border="0" class="table">
+	<tr>
+		<td colspan="2"><b>{?matchDetails}</b></td>
+	</tr>
+	<tr>
+		<td width="15%">{?matchtyp}</td>
+		<td>{$matchTyp}</td>
+	</tr>
+	<tr>
+		<td>{?date}</td>
+		<td>{$date} {?hour}</td>
+	</tr>
+</table>
+
+<table style="width:{ecTableWidth}" border="0" class="table">
+	<tr>
+		<td colspan="3"><b>{?lineup}</b></td>
+	</tr>
+	<tr>
+		<td valign="top" width="60%">
+			<table>
+				<tr>
+					<td><b>{?SquadLineup}</b></td>
+				<tr>
+					<td width="25%"><b>{?nick}</b></td>
+				</tr>
+				{$squadLineup}
+			</table>
+		</td>
+		
+		<td></td>
+		
+		<td valign="top">
+			<table>
+				<tr>
+					<td><b>{?enemyLineup}</b></td>
+				</tr>
+				<tr>
+					<td><b>{?nick}</b></td>
+				</tr>
+				{$enemyLineup}
+			</table>
+	</tr>
+</td>
+
+<table style="width:{ecTableWidth}" border="0" class="table">
+	<tr>
+		<td colspan="5"><b>{?Rounds}</b></td>
+	</tr>
+		{$maptemplate}
+</table>
+
+<table style="width:{ecTableWidth}" border="0" class="table">
+	<tr>
+		<td colspan="3"><b>{?Report}</b></td>
+	</tr>
+	<tr>
+		<td colspan="3">{$bericht}</td>
+	</tr>
+</table>
+
+<table style="width:{ecTableWidth}" border="0" class="table">
+	{$media}
+</table>
+<!-siteEntry>
+
+<!+squadLineup>
+<tr>
+	<td>{$gamerName}</td>
+</tr>
+<!-squadLineup>
+
+<!+enemyLineup>
+<tr>
+	<td>{$enemyGamerName}</td>
+</tr>
+<!-enemyLineup>
+<!+mapRound>
+	<tr>
+		<td colspan="5">{$map}</td>
+	</tr>
+	<tr>
+		<td width="5%">{?Team1}</td>
+		<td width="20%">{$score1}</td>
+		<td width="20%"></td>
+		<td width="5%">{?Team2}</td>
+		<td width="20%">{$score2}</td>
+	</tr>
+		<tr>
+		<td>{?Team2}</td>
+		<td>{$score3}</td>
+		<td></td>
+		<td>{?Team1}</td>
+		<td>{$score4}</td>
+	</tr>
+<!-mapRound>
+
+<!+medienArchiv>
+<tr>
+	<td><a href="uploads/clanwars/archives/{$medien}">{$medien}</a></td>
+<tr>
+<!-medienArchiv>
+<!+medienImage>
+<tr>
+	<td><a href="uploads/clanwars/images/{$medien}" target="_blank">{$medien}</a></td>
+<tr>
+<!-medienImage>
+
+<!+medien>
+	<tr>
+		<td colspan="3"><strong>{?Medien}</strong></td>
+	</tr>
+	<tr>
+		<td valign="top"><strong>{?images}</strong>
+			<table style="width:{ecTableWidth}" border="0">
+				{$medienImageTemplate}
+			</table>	
+		</td>
+		<td colspan="2" valign="top"><strong>{?archives}</strong>
+			<table style="width:{ecTableWidth}" border="0">
+				{$medienArchivTemplate}
+			</table>
+		</td>
+	</tr>
+<!-medien>

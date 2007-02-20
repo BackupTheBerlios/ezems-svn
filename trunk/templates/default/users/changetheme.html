@@ -1,0 +1,63 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:password}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<form id="form1" name="form1" method="post" action="index.php?view=users&amp;site=changetheme">
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?siteTitle}</a></li>
+	</ul>
+<!-siteHead>
+<!+usersEditHead>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td>
+				<table>
+	    <!-usersEditHead>
+	    <!+usersEditData>
+        <tr>
+          <td width="105" rowspan="2"><span class="head1"><img src="{icon:themes:{$themesPath}}" alt="{$themesPath}" width="100" height="100" /></span></td>
+          <td height="10"><strong>{$themesName}</strong></td>
+          <td width="5"><div align="right">
+            <input name="usersThemeId" type="radio" style="width:20px" value="{$themesId}" {$checked} />
+          </div></td>
+        </tr>
+        <tr>
+          <td colspan="2" valign="top">{$themesInfo}</td>
+        </tr>
+		<!-usersEditData>
+		<!+usersEditFoot>
+		</table>
+					</td>
+		  </tr>
+		</table>
+	</div></div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?usersSave}</a></li>
+	</ul>
+	<div class="clickTab">
+	
+        <table width="100%" border="0">
+          <tr></tr>
+          <tr>
+            <td colspan="2"><input name="save" type="submit" id="save" value="{?save}" />
+              <input name="reset"  type="reset" id="reset" value="{?reset}" /></td>
+          </tr>
+        </table>
+	</div>
+</div>
+</form>
+<!-usersEditFoot>
+<!+usersEdited>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td>
+    <td class="cellmiddle"><strong>{?usersEdited}<br />
+      </strong><br />
+      {$next}</td>
+  </tr>
+</table></div></div>
+<!-usersEdited>

@@ -1,0 +1,79 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:stats}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<form id="form" name="form" method="post" action="index.php?view=stats&amp;site=manage">
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?titleNavi}</a></li>
+	</ul>
+<!-siteHead>
+<!+statsSkript>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+    <td class="cellmiddle">
+        <table width="100%" border="0">
+          <tr>
+            <td colspan="2"><strong>{?titleNavi}</strong></td>
+          </tr>
+          <tr>
+            <td width="40%">{?online}</td>
+            <td><input name="online" type="checkbox" id="online" style="width:20px" value="1"{$online} /></td>
+          </tr>
+          <tr>
+            <td>{?today}</td>
+            <td><input name="today" type="checkbox" id="today" style="width:20px" value="1"{$today} /></td>
+          </tr>
+          <tr>
+            <td>{?yesterday}</td>
+            <td><input name="yesterday" type="checkbox" id="yesterday" style="width:20px" value="1"{$yesterday} /></td>
+          </tr>
+          <tr>
+            <td>{?month}</td>
+            <td><input name="month" type="checkbox" id="month" style="width:20px" value="1"{$month} /></td>
+          </tr>
+          <tr>
+            <td>{?all}</td>
+            <td><input name="all" type="checkbox" id="all" style="width:20px" value="1"{$all} /></td>
+          </tr>
+          <tr>
+            <td>{?hits}</td>
+            <td><input name="hits" type="checkbox" id="hits" style="width:20px" value="1"{$hits} /></td>
+          </tr>
+        </table>
+		    </td>
+          </tr>
+        </table>
+
+	</div>
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?titleSave}</a></li>
+	</ul>
+	<div class="clickTab">
+	
+        <table width="100%" border="0">
+          <tr></tr>
+
+          <tr>
+            <td colspan="2"><input name="save" type="submit" id="save" value="{?save}" />
+              <input name="reset"  type="reset" id="reset" value="{?reset}" /></td>
+          </tr>
+        </table>
+	</div>
+</div>
+</form>
+<!-statsSkript>
+<!+statsSaved>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td>
+    <td class="cellmiddle"><strong>{?titleSaved}<br />
+      </strong><br />
+      {$next}</td>
+  </tr>
+</table></div></div>
+<!-statsSaved>

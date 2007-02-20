@@ -49,8 +49,9 @@ else
 			dbInsert(1, 'access', $insert);
 		}
 	}
+	
 	echo ecTemplate('groups', 'access', 'accessHead');
-	$actPlug = 0;
+	
 	$ecAccessData = dbSelect('pluginsId, pluginsPath, pluginsName, sitesName, accessSiteId, sitesPluginId, sitesId, accessLevel',
 	1,
 	'plugins,sites,access',
@@ -59,13 +60,19 @@ else
 	while($access = mysql_fetch_object($ecAccessData))
 	{
 		$pluginId = $access->pluginsId;
+		$plugin = $access->pluginsName;
 		$pluginPath = $access->pluginsPath;
+		if (!isset($actPlug))
+		{
+			$actPlug = $pluginId;
+			echo ecTemplate('groups', 'access', 'accessPluginHead');
+		} 
 		if ($pluginId != $actPlug)
 		{
-			echo ecTemplate('groups', 'access', 'accessFoot');
+			echo ecTemplate('groups', 'access', 'accessPluginFoot');
 			$plugin = $access->pluginsName;
 			$actPlug = $pluginId;
-			echo ecTemplate('groups', 'access', 'accessPlugin');
+			echo ecTemplate('groups', 'access', 'accessPluginHead');
 		}
 		$site = $access->sitesName;
 		$siteId = $access->sitesId;
@@ -74,7 +81,8 @@ else
 		$access1 = ($access == 1) ? ' checked="checked"' : '';
 		echo ecTemplate('groups', 'access', 'accessSite');
 	}
-	echo ecTemplate('groups', 'access', 'accessFoot');
+	echo ecTemplate('groups', 'access', 'accessPluginFoot');
 	echo ecTemplate('groups', 'access', 'accessEdit');
+	echo ecTemplate('groups', 'access', 'accessFoot');
 }
 ?>

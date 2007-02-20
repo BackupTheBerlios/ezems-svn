@@ -9,5 +9,5 @@
 ##                                                                  ##
 ######################################################################
 
-[dd.mm.YY - hh:mm] - DEVELOPER - 
+[dd.mm.YY - hh:mm]	-DEVELOPER - 	What you do
 

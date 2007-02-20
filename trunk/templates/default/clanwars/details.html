@@ -1,5 +1,15 @@
 <!+siteEntry>
-<table style="width:{ecTableWidth}" border="0" class="table">
+<div class="head">
+	<img src="{icon:32:clanwars}" alt="clanwars" width="32" height="32" /> {?siteTitle}
+</div>
+
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?squads}</a></li>
+	</ul>
+	<div class="clickTab">
+	
+        <table width="100%" border="0">
 	<tr>
 		<td colspan=3><strong>{$gameName}</strong></td>
 	</tr>
@@ -8,26 +18,34 @@
 		<td align="center" width="10%">{?vs}</td>
 		<td align="center" width="40%"><img src="uploads/clandb/{$enemyPic}" width="100px" height="100px"><br />{$enemyName}</td>
 	</tr>
-</table>
+        </table>
+	</div>
+</div>
 
-<table style="width:{ecTableWidth}" border="0" class="table">
+
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?matchDetails}</a></li>
+	</ul>
+	<div class="clickTab">
+        <table width="100%" border="0">
 	<tr>
-		<td colspan="2"><b>{?matchDetails}</b></td>
-	</tr>
-	<tr>
-		<td width="15%">{?matchtyp}</td>
-		<td>{$matchTyp}</td>
+		<td>{?matchtyp}</td>
+		<td colspan="2">{$matchTyp}</td>
 	</tr>
 	<tr>
 		<td>{?date}</td>
-		<td>{$date} {?hour}</td>
+		<td colspan="2">{$date} {?hour}</td>
 	</tr>
-</table>
-
-<table style="width:{ecTableWidth}" border="0" class="table">
-	<tr>
-		<td colspan="3"><b>{?lineup}</b></td>
-	</tr>
+        </table>
+	</div>
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?lineup}</a></li>
+	</ul>
+	<div class="clickTab">
+        <table width="100%" border="0">
 	<tr>
 		<td valign="top" width="60%">
 			<table>
@@ -53,27 +71,37 @@
 				{$enemyLineup}
 			</table>
 	</tr>
-</td>
+        </table>
+	</div>
+</div>
 
-<table style="width:{ecTableWidth}" border="0" class="table">
-	<tr>
-		<td colspan="5"><b>{?Rounds}</b></td>
-	</tr>
-		{$maptemplate}
-</table>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?Rounds}</a></li>
+	</ul>
+	<div class="clickTab">
+        <table width="100%" border="0">
+{$maptemplate}
+        </table>
+	</div>
+</div>
 
-<table style="width:{ecTableWidth}" border="0" class="table">
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?misc}</a></li>
+	</ul>
+	<div class="clickTab">
+        <table width="100%" border="0">
 	<tr>
 		<td colspan="3"><b>{?Report}</b></td>
 	</tr>
 	<tr>
 		<td colspan="3">{$bericht}</td>
 	</tr>
-</table>
-
-<table style="width:{ecTableWidth}" border="0" class="table">
 	{$media}
-</table>
+        </table>
+	</div>
+</div>
 <!-siteEntry>
 
 <!+squadLineup>

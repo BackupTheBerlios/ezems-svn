@@ -1,6 +1,9 @@
 <?php
-$ecFile = 'languages/german_de/clanwars/Counterstrike/add.php';
+$ecFile = 'languages/german_de/clanwars/Counterstrike/details.php';
 
+$ecLang['siteTitle']			= 'ClanWar Details';
+
+$ecLang['squads']			= 'Squads';
 $ecLang['vs']			= 'vs';
 $ecLang['matchDetails']	= 'Match Details';
 $ecLang['matchtyp']		= 'Matchtyp:';
@@ -19,4 +22,5 @@ $ecLang['images']		= 'Bilder';
 
 $ecLang['ct']			= 'Counter-Terrorist: ';
 $ecLang['t']			= 'Terrorist: ';
+$ecLang['misc']		= 'Sonstiges';
 ?>

@@ -1,8 +1,19 @@
 <!+head>
+
 <!-head>
 
 <!+entry>
+
 	{$statistik}
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?plays}</a></li>
+	</ul>
+	<div class="clickTab">
+	
+        <table width="100%" border="0">
+	<tr>
+		<td>
 	<table style="width:{ecTableWidth}" border="0" class="table">
 		<tr>
 			<td width="20%"><strong>{?game}</strong></td>
@@ -14,6 +25,11 @@
 		</tr>
 		{$wars}
 	</table>
+	</td>
+	</tr>
+        </table>
+	</div>
+</div>
 <!-entry>
 
 <!+wars>
@@ -28,10 +44,19 @@
 <!-wars>
 
 <!+statistik>
-	<table style="width:{ecTableWidth}" border="0" class="table">
-		<tr>
-			<td colspan="4" align="center"><b>{?statistik}</b></td>
-		</tr>
+<div class="head">
+	<img src="{icon:32:clanwars}" alt="clanwars" width="32" height="32" /> {?siteTitle}
+</div>
+
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?statistik}</a></li>
+	</ul>
+	<div class="clickTab">
+	
+        <table width="100%" border="0">
+	<tr>
+		<td>	<table style="width:{ecTableWidth}" border="0" class="table">
 		<tr>
 			<td colspan="4" align="center">{?warsDone} <b>{$countWars}</b> {?warsDone2}</td>
 		</tr>
@@ -56,7 +81,11 @@
 			<td><font color="Red">{$lost}</font></td>
 			<td><font color="Red">{$lostPercent}%</font></td>
 		</tr>
-	</table>
+	</table></td>
+	</tr>
+        </table>
+	</div>
+</div>
 <!-statistik>
 
 <!+moreInfoClan>{?ClanInfo}<br /><br /><strong>{?enemyName}:</strong> {$enemyName}<br /><strong>{?enemyShortName}:</strong> {$enemyShortName}<br /><strong>{?enemyTag}:</strong> {$enemyTag}<br /><strong>{?enemyCountry}:</strong> {$clanDbCountry}<br /><strong>{?enemyHomepage}:</strong> {$enemyHomepage}<br /><!-moreInfoClan>

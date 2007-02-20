@@ -1,6 +1,9 @@
 <?php
 $ecFile = 'languages/german_de/clanwars/details.php';
 
+$ecLang['siteTitle']			= 'ClanWar Details';
+
+$ecLang['squads']			= 'Squads';
 $ecLang['vs']			= 'vs';
 $ecLang['matchDetails']	= 'Match Details';
 $ecLang['matchtyp']		= 'Matchtyp:';
@@ -19,4 +22,7 @@ $ecLang['images']		= 'Bilder';
 
 $ecLang['Team1']		= 'Team1: ';
 $ecLang['Team2']		= 'Team2: ';
+$ecLang['misc']		= 'Sonstiges';
+
+
 ?>

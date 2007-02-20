@@ -22,4 +22,6 @@ $ecLang['clanDbTag']		= 'Clan Tag';
 $ecLang['clanDbCountry']	= 'Land';
 $ecLang['clanDbHomepage']	= 'Homepage';
 $ecLang['close']			= 'Schließen';
+
+$ecLang['plays']		= 'Spiele';
 ?>

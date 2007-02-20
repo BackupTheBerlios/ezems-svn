@@ -1,5 +1,14 @@
 <!+siteEntry>
-<table style="width:{ecTableWidth}" border="0" class="table">
+<div class="head">
+	<img src="{icon:32:clanwars}" alt="clanwars" width="32" height="32" /> {?siteTitle}
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?squads}</a></li>
+	</ul>
+	<div class="clickTab">
+	
+        <table width="100%" border="0">
 	<tr>
 		<td colspan=3><strong>{$gameName}</strong></td>
 	</tr>
@@ -10,9 +19,19 @@
 		<td align="center" width="40%"><img src="uploads/clandb/{$enemyPic}" width="100px" height="100px"><br />
 	  {$enemyName}</td>
 	</tr>
-	<tr>
-		<td colspan="3"><b>{?matchDetails}</b></td>
-	</tr>
+        </table>
+	</div>
+</div>
+
+
+
+
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?matchDetails}</a></li>
+	</ul>
+	<div class="clickTab">
+        <table width="100%" border="0">
 	<tr>
 		<td>{?matchtyp}</td>
 		<td colspan="2">{$matchTyp}</td>
@@ -21,9 +40,18 @@
 		<td>{?date}</td>
 		<td colspan="2">{$date} {?hour}</td>
 	</tr>
-	<tr>
-		<td colspan="3"><b>{?lineup}</b></td>
-	</tr>
+        </table>
+	</div>
+</div>
+
+
+
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?lineup}</a></li>
+	</ul>
+	<div class="clickTab">
+        <table width="100%" border="0">
 	<tr>
 		<td valign="top">
 			<table style="width:{ecTableWidth}" border="0">
@@ -48,12 +76,30 @@
 				{$enemyLineup}
 			</table>
 	</tr>
-	<tr>
-		<td colspan="3"><b>{?Rounds}</b></td>
-	</tr>
-	<tr>
-		<td colspan="3">{$maptemplate}</td>
-	</tr>
+        </table>
+	</div>
+</div>
+
+
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?Rounds}</a></li>
+	</ul>
+	<div class="clickTab">
+        <table width="100%" border="0">
+{$maptemplate}
+        </table>
+	</div>
+</div>
+
+
+
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?misc}</a></li>
+	</ul>
+	<div class="clickTab">
+        <table width="100%" border="0">
 	<tr>
 		<td colspan="3"><b>{?Report}</b></td>
 	</tr>
@@ -61,7 +107,9 @@
 		<td colspan="3">{$bericht}</td>
 	</tr>
 	{$media}
-</table>
+        </table>
+	</div>
+</div>
 <!-siteEntry>
 
 <!+squadLineup>
@@ -78,9 +126,6 @@
 <!-enemyLineup>
 <!+mapRound>
 <table style="width:{ecTableWidth}" border="0" class="table">
-	<tr>
-		<td colspan="5">{$map}</td>
-	</tr>
 	<tr>
 		<td width="20%">{?ct}</td>
 		<td width="10%">{$score1}</td>

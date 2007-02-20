@@ -37,4 +37,11 @@ $ecLang['allowed']				= 'Folgende Datentypen<br />sind zum Uploaden erlaubt:';
 $ecLang['another']				= 'Andere';
 $ecLang['submit']				= 'Speichern';
 $ecLang['reset']				= 'Zurücksetzen';
+
+$ecLang['menuGerneral']			= 'Generell';
+$ecLang['menuPlayer']			= 'Spieler';
+$ecLang['menuMaps']			= 'Datum/Maps';
+$ecLang['menuMisc']			= 'Sonstiges';
+$ecLang['scoreTeam1']	= 'Ergebnis Team A';
+$ecLang['scoreTeam2']	= 'Ergebnis Team B';
 ?>

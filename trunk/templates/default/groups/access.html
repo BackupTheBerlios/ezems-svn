@@ -1,77 +1,59 @@
 <!+siteHead>
-<div class="head">
-	<img src="{icon:32:groups}" alt="title" width="32" height="32" /> {?siteTitle}
-</div>
-<form id="form" name="form" method="post" action="index.php?view=groups&amp;site=access">
-<div class="clickTabBox">
-	<ul>
-		<li><a>1</a></li>
-		<li><a>2</a></li>
-		<li><a>3</a></li>
-		<li><a>4</a></li>
-		<li><a>5</a></li>
-		<li><a>6</a></li>
-		<li><a>7</a></li>
-	</ul>
+	<div class="head">
+		<img src="{icon:32:groups}" alt="title" width="32" height="32" /> {?siteTitle}
+	</div>
 <!-siteHead>
-<!+accessEdited>
-	<div class="clickTab">
-		<table class="table">
-		  <tr>
-			<td>
-    <td class="cellmiddle"><strong>{?accessEdited}<br />
-      </strong><br />
-      {$next}</td>
-  </tr>
-</table></div></div>
-<!-accessEdited>
 <!+accessHead>
-
-  <!-accessHead>
-  <!+accessPlugin>
-
-	<div class="clickTab">
-		<table class="table">
-		  <tr>
-            <td colspan="4">
-			  <table width="100%" border="0" cellspacing="0" cellpadding="00">
-                <tr>
-                  <td valign="top"><strong>{?accessTitle} {?accessPlugin}:</strong> {$plugin}</td>
-                  <td width="32"><div align="right"><img src="{icon:32:{$pluginPath}}" alt="{$pluginPath}" /></div></td>
-                </tr>
-              </table>
-			</td>
-          </tr>
-
-          <!-accessPlugin>
-          <!+accessSite>
-          <tr>
-            <td width="10%"><span class="head1"><img src="{icon:16:site}" alt="title" /></span></td>
-            <td width="30%">{$site}</td>
-            <td width="30%">
-			  <div align="center">
-                <input name="{$siteId}" type="radio" style="width:20px" value="0"{$access0} />{?accessNo}
-			  </div>
-			</td>
-
-            <td width="30%">
-			  <div align="center">
-                <input type="radio" name="{$siteId}" style="width:20px" value="1"{$access1} />{?accessYes}
-			  </div>
-			</td>
-          </tr>
-          <!-accessSite>
-          <!+accessFoot>
-          </table></div>
-  <!-accessFoot>
-  <!+accessEdit>
-  
-  <div class="clickTabBox">
+	<form id="form" name="form" method="post" action="index.php?view=groups&amp;site=access">
+<!-accessHead>
+<!+accessPluginHead>
+	<div class="clickTabBox">
+		<ul>
+			<li><a>{$plugin}</a></li>
+		</ul>
+		<div class="clickTab">
+			<table class="table">
+				  <tr>
+					<td colspan="4">
+					  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+						  <td valign="top"><strong>{?accessTitle} {?accessPlugin}:</strong> {$plugin}</td>
+						  <td width="32"><div align="right"><img src="{icon:32:{$pluginPath}}" alt="{$pluginPath}" /></div></td>
+						</tr>
+					  </table>
+					</td>
+				  </tr>
+				  <!-accessPluginHead>
+				  <!+accessSite>
+				  <tr>
+					<td width="10%"><span class="head1"><img src="{icon:16:site}" alt="title" /></span></td>
+					<td width="30%">{$site}</td>
+					<td width="30%">
+					  <div align="center">
+						<input name="{$siteId}" type="radio" class="radio" value="0"{$access0} />{?accessNo}
+					  </div>
+					</td>
+					<td width="30%">
+					  <div align="center">
+						<input type="radio" name="{$siteId}" class="radio" value="1"{$access1} />{?accessYes}
+					  </div>
+					</td>
+				  </tr>
+			<!-accessSite>
+			<!+accessPluginFoot>
+			</table>
+			</div>
+		</div>
+	<!-accessPluginFoot>
+<!+accessFoot>
+	</form>
+<!-accessFoot>
+<!+accessEdit>
+<div class="clickTabBox">
 	<ul>
 		<li><a>{?accessEdit}</a></li>
 	</ul>
 	<div class="clickTab">
-	
         <table width="100%" border="0">
           <tr></tr>
 
@@ -83,5 +65,13 @@
         </table>
 	</div>
 </div>
-</form>
 <!-accessEdit>
+<!+accessEdited>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?accessEdited}</a></li>
+	</ul>
+	<div class="clickTab">{$next}</div>
+</div>
+</form>
+<!-accessEdited>

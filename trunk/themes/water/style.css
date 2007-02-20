@@ -57,6 +57,16 @@
   width: 130px;
  }
  
+ input.checkbox {
+   width: auto;
+   border: none;
+ }
+ 
+ input.radio {
+   width: auto;
+   border: none;
+ }
+ 
  select {
   font-size: 12px;
   border: 1px solid #c0c0c0;

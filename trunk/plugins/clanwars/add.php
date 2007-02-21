@@ -199,7 +199,7 @@ if($action == 'add')
 			if($datatyp == $pics || $datatyp == $archive)
 			{
 				//Anhand des Datentyps entscheiden wo es abgespeichert werde soll:
-				$folder = ($datatyp  == 'jpg' || $datatyp  == 'jpeg' || $datatyp  == 'png' || $datatyp  == 'gif' || $datatyp == 'bmp') ? '/images' : 'archives';
+				$folder = ($datatyp  == 'jpg' || $datatyp  == 'jpeg' || $datatyp  == 'png' || $datatyp  == 'gif' || $datatyp == 'bmp') ? 'images' : 'archives';
 	
 	
 				$newDataName = $mysqlInsertId.'_'.$value["name"];

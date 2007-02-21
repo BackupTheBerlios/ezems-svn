@@ -7,5 +7,5 @@ $ecLang['usersRemove'] 	= 'Bist du sicher, dass du den Benutzer entfernen möchte
 
 $ecLang['usersRemoved'] = 'Benutzer erfolgreich entfernt';
 
-$ecLang['save'] = 'Entfernen';
+$ecLang['remove'] = 'Entfernen';
 ?>

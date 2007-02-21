@@ -14,7 +14,7 @@
 
 echo ecTemplate('users', 'remove', 'siteHead');
 $id = $_REQUEST['id'];
-if (isset($_POST['save']))
+if (isset($_POST['remove']))
 {
 	dbDelete(1, 'users', "usersId = $id");	
 	$next = ecReferer('index.php?view=users&amp;site=manage');

@@ -16,7 +16,7 @@ $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 
 if($action == 'edit')
 {
-	$cwId = $_REQUEST['clanwarsId'];
+	$cwId = $_REQUEST['id'];
 	$error = 0;
 	$enemyError = '';
 	$enemyPlayerError = '';

@@ -14,7 +14,7 @@
 
 echo ecTemplate('groups', 'remove', 'siteHead');
 $id = $_REQUEST['id'];
-if (isset($_POST['save']))
+if (isset($_POST['remove']))
 {
 	dbDelete(1, 'groups', "groupsId = $id");	
 	$next = ecReferer('index.php?view=groups&amp;site=manage');

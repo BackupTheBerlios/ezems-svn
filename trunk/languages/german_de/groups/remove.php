@@ -1,5 +1,5 @@
 <?php
-$ecFile = 'langs/german/groups/add.php';
+$ecFile = 'langs/german/groups/remove.php';
 
 $ecLang['siteTitle'] 	= 'Gruppenverwaltung';
 
@@ -7,5 +7,5 @@ $ecLang['groupsRemove'] 	= 'Bist du sicher, dass du die Gruppe entfernen möchtes
 
 $ecLang['groupsRemoved'] = 'Gruppe erfolgreich entfernt';
 
-$ecLang['save'] = 'Entfernen';
+$ecLang['remove'] = 'Entfernen';
 ?>

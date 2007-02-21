@@ -1,44 +1,32 @@
 <?php
 $ecFile = 'langs/german/clanwars/manage.php';
 
-$ecLang['menuAdd']			= 'Kampf hinzuf&uuml;gen';
-$ecLang['menuDel']			= 'Kampf l&ouml;schen';
-$ecLang['menuPermissions']		= 'Gäste Befugnisse';
-$ecLang['menuUploadTyps'] 		= 'Upload Befugnisse';
+$ecLang['siteTitle'] = 'Clanwars';
 
-//SiteData
-$ecLang['siteTitle']			= 'Clanwar Manager';
-$ecLang['date']					= 'Datum';
-$ecLang['enemy']				= 'Gegner Name';
-$ecLang['game']					= 'Spiel';
-$ecLang['function']				= 'Funktionen';
-$ecLang['delete']				= 'Löschen';
-$ecLang['edit']					= 'Edit';
-$ecLang['save']					= 'Speichern';
-$ecLang['reset']				= 'Zurücksetzen';
+$ecLang['clanwarsTitle'] = 'Clanwars Übersicht';
+	$ecLang['clanwarsId'] = 'ClanwarId';
+	$ecLang['clanwarsDate'] = 'Datum';
+	$ecLang['clanwarsEnemy'] = 'Gegner Name';
+	$ecLang['clanwarsGame'] = 'Spiel';
 
+$ecLang['accessTitle'] = 'Zugriff';
+	$ecLang['accessDescription']	= 'Beschreibung';
+	$ecLang['activate']	= 'Aktivieren';
+	$ecLang['accessComments']	= 'Kommentare';
 
-//SitePermissionField
-$ecLang['cwPermissions']		= 'Clanwar Gäste Befugnisse';
-$ecLang['activate']				= 'Aktivieren';
-$ecLang['Comments']				= 'Kommentare';
+$ecLang['uploadAccessTitle'] = 'Upload Befugnisse';
+	$ecLang['uploadAccessDescription'] = 'Folgende Dateitypen zum Uploaden erlauben';
+	$ecLang['uploadDescription'] = 'Dateitypen';
+	$ecLang['uploadPictures'] = 'gif, jpg, jpeg, png';
+	$ecLang['uploadArchives'] = 'rar, zip, ace, tar, gz';
 
-//siteUploadPermission
-$ecLang['cwUploadTyps'] 		= 'Upload Befugnisse';
-$ecLang['cwUploadDescription']	= 'Folgende Dateitypen zum Uploaden erlauben:';
+$ecLang['addTitle'] = 'Clanwar hinzufügen';
+	$ecLang['clanwarsAddGame'] = 'Spiel';
 
-$ecLang['pics'] 				= 'gif, jpg, jpeg, png';
-$ecLang['archiver'] 			= 'rar, zip, ace, tar, gz';
+	$ecLang['add'] = 'Hinzufügen';
+	$ecLang['edit'] = 'Edit';
+	$ecLang['save'] = 'Speichern';
+	$ecLang['reset'] = 'Zurücksetzen';
 
-//Clanwar add
-$ecLang['cwAdd'] 				= 'Clanwar für das Spiel';
-$ecLang['add'] 					= 'hinzufügen';
-
-//save
-$ecLang['saveDoneHead']			= 'Gespeichert';
-$ecLang['saveDone']				= 'Ihre Einstellungen wurden gespeichert';
-
-//delete
-$ecLang['deleteDoneHead']		= 'Gelöscht';
-$ecLang['deleteDone']			= 'Der Eintrag wurde erfolgreich gel&scht';
+$ecLang['clanwarsSaved'] = 'Die Einstellungen wurden gespeichert';
 ?>

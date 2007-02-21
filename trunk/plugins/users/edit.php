@@ -17,7 +17,7 @@ $ecLang = ecGetLang('users', 'edit');
 $id = $_REQUEST['id'];
 if (isset($_POST['save']))
 {
-	if (!empty($_POST['usersUsername']) && !empty($_POST['usersPassword']) && !empty($_POST['usersPassword2']) && !empty($_POST['usersEmail']))
+	if (!empty($_POST['usersUsername']) && !empty($_POST['usersEmail']))
 	{
 		if ($_POST['usersPassword'] == $_POST['usersPassword2'])
 		{

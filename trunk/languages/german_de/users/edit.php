@@ -5,7 +5,7 @@ $ecLang['siteTitle'] 	= 'Benutzerverwaltung';
 
 $ecLang['usersLogin'] 	= 'Loginangaben';
 	$ecLang['usersUsername'] 	= 'Benutzername';
-	$ecLang['usersPassword'] 	= 'Passwort ("none" für beibehalten)';
+	$ecLang['usersPassword'] 	= 'Passwort (leer für beibehalten)';
 	$ecLang['usersPassword2'] 	= 'Passwort wiederholen';
 	$ecLang['usersPasswordSecure'] 	= 'Sicherheitslevel des Passwortes';
 $ecLang['usersMain'] 	= 'Allgemeine Angaben';

@@ -2,169 +2,109 @@
 <div class="head">
 	<img src="{icon:32:clanwars}" alt="title" width="32" height="32" /> {?siteTitle}
 </div>
-<div class="clickTabBox">
-	<ul>
-		<li><a>{?menuAdd}</a></li>
-		<li><a>{?menuDel}</a></li>
-		<li><a>{?menuPermissions}</a></li>
-		<li><a>{?menuUploadTyps}</a></li>
-	</ul>
 <!-siteHead>
-
-<!+siteEntry>
+<!+clanwarsHead>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?clanwarsTitle}</a></li>
+		<li><a>{?addTitle}</a></li>
+		<li><a>{?accessTitle}</a></li>
+		<li><a>{?uploadAccessTitle}</a></li>
+	</ul>
 	<div class="clickTab">
 		<table class="table">
 		  <tr>
-			<td>
-<form id="SiteData" name="SiteData" action="index.php?view=clanwars&site=manage&amp;action=selectiondelete" method="post">
-<table style="width:{ecTableWidth}" border="0" class="table">
-  <tr>
-	<td colspan="2">{?date}</td>
-	<td>{?enemy}</td>
-	<td>{?game}</td>
-	<td>{?function}</td>
-  </tr>
-<!-siteEntry>
-
-<!+siteData>
-  <tr>
-  	<td><input name="delete[]" class="checkbox" type="checkbox" value="{$id}"/></td>
-	<td>{$date}</td>
-	<td><a href="index.php?view=clanwars&site=details&cwId={$id}">{$enemyName}</a></td>
-	<td><img src=" " alt="{$game}"/></td>
-	<td><a href="index.php?view=clanwars&site=edit&amp;clanwarsId={$id}" ><img src="{icon:16:edit}" /></a> <a href="index.php?view=clanwars&site=manage&amp;action=delete&cwId={$id}"><img src="{icon:16:delete}" /></a></td>
-  </tr>
-<!-siteData>
-
+			<td width="20%"><strong>{?clanwarsId}</strong></td>
+			<td width="30%"><strong>{?clanwarsDate}</strong></td>
+			<td><strong>{?clanwarsEnemy}</strong></td>
+			<td><strong>{?clanwarsGame}</strong></td>
+			<td width="5%"><img src="{icon:16:edit}" width="16" height="16" /></td>
+		    <td width="5%"><img src="{icon:16:delete}" width="16" height="16" /></td>
+		  </tr>
+		<!-clanwarsHead>
+		<!+clanwarsData>
+		  <tr>
+			<td># {$clanwarsId}</td>
+			<td>{$clanwarsDate}</td>
+			<td width="30%"><a href="index.php?view=clanwars&site=details&id={$clanwarsId}">{$enemyName}</a></td>
+			<td width="10%"><img src="{icon:games:{$clanwarsGame}}" alt="{$clanwarsGame}" width="16" height="16"/> </td>
+			<td><a href="index.php?view=clanwars&site=edit&amp;id={$clanwarsId}" ><img src="{icon:16:edit}" width="16" height="16" /></a></td>
+		    <td><a href="index.php?view=clanwars&site=remove&amp;id={$clanwarsId}"><img src="{icon:16:delete}" width="16" height="16" /></a></td>
+		  </tr>
+		<!-clanwarsData>
+		<!+clanwarsFoot>
+		</table>
+	</div>
+<!-clanwarsFoot>
+<!+clanwarsAccess>
+	<div class="clickTab">
+		<form action="index.php?view=clanwars&site=manage&amp;action=permission" method="post">
+		<table class="table">
+		  <tr>
+			<td width="50%"><strong>{?accessDescription}</strong></td>
+			<td><strong>{?activate}</strong></td>
+		  </tr>
+		  <tr>
+			<td>{?accessComments}</td>
+			<td><input name="commentPermission" type="checkbox" value="1" class="checkbox" {$commentPermission} /></td>
+		  </tr>
+		  <tr>
+			<td colspan="2"><input name="save" type="submit" id="save" value="{?save}" /> 
+			  <input name="reset" type="reset" id="reset" value="{?reset}" /></td>
+		  </tr>
+		</table>
+		</form>
+	</div>
+<!-clanwarsAccess>
+<!+clanwarsAccessUpload>
+	<div class="clickTab">
+		<form action="index.php?view=clanwars&site=manage&amp;action=uploadTypes" method="post">
+<strong>{?uploadAccessDescription}:</strong><br />
+<table class="table">
+		  <tr>
+			<td width="50%"><strong>{?uploadDescription}</strong></td>
+		    <td><strong>{?activate}</strong></td>
+		  </tr>
+		  <tr>
+			<td>{?uploadPictures}</td>
+			<td><input name="pics" type="checkbox" value="1" class="checkbox" {$pics} /></td>
+		  </tr>
+		  <tr>
+			<td width="30%">{?uploadArchives}</td>
+			<td><input name="archiver" type="checkbox" value="1" class="checkbox" {$archiver} /></td>
+		  </tr>
+		  <tr>
+			<td colspan="2"><input name="save" type="submit" id="save" value="{?save}" /> 
+			  <input name="reset" type="reset" id="reset" value="{?reset}" /></td>
+		  </tr>
+		</table>
+		</form>
+	</div>
+<!-clanwarsAccessUpload>
+<!+clanwarsAdd>
+	<div class="clickTab">
+		<form method="post" action="index.php?view=clanwars&site=add">
+		<strong>{?clanwarsAddGame}:</strong> 
+		   <select name="gameId">
+			{$options}	
+	      </select>
+		   <br />
+	      <br />
+		  <input name="add" type="submit" id="add" value="{?add}" />
+		</form>
+	</div>
+<!-clanwarsAdd>
 <!+siteFoot>
-  <tr>
-  	<td colspan="3"><input name="allbox" type="checkbox" class="checkbox"  onclick="ecCheckAll('SiteData')" value="ON" /></td>
-	<td colspan="2"><input name="del" type="submit" id="reset" value="{?delete}" /></td>
-  </tr>
-</table>
-</form>
-			</td>
-		  </tr>
-		</table>
-	</div>
+</div>
 <!-siteFoot>
-<!+sitePermissionField>
-	<div class="clickTab">
-		<table class="table">
-		  <tr>
-			<td>
-<form action="index.php?view=clanwars&site=manage&amp;action=permission" method="post">
-<table style="width:{ecTableWidth}" border="0" class="table">
-  <tr>
-  	<td></td>
-	<td align="center">{?activate}</td>
-  </tr>
-  <tr>
-  	<td width="30%">{?Comments}</td>
-	<td align="center"><input name="commentPermission" type="checkbox" value="1" class="checkbox" {$commentPermission} /></td>
-  </tr>
-  <tr>
-  	<td colspan="2"><input name="save" type="submit" id="save" value="{?save}" /><input name="reset" type="reset" id="reset" value="{?reset}" /></td>
-  </tr>
-</table>
-</form>
-			</td>
-		  </tr>
-		</table>
+<!+clanwarsSaved>
+	<div class="clickTabBox">
+		<ul>
+			<li><a>{?clanwarsSaved}</a></li>
+		</ul>
+		<div class="clickTab">{$next}</div>
 	</div>
-<!-sitePermissionField>
-
-<!+siteUploadPermission>
-	<div class="clickTab">
-		<table class="table">
-		  <tr>
-			<td>
-<form action="index.php?view=clanwars&site=manage&amp;action=uploadTypes" method="post">
-<table style="width:{ecTableWidth}" border="0" class="table">
-  <tr>
-  	<td colspan="2">{?cwUploadDescription}</td>
-  </tr>
-  <tr>
-  	<td width="30%">{?pics}</td>
-	<td align="center"><input name="pics" type="checkbox" value="1" class="checkbox" {$pics} /></td>
-  </tr>
-  <tr>
-  	<td width="30%">{?archiver}</td>
-	<td align="center"><input name="archiver" type="checkbox" value="1" class="checkbox" {$archiver} /></td>
-  </tr>
-  <tr>
-  	<td colspan="2"><input name="save" type="submit" id="save" value="{?save}" /><input name="reset" type="reset" id="reset" value="{?reset}" /></td>
-  </tr>
-</table>
-</form>
-			</td>
-		  </tr>
-		</table>
-	</div></div>
-<!-siteUploadPermission>
-
-<!+clanwarAdd>
-	<div class="clickTab">
-		<table class="table">
-		  <tr>
-			<td>
-<form method="POST" action="index.php?view=clanwars&site=add">
-<table style="width:{ecTableWidth}" border="0" class="table">
-  <tr>
-  	<td>{?cwAdd}</td>
-  	<td>
-  	<select name="gameId">
-  	{$options}
-  	</select>
-  	</td>
-  	<td><input name="{?add}" type="submit" id="save" value="{?add}" /></td>
-  </tr>
-</table>
-</form>
-			</td>
-		  </tr>
-		</table>
-	</div>
-<!-clanwarAdd>
-
-<!+options>
-	<option value="{$GamesId}">{$game}</option>
-<!-options>
-
-<!+save>
-<div class="head">
-	<img src="{icon:32:clanwars}" alt="title" width="32" height="32" /> {?siteTitle}
-</div>
-<div class="clickTabBox">
-	<ul>
-		<li><a>{?saveDoneHead}</a></li>
-	</ul>
-	<div class="clickTab">
-		<table class="table">
-		  <tr>
-			<td>
-    <td class="cellmiddle"><strong>{?saveDone}<br />
-      </strong><br />
-      {$next}</td>
-  </tr>
-</table></div></div>
-<!-save>
-
-<!+delete>
-<div class="head">
-	<img src="{icon:32:clanwars}" alt="title" width="32" height="32" /> {?siteTitle}
-</div>
-<div class="clickTabBox">
-	<ul>
-		<li><a>{?deleteDoneHead}</a></li>
-	</ul>
-	<div class="clickTab">
-		<table class="table">
-		  <tr>
-			<td>
-    <td class="cellmiddle"><strong>{?deleteDone}<br />
-      </strong><br />
-      {$next}</td>
-  </tr>
-</table></div></div>
-<!-delete>
+<!-clanwarsSaved>
+<!+select>
+	<option value="{$value}"{$checked}>{$description}</option>
+<!-select>

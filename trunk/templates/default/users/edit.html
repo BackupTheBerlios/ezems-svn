@@ -22,7 +22,7 @@
         </tr>
         <tr>
           <td>{?usersPassword}</td>
-          <td><input name="usersPassword" type="password" id="usersPassword" /></td>
+          <td><input name="usersPassword" type="password" id="usersPassword" style="ime-mode:disabled" onchange="ecPassword(this.value);" onclick="ecPassword(this.value);" onkeyup="ecPassword(this.value);" /></td>
         </tr>
         <tr>
           <td>{?usersPassword2}</td>
@@ -30,7 +30,7 @@
         </tr>
         <tr>
           <td>{?usersPasswordSecure}</td>
-          <td><img src="{icon:16:shield2}" alt="title" /><img src="{icon:16:shield2}" alt="title" /><img src="{icon:16:shield2}" alt="title" /></td>
+          <td><img src="{icon:16:shield2}" alt="secure" name="i1" width="16" height="16" id="i1" /><img src="{icon:16:shield2}" alt="secure" name="i2" width="16" height="16" id="i2" /><img src="{icon:16:shield2}" alt="secure" name="i3" width="16" height="16" id="i3" /></td>
         </tr>
       </table>
 	</div>

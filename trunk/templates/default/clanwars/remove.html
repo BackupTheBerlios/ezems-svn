@@ -1,0 +1,33 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:groups}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<!-siteHead>
+<!+clanwarsRemove>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?clanwarsRemove}</a></li>
+	</ul>
+	<div class="clickTab">
+		<form id="form" name="form" method="post" action="index.php?view=clanwars&amp;site=remove">
+				<table width="100%" border="0">
+					<tr>
+					  <td><span style="color:#FF0000">{?clanwarsRemove}</span></td>
+					  </tr>
+					<tr>
+					  <td><input name="remove" type="submit" id="reset" value="{?remove}" />
+						<input name="id" type="hidden" id="id" value="{$id}" /></td>
+					</tr>
+				</table>
+		</form>
+  </div>
+</div>
+<!-clanwarsRemove>
+<!+clanwarsRemoved>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?clanwarsRemoved}</a></li>
+	</ul>
+	<div class="clickTab">{$next}</div>
+</div>
+<!-clanwarsRemoved>

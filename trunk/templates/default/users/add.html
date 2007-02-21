@@ -2,31 +2,27 @@
 <div class="head">
 	<img src="{icon:32:users}" alt="title" width="32" height="32" /> {?siteTitle}
 </div>
+<!-siteHead>
+<!+usersAdd>
 <form id="form1" name="form1" method="post" action="index.php?view=users&amp;site=add">
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?usersLogin}</a></li>
 		<li><a>{?usersMain}</a></li>
-
 		<li><a>{?usersAccess}</a></li>
 	</ul>
-<!-siteHead>
-<!+usersAdd>
 	<div class="clickTab">
-		<table class="table">
-		  <tr>
-    <td class="cellmiddle"><strong>{?usersLogin}</strong><br /><span style="color:#FF0000">{$errorMsg}</span>
-      <table width="100%" border="0">
+	<span style="color:#FF0000">{$errorMsg}</span>
+      <table class="table">
         <tr>
           <td width="40%">{?usersUsername}*</td>
           <td width="60%">
             <input name="usersUsername" type="text" id="usersUsername" value="{$usersUsername}" />
-          
           </td>
         </tr>
         <tr>
           <td>{?usersPassword}*</td>
-          <td><input name="usersPassword" type="password" id="usersPassword" /></td>
+          <td><input name="usersPassword" type="password" id="usersPassword" style="ime-mode:disabled" onchange="ecPassword(this.value);" onclick="ecPassword(this.value);" onkeyup="ecPassword(this.value);" /></td>
         </tr>
         <tr>
           <td>{?usersPassword2}*</td>
@@ -34,20 +30,12 @@
         </tr>
         <tr>
           <td>{?usersUsernameSecure}</td>
-          <td><img src="{icon:16:shield2}" alt="title" /><img src="{icon:16:shield2}" alt="title" /><img src="{icon:16:shield2}" alt="title" /></td>
+          <td><img src="{icon:16:shield2}" alt="secure" name="i1" width="16" height="16" id="i1" /><img src="{icon:16:shield2}" alt="secure" name="i2" width="16" height="16" id="i2" /><img src="{icon:16:shield2}" alt="secure" name="i3" width="16" height="16" id="i3" /></td>
         </tr>
       </table>
-				</table>
-			</td>
-		  </tr>
-		</table>
 	</div>
-		<div class="clickTab">
-		<table class="table">
-		  <tr>
-			<td>
-      <strong>{?usersMain} </strong><br />
-      <table width="100%" border="0">
+	<div class="clickTab">
+      <table class="table">
         <tr>
           <td width="40%">{?usersEmail}*</td>
           <td width="60%"><input name="usersEmail" type="text" id="usersEmail" value="{$usersEmail}" /></td>
@@ -61,17 +49,9 @@
           <td><input name="usersLastname" type="text" id="usersLastname" value="{$usersLastname}" /></td>
         </tr>
       </table>
-				</table>
-			</td>
-		  </tr>
-		</table>
 	</div>
-		<div class="clickTab">
-		<table class="table">
-		  <tr>
-			<td>
-      <strong>{?usersAccess} </strong>
-      <table width="100%" border="0">
+	<div class="clickTab">
+      <table class="table">
         <tr>
           <td width="40%">{?usersGroup}*</td>
           <td width="60%"><select name="usersGroupId" id="usersGroupId">
@@ -79,9 +59,6 @@
           </select>
           </td>
           </tr>
-				</table>
-			</td>
-		  </tr>
 		</table>
 	</div>
 </div>
@@ -90,10 +67,7 @@
 		<li><a>{?usersSave}</a></li>
 	</ul>
 	<div class="clickTab">
-	
-        <table width="100%" border="0">
-          <tr></tr>
-
+        <table class="table">
           <tr>
             <td colspan="2"><input name="save" type="submit" id="save" value="{?save}" />
               <input name="reset"  type="reset" id="reset" value="{?reset}" /></td>
@@ -104,15 +78,12 @@
 </form>
 <!-usersAdd>
 <!+usersAdded>
-	<div class="clickTab">
-		<table class="table">
-		  <tr>
-			<td>
-    <td class="cellmiddle"><strong>{?usersAdded}<br />
-      </strong><br />
-      {$next}</td>
-  </tr>
-</table></div></div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?usersAdded}</a></li>
+	</ul>
+	<div class="clickTab">{$next}</div>
+</div>
 <!-usersAdded>
 <!+select>
 <option value="{$value}"{$checked}>{$description}</option>

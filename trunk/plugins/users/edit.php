@@ -22,7 +22,7 @@ if (isset($_POST['save']))
 		if ($_POST['usersPassword'] == $_POST['usersPassword2'])
 		{
 			$update['usersUsername'] = $_POST['usersUsername'];
-			if ($_POST['usersPassword'] != 'none') $update['usersPassword'] = ecCrypt($_POST['usersPassword']);
+			if (!empty($_POST['usersPassword'])) $update['usersPassword'] = ecCrypt($_POST['usersPassword']);
 			$update['usersEmail'] = $_POST['usersEmail'];
 			$update['usersFirstname'] = $_POST['usersFirstname'];
 			$update['usersLastname'] = $_POST['usersLastname'];

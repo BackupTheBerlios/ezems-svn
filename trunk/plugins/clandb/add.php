@@ -24,8 +24,24 @@
 			$insert['clanDbHomepage'] = $_POST['clanDbHomepage'];
 			
 			dbInsert(1, 'clandb', $insert);
-
-			$next = ecReferer('index.php?view=clandb&amp;site=manage');
+			$mysqlInsertId = mysql_insert_id();
+		
+			foreach ($_FILES as $index => $value) 
+			{
+				if($value['error'] != 4)
+				{
+					//Datentyp herausbekommen:
+					$datatyp = pathinfo($value["name"]);
+					$datatyp = strtolower($datatyp["extension"]);	
+					
+					$newDataName = $mysqlInsertId.'_'.$value["name"];
+					ecUploadFile($index, 'clandb', $newDataName);
+					
+					$updates['clanwarsFiles'] = $newDataName;
+					dbUpdate(1, 'clandb', $updates, 'clanDbId = '.$mysqlInsertId);
+				}
+			}
+			//$next = ecReferer('index.php?view=clandb&amp;site=manage');
 			echo ecTemplate('clandb', 'add', 'clanAdded');
 		}
 		else

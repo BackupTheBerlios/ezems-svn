@@ -318,7 +318,7 @@ ecAjaxMapwahl = function(searchopt, rows, data) {
 	document.write('style="');
 	document.write('position:absolute;');
 	document.write('left:650px;');
-	document.write('top:520px;');
+	document.write('top:380px;');
 	document.write('visibility:hidden;');
 	document.write('display:none;');
 	document.write('">');

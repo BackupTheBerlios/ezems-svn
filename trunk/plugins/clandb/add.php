@@ -16,36 +16,42 @@
 	$ecLang = ecGetLang('clandb', 'add');
 	if (isset($_POST['save']))
 	{
+		//Überprüfe ob ein Name eingebene wurde
 		if (!empty($_POST['clanDbName']))
 		{
+			//Daten auslesen
 			$insert['clanDbName'] = $_POST['clanDbName'];
 			$insert['clanDbShortName'] =  $_POST['clanDbShortName'];
 			$insert['clanDbTag'] = $_POST['clanDbTag'];
 			$insert['clanDbHomepage'] = $_POST['clanDbHomepage'];
 			
+			//Daten in die Datenbank schreiben
 			dbInsert(1, 'clandb', $insert);
 			$mysqlInsertId = mysql_insert_id();
-		
-			foreach ($_FILES as $index => $value) 
+			
+			//Überprüfen ob was hochgeladen wurde
+			if($_FILES['clanPic']['error'] != 4)
 			{
-				if($value['error'] != 4)
+				//Endung der Datei herausfinden
+				$datatyp = pathinfo($_FILES['clanPic']['name']);
+				$datatyp = strtolower($datatyp['extension']);
+				
+				//Überprüfen ob es sich um Bilder handelt
+				if($datatyp  == 'jpg' || $datatyp  == 'jpeg' || $datatyp  == 'png' || $datatyp  == 'gif' || $datatyp == 'bmp')
 				{
-					//Datentyp herausbekommen:
-					$datatyp = pathinfo($value["name"]);
-					$datatyp = strtolower($datatyp["extension"]);	
-					
-					$newDataName = $mysqlInsertId.'_'.$value["name"];
-					ecUploadFile($index, 'clandb', $newDataName);
-					
-					$updates['clanwarsFiles'] = $newDataName;
-					dbUpdate(1, 'clandb', $updates, 'clanDbId = '.$mysqlInsertId);
+					//Hochladen
+					ecUploadFile('clanPic', 'clandb', $mysqlInsertId.'.'.$datatyp);
+					//Bild in die Datenbank einfügen
+					$update['clanDbImage'] = $mysqlInsertId.'.'.$datatyp;
+					dbUpdate(1,'clandb',$update,'clanDbId = '.$mysqlInsertId);
 				}
 			}
-			//$next = ecReferer('index.php?view=clandb&amp;site=manage');
+			$next = ecReferer('index.php?view=clandb&amp;site=manage');
 			echo ecTemplate('clandb', 'add', 'clanAdded');
 		}
 		else
 		{
+			//Wenn kein Name eingegeben wurde dann Error
 			$errorMsg = $ecLang['errorEmpty'];
 			echo ecTemplate('clandb', 'add', 'siteEntry');
 		}

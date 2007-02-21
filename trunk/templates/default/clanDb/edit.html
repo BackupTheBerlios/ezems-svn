@@ -2,7 +2,7 @@
 <div class="head">
 	<img src="{icon:32:clandb}" alt="title" width="32" height="32" /> {?siteTitle}
 </div>
-<form id="form1" name="form1" method="post" action="index.php?view=clandb&amp;site=edit">
+<form id="form1" name="form1" method="post" action="index.php?view=clandb&amp;site=edit" enctype="multipart/form-data">
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?menuAngaben}</a></li>
@@ -33,6 +33,10 @@
 	<tr>
 		<td>{?clanHomepage}</td>
 		<td><input name="clanDbHomepage" type="text" id="clanDbHomepage" value="{$clanDbHomepage}"/></td>
+	</tr>
+	<tr>
+		<td>{?clanPic}</td>
+		<td><input name="clanPic" type="file" id="clanPic" /></td>
 	</tr>
 </table>
 </div></div>

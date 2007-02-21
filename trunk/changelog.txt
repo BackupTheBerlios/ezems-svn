@@ -17,3 +17,4 @@
 [21.02.07 - 01:30]	- 34		- Master -	Edited the language/list.php & template/list.html (clanwars)
 [21.02.07 - 09:30]	- 36		- Master -	clanwars/list.html edited
 [21.02.07 - 13:00]	- 37		- Master -	Adds clanDb Modul inc. SQL
+[21.02.07 - 19:00]	- 42		- Master -	Fixed clanDb upload

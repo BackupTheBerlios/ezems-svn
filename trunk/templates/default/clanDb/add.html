@@ -2,7 +2,7 @@
 <div class="head">
 	<img src="{icon:32:clandb}" alt="title" width="32" height="32" /> {?siteTitle}
 </div>
-<form id="form1" name="form1" method="post" action="index.php?view=clandb&amp;site=add">
+<form method="post" action="index.php?view=clandb&amp;site=add" enctype="multipart/form-data">
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?menuAngaben}</a></li>
@@ -36,7 +36,7 @@
 	</tr>
 	<tr>
 		<td>{?clanPic}</td>
-		<td><input name="clanPic" type="file" id="clanPic"></td>
+		<td><input type="file" name="clanPic" /></td>
 	</tr>
 </table>
 </div></div>
@@ -64,10 +64,8 @@
 	<div class="clickTab">
 		<table class="table">
 		  <tr>
-			<td>
-    <td class="cellmiddle"><strong>{?clanAdded}<br />
-      </strong><br />
-      {$next}</td>
-  </tr>
+		  	<td class="cellmiddle"><strong>{?clanAdded}<br />
+			</strong><br />{$next}</td>
+  		</tr>
 </table></div></div>
 <!-clanAdded>

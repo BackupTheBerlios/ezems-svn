@@ -28,7 +28,7 @@
 
 <!+siteData>
   <tr>
-  	<td><input name="delete[]" style="width:20px" type="checkbox" value="{$id}"/></td>
+  	<td><input name="delete[]" class="checkbox" type="checkbox" value="{$id}"/></td>
 	<td>{$date}</td>
 	<td><a href="index.php?view=clanwars&site=details&cwId={$id}">{$enemyName}</a></td>
 	<td><img src=" " alt="{$game}"/></td>
@@ -38,7 +38,7 @@
 
 <!+siteFoot>
   <tr>
-  	<td colspan="3"><input name="allbox" type="checkbox" style="width:20px"  onclick="ecCheckAll('SiteData')" value="ON" /></td>
+  	<td colspan="3"><input name="allbox" type="checkbox" class="checkbox"  onclick="ecCheckAll('SiteData')" value="ON" /></td>
 	<td colspan="2"><input name="del" type="submit" id="reset" value="{?delete}" /></td>
   </tr>
 </table>
@@ -61,7 +61,7 @@
   </tr>
   <tr>
   	<td width="30%">{?Comments}</td>
-	<td align="center"><input name="commentPermission" type="checkbox" value="1" size="5px" {$commentPermission} /></td>
+	<td align="center"><input name="commentPermission" type="checkbox" value="1" class="checkbox" {$commentPermission} /></td>
   </tr>
   <tr>
   	<td colspan="2"><input name="save" type="submit" id="save" value="{?save}" /><input name="reset" type="reset" id="reset" value="{?reset}" /></td>
@@ -86,11 +86,11 @@
   </tr>
   <tr>
   	<td width="30%">{?pics}</td>
-	<td align="center"><input name="pics" type="checkbox" value="1" size="5px" {$pics} /></td>
+	<td align="center"><input name="pics" type="checkbox" value="1" class="checkbox" {$pics} /></td>
   </tr>
   <tr>
   	<td width="30%">{?archiver}</td>
-	<td align="center"><input name="archiver" type="checkbox" value="1" size="5px" {$archiver} /></td>
+	<td align="center"><input name="archiver" type="checkbox" value="1" class="checkbox" {$archiver} /></td>
   </tr>
   <tr>
   	<td colspan="2"><input name="save" type="submit" id="save" value="{?save}" /><input name="reset" type="reset" id="reset" value="{?reset}" /></td>

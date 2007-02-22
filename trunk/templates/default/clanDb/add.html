@@ -2,70 +2,64 @@
 <div class="head">
 	<img src="{icon:32:clandb}" alt="title" width="32" height="32" /> {?siteTitle}
 </div>
-<form method="post" action="index.php?view=clandb&amp;site=add" enctype="multipart/form-data">
-<div class="clickTabBox">
-	<ul>
-		<li><a>{?menuAngaben}</a></li>
-	</ul>
 <!-siteHead>
-
-<!+siteEntry>
-<div class="clickTab">
-<strong>{?menuAngaben}</strong><br />
-<span style="color:#FF0000">{$errorMsg}</span>
-<table style="width:{ecTableWidth}" class="table">
-	<tr>
-		<td>{?clanName}*</td>
-		<td><input name="clanDbName" type="text" id="clandDbName" value="{$clanDbName}" /></td>
-	</tr>
-	<tr>
-		<td>{?clanShortName}</td>
-		<td><input name="clanDbShortName" type="text" id="clanDbShortName" value="{$clanDbShortName}" /></td>
-	</tr>
-	<tr>
-		<td>{?clanTag}</td>
-		<td><input name="clanDbTag" type="text" id="ClanDbTag" value="{$clanDbTag}" /></td>
-	</tr>
-	<tr>
-		<td>{?clanCountry}</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>{?clanHomepage}</td>
-		<td><input name="clanDbHomepage" type="text" id="clanDbHomepage" value="{$clanDbHomepage}"/></td>
-	</tr>
-	<tr>
-		<td>{?clanPic}</td>
-		<td><input type="file" name="clanPic" /></td>
-	</tr>
-</table>
-</div></div>
-
+<!+clanAdd>
+<form id="form1" name="form1" method="post" action="index.php?view=clandb&amp;site=add" enctype="multipart/form-data">
 <div class="clickTabBox">
 	<ul>
-		<li><a>{?menuSave}</a></li>
+		<li><a>{?clanMain}</a></li>
 	</ul>
 	<div class="clickTab">
-	
-		<table width="100%" border="0">
-        	<tr>
-            	<td>
-					<input name="save" type="submit" id="save" value="{?save}" />
-					<input name="reset"  type="reset" id="reset" value="{?reset}" />
-				</td>
-			</tr>
+    	<span style="color:#FF0000">{$errorMsg}</span>
+      	<table class="table">
+			<tr>
+              <td width="40%">{?clanName}*</td>
+              <td width="60%"><input name="clanName" type="text" id="clanName" value="{$clanName}" /></td>
+            </tr>
+            <tr>
+              <td width="40%">{?clanShortName}</td>
+              <td width="60%"><input name="clanShortName" type="text" id="clanShortName" value="{$clanShortName}" /></td>
+            </tr>
+            <tr>
+              <td width="40%">{?clanTag}</td>
+              <td width="60%"><input name="clanTag" type="text" id="clanTag" value="{$clanTag}" /></td>
+            </tr>
+            <tr>
+              <td width="40%">{?clanCountry}</td>
+              <td width="60%"><select name="clanCountry" id="clanCountry"><option></option></select></td>
+            </tr>
+            <tr>
+              <td width="40%">{?clanWWW}</td>
+              <td width="60%"><input name="clanWWW" type="text" id="clanWWW" value="{$clanWWW}" /></td>
+            </tr>
+            <tr>
+              <td width="40%">{?clanImage}</td>
+              <td width="60%"><input name="clanImage" type="file" id="clanImage" /></td>
+            </tr>
 		</table>
 	</div>
 </div>
-</form>
-<!-siteEntry>
 
-<!+clanAdded>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?clanSave}</a></li>
+	</ul>
 	<div class="clickTab">
-		<table class="table">
-		  <tr>
-		  	<td class="cellmiddle"><strong>{?clanAdded}<br />
-			</strong><br />{$next}</td>
-  		</tr>
-</table></div></div>
+        <table width="100%" border="0">
+          <tr>
+            <td colspan="2"><input name="save" type="submit" id="save" value="{?save}" />
+              <input name="reset"  type="reset" id="reset" value="{?reset}" /></td>
+          </tr>
+        </table>
+	</div>
+</div>
+</form>
+<!-clanAdd>
+<!+clanAdded>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?clanAdded}</a></li>
+	</ul>
+	<div class="clickTab">{$next}</div>
+</div>
 <!-clanAdded>

@@ -32,7 +32,7 @@ if (isset($_POST['save']))
 			$datatyp = pathinfo($_FILES['clanImage']['name']);
 			$datatyp = strtolower($datatyp['extension']);
 			
-			if($datatyp  == 'jpg' || $datatyp  == 'jpeg' || $datatyp  == 'png' || $datatyp  == 'gif' || $datatyp == 'bmp')
+			if ($datatyp  == 'jpg' || $datatyp  == 'jpeg' || $datatyp  == 'png' || $datatyp  == 'gif' || $datatyp == 'bmp')
 			{
 				ecUploadFile('clanImage', 'clandb', $id.'.'.$datatyp);
 				$update['clanDbImage'] = $id.'.'.$datatyp;

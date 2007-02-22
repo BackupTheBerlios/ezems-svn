@@ -22,7 +22,7 @@ $ecLang['images']		= 'Bilder';
 
 $ecLang['Team1']		= 'Team1: ';
 $ecLang['Team2']		= 'Team2: ';
-$ecLang['misc']		= 'Sonstiges';
+$ecLang['misc']			= 'Sonstiges';
 
 
 ?>

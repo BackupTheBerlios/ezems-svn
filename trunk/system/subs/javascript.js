@@ -333,18 +333,18 @@ ecAjaxMapwahl = function(searchopt, rows, data)
 
 ecRunAjaxMapwahl = function(e)
 {
-	if(typeof(document.body.scrollTop) == 'number' || window.opera)
+	if (typeof(document.body.scrollTop) == 'number' || window.opera)
 	{
-		if(window.event)
+		if (window.event)
 		{
-			if(!event.x)
+			if (!event.x)
 			{
 				var px = event.clientX;
 				var py = event.clientY;
 			} 
 			else 
 			{
-				if(event.clientY>event.screenY)
+				if (event.clientY>event.screenY)
 				{
 					var px = document.body.scrollLeft+event.screenX-2;
 					var py = document.body.scrollTop+event.screenY-138;
@@ -371,7 +371,7 @@ ecRunAjaxMapwahl = function(e)
 		var current = e.target;
 	}
 	var obj = document.getElementById('ajaxselectboxcon');
-	if(current.type == 'text' || current.type == 'textarea')
+	if (current.type == 'text' || current.type == 'textarea')
 	{
 		var sbox = document['ajaxform']['ajaxselectbox'];
 		obj.data = document.data;
@@ -380,18 +380,18 @@ ecRunAjaxMapwahl = function(e)
 		obj.updatebox = function()
 		{
 			var tmp = [];
-			for(var x in this.data[this.current.name]) 
+			for (var x in this.data[this.current.name]) 
 			{
 				var currentvalue = this.current.value.toLowerCase();
 				var currentdata = this.data[this.current.name][x];
-				if(document.searchopt == 'first')
+				if (document.searchopt == 'first')
 				{
-					if(currentdata.toLowerCase().substr(0, currentvalue.length) == currentvalue)
+					if (currentdata.toLowerCase().substr(0, currentvalue.length) == currentvalue)
 					{
 						tmp[tmp.length] = currentdata;
 					}
 				}
-				else if(document.searchopt == 'full')
+				else if (document.searchopt == 'full')
 				{
 					if(currentdata.toLowerCase().indexOf(currentvalue)>-1)
 					{
@@ -399,13 +399,13 @@ ecRunAjaxMapwahl = function(e)
 					}
 				}
 			}
-			if(tmp.length>0)
+			if (tmp.length>0)
 			{
-				for(var x=this.sbox.options.length-1; x>=0; --x)
+				for (var x=this.sbox.options.length-1; x>=0; --x)
 				{
 					this.sbox.options[x] = null;
 				}
-				for(var x=0; x<tmp.length; ++x)
+				for (var x=0; x<tmp.length; ++x)
 				{
 					this.sbox.obj = this;
 					this.sbox.field = this.current;
@@ -440,7 +440,7 @@ ecRunAjaxMapwahl = function(e)
 			this.obj.style.visibility = 'hidden';
 			this.obj.style.display = 'none';
 		};
-		if(obj.sbox.options.length>0)
+		if (obj.sbox.options.length>0)
 		{
 			obj.style.visibility = 'visible';
 			obj.style.display = 'block';
@@ -456,8 +456,8 @@ ecRunAjaxMapwahl = function(e)
 	}
 }
 
-if(document.captureEvents) {
-
+if (document.captureEvents) 
+{
 	document.captureEvents(Event.CLICK);
 }
 

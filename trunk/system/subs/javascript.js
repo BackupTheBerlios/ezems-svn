@@ -311,8 +311,8 @@ function ecFileInput(bodyId,typ)
 }
 
 //Input mit auswahlmöglichkeiten für Maps
-ecAjaxMapwahl = function(searchopt, rows, data) {
-
+ecAjaxMapwahl = function(searchopt, rows, data)
+{
 	document.write('<div ');
 	document.write('id="ajaxselectboxcon" ');
 	document.write('style="');
@@ -327,157 +327,134 @@ ecAjaxMapwahl = function(searchopt, rows, data) {
 	document.write('</select>');
 	document.write('</form>');
 	document.write('</div>');
-
 	document.data = data;
 	document.searchopt = searchopt.toLowerCase();
 };
 
-ecRunAjaxMapwahl = function(e) {
-
-	if(typeof(document.body.scrollTop) == 'number' || window.opera) {
-
-		if(window.event) {
-
-			if(!event.x) {
-
+ecRunAjaxMapwahl = function(e)
+{
+	if(typeof(document.body.scrollTop) == 'number' || window.opera)
+	{
+		if(window.event)
+		{
+			if(!event.x)
+			{
 				var px = event.clientX;
 				var py = event.clientY;
-
-			} else {
-
-				if(event.clientY>event.screenY) {
-
+			} 
+			else 
+			{
+				if(event.clientY>event.screenY)
+				{
 					var px = document.body.scrollLeft+event.screenX-2;
 					var py = document.body.scrollTop+event.screenY-138;
-
-				} else {
-
+				}
+				else
+				{
 					var px = document.body.scrollLeft+event.clientX;
 					var py = document.body.scrollTop+event.clientY;
 				}
 			}
-
 			var current = event.srcElement;
-
-		} else {
-
+		}
+		else
+		{
 			var px = document.body.scrollLeft+e.clientX;
 			var py = document.body.scrollTop+e.clientY;
-
 			var current = e.target;
 		}
-
-	} else {
-
+	}
+	else
+	{
 		var px = window.pageXOffset+e.clientX;
 		var py = window.pageYOffset+e.clientY;
-
 		var current = e.target;
 	}
-
 	var obj = document.getElementById('ajaxselectboxcon');
-
-	if(current.type == 'text' || current.type == 'textarea') {
-
-
+	if(current.type == 'text' || current.type == 'textarea')
+	{
 		var sbox = document['ajaxform']['ajaxselectbox'];
-
 		obj.data = document.data;
 		obj.current = current;
 		obj.sbox = sbox;
-		obj.updatebox = function() {
-
+		obj.updatebox = function()
+		{
 			var tmp = [];
-
-			for(var x in this.data[this.current.name]) {
-
+			for(var x in this.data[this.current.name]) 
+			{
 				var currentvalue = this.current.value.toLowerCase();
 				var currentdata = this.data[this.current.name][x];
-
-				if(document.searchopt == 'first') {
-
-					if(currentdata.toLowerCase().substr(0, currentvalue.length) == currentvalue) {
-
+				if(document.searchopt == 'first')
+				{
+					if(currentdata.toLowerCase().substr(0, currentvalue.length) == currentvalue)
+					{
 						tmp[tmp.length] = currentdata;
 					}
-
-				} else if(document.searchopt == 'full') {
-
-					if(currentdata.toLowerCase().indexOf(currentvalue)>-1) {
-
+				}
+				else if(document.searchopt == 'full')
+				{
+					if(currentdata.toLowerCase().indexOf(currentvalue)>-1)
+					{
 						tmp[tmp.length] = currentdata;
 					}
 				}
 			}
-
-			if(tmp.length>0) {
-
-				for(var x=this.sbox.options.length-1; x>=0; --x) {
-
+			if(tmp.length>0)
+			{
+				for(var x=this.sbox.options.length-1; x>=0; --x)
+				{
 					this.sbox.options[x] = null;
 				}
-
-				for(var x=0; x<tmp.length; ++x) {
-
+				for(var x=0; x<tmp.length; ++x)
+				{
 					this.sbox.obj = this;
 					this.sbox.field = this.current;
 					this.sbox.options[x] = new Option(tmp[x], tmp[x]);
-
-					this.sbox.onchange = function() {
-
+					this.sbox.onchange = function()
+					{
 						this.field.value = this.value;
 						this.obj.style.visibility = 'hidden';
 						this.obj.style.display = 'none';
-
-						for(var x=this.options.length-1; x>=0; --x) {
-
+						for(var x=this.options.length-1; x>=0; --x)
+						{
 							this.options[x] = null;
 						}
-					};
+					}
 				}
-
-			} else {
-
+			}
+			else
+			{
 				this.style.visibility = 'hidden';
 				this.style.display = 'none';
 			}
 		};
-
 		current.obj = obj;
-		current.onkeyup = function() {
-
+		current.onkeyup = function()
+		{
 			this.obj.style.visibility = 'visible';
 			this.obj.style.display = 'block';
-
 			this.obj.updatebox();
-		}
-
-		current.onclick = function() {
-
+		};
+		current.onclick = function()
+		{
 			this.obj.style.visibility = 'hidden';
 			this.obj.style.display = 'none';
 		};
-
-		if(obj.sbox.options.length>0) {
-
+		if(obj.sbox.options.length>0)
+		{
 			obj.style.visibility = 'visible';
 			obj.style.display = 'block';
 
-		} else {
-
+		}
+		else
+		{
 			obj.style.visibility = 'hidden';
 			obj.style.display = 'none';
 		}
-
 		obj.style.top = py;
 		obj.style.left = px+40;
-
-	} else {
-
-		obj.style.visibility = 'hidden';
-		obj.style.display = 'none';
 	}
-};
+}
 
 if(document.captureEvents) {
 

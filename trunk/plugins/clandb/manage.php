@@ -16,7 +16,7 @@
 	echo ecTemplate('clanDb', 'manage', 'siteHead');
 	
 	//Daten auslesen
-	echo ecTemplate('clanDb', 'manage', 'siteEntry');
+	echo ecTemplate('clanDb', 'manage', 'clandbHead');
 	$ecClanDbData = dbSelect('*', 1, 'clandb');
 	while ($clanInfo = mysql_fetch_object($ecClanDbData))
 	{
@@ -25,11 +25,13 @@
 		$clanShortName = $clanInfo->clanDbShortName;
 		$clanTag = $clanInfo->clanDbTag;
 		//$clanCountry = $clanInfo->clanDbCountry;
-		$clanHomepage = $clanInfo->clanDbHomepage;
+		$clanWWW = $clanInfo->clanDbHomepage;
 		$popup = ecTemplate('clanDb', 'manage', 'moreInfoClan');
 		
-		echo ecTemplate('clanDb', 'manage', 'siteData');
+		echo ecTemplate('clanDb', 'manage', 'clandbData');
 	}
+	echo ecTemplate('clanDb', 'manage', 'clandbFoot');
+	echo ecTemplate('clanDb', 'manage', 'clandbAdd');
+	
 	echo ecTemplate('clanDb', 'manage', 'siteFoot');
-	echo ecTemplate('clanDb', 'manage', 'siteAdd');
 ?>

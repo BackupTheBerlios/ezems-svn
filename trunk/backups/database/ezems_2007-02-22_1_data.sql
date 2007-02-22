@@ -1,4 +1,4 @@
-# Datenbackup: 21.02.2007 13:18 
+# Datenbackup: 22.02.2007 14:13 
 
 # ----------------------------------------------------------
 #
@@ -210,7 +210,7 @@ INSERT INTO ezems_captcha VALUES ('1','Keckse');
 #
 # data for table 'ezems_clandb'
 #
-INSERT INTO ezems_clandb VALUES ('18','333','test2','test','','http://test.de','');
+INSERT INTO ezems_clandb VALUES ('37','Super Coole Zocker','ScZ','{ScZ}','','http://www.scz-clan.info','');
 
 
 
@@ -220,6 +220,7 @@ INSERT INTO ezems_clandb VALUES ('18','333','test2','test','','http://test.de','
 # data for table 'ezems_clanwars'
 #
 INSERT INTO ezems_clanwars VALUES ('4','1','0','1','1','|µ|1','test|µ|','1230850800','1:',':1:2:3:4','');
+INSERT INTO ezems_clanwars VALUES ('5','1','0','1','18','|µ|1','test|µ|','1170909000','1:',':1:23:32:1','5_Unbenannt.JPG:');
 
 
 
@@ -401,7 +402,7 @@ INSERT INTO ezems_sites VALUES ('74','10','edit','1');
 INSERT INTO ezems_sites VALUES ('75','10','delete','1');
 INSERT INTO ezems_sites VALUES ('76','11','manage','1');
 INSERT INTO ezems_sites VALUES ('77','11','add','1');
-INSERT INTO ezems_sites VALUES ('78','11','delete','1');
+INSERT INTO ezems_sites VALUES ('78','11','remove','1');
 INSERT INTO ezems_sites VALUES ('79','11','edit','1');
 
 
@@ -1490,6 +1491,226 @@ INSERT INTO ezems_stats VALUES ('1066','127.0.0.1','0','2','1172060303','system'
 INSERT INTO ezems_stats VALUES ('1067','127.0.0.1','0','2','1172060308','system','database');
 INSERT INTO ezems_stats VALUES ('1068','127.0.0.1','0','2','1172060314','system','database');
 INSERT INTO ezems_stats VALUES ('1069','127.0.0.1','0','2','1172060320','system','database');
+INSERT INTO ezems_stats VALUES ('1070','127.0.0.1','0','2','1172060323','system','database');
+INSERT INTO ezems_stats VALUES ('1071','127.0.0.1','0','2','1172060420','system','admin');
+INSERT INTO ezems_stats VALUES ('1072','127.0.0.1','0','2','1172078364','system','admin');
+INSERT INTO ezems_stats VALUES ('1073','127.0.0.1','0','2','1172078369','users','login');
+INSERT INTO ezems_stats VALUES ('1074','127.0.0.1','0','2','1172078374','users','login');
+INSERT INTO ezems_stats VALUES ('1075','127.0.0.1','0','2','1172078377','users','login');
+INSERT INTO ezems_stats VALUES ('1076','127.0.0.1','0','2','1172078437','users','logout');
+INSERT INTO ezems_stats VALUES ('1077','127.0.0.1','0','2','1172078439','system','admin');
+INSERT INTO ezems_stats VALUES ('1078','127.0.0.1','0','2','1172078443','users','login');
+INSERT INTO ezems_stats VALUES ('1079','127.0.0.1','0','2','1172078445','users','home');
+INSERT INTO ezems_stats VALUES ('1080','127.0.0.1','0','2','1172078447','system','admin');
+INSERT INTO ezems_stats VALUES ('1081','127.0.0.1','0','2','1172078450','users','home');
+INSERT INTO ezems_stats VALUES ('1082','127.0.0.1','0','2','1172078452','users','login');
+INSERT INTO ezems_stats VALUES ('1083','127.0.0.1','0','2','1172078453','system','admin');
+INSERT INTO ezems_stats VALUES ('1084','127.0.0.1','0','2','1172078455','users','login');
+INSERT INTO ezems_stats VALUES ('1085','127.0.0.1','0','2','1172078656','system','admin');
+INSERT INTO ezems_stats VALUES ('1086','127.0.0.1','0','2','1172078662','clanwars','manage');
+INSERT INTO ezems_stats VALUES ('1087','127.0.0.1','0','2','1172078665','clanwars','add');
+INSERT INTO ezems_stats VALUES ('1088','127.0.0.1','0','2','1172078706','clanwars','add');
+INSERT INTO ezems_stats VALUES ('1089','127.0.0.1','0','2','1172078711','clanwars','manage');
+INSERT INTO ezems_stats VALUES ('1090','127.0.0.1','0','2','1172078712','clanwars','manage');
+INSERT INTO ezems_stats VALUES ('1091','127.0.0.1','0','2','1172078712','clanwars','manage');
+INSERT INTO ezems_stats VALUES ('1092','127.0.0.1','0','2','1172078715','clanwars','details');
+INSERT INTO ezems_stats VALUES ('1093','127.0.0.1','0','2','1172078722','clanwars','details');
+INSERT INTO ezems_stats VALUES ('1094','127.0.0.1','0','2','1172078883','clanwars','details');
+INSERT INTO ezems_stats VALUES ('1095','127.0.0.1','0','2','1172078886','clanwars','details');
+INSERT INTO ezems_stats VALUES ('1096','127.0.0.1','0','2','1172079199','system','admin');
+INSERT INTO ezems_stats VALUES ('1097','127.0.0.1','0','2','1172079202','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1098','127.0.0.1','0','2','1172079204','clandb','add');
+INSERT INTO ezems_stats VALUES ('1099','127.0.0.1','0','2','1172079215','clandb','add');
+INSERT INTO ezems_stats VALUES ('1100','127.0.0.1','0','2','1172079221','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1101','127.0.0.1','0','2','1172079407','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1102','127.0.0.1','0','2','1172079410','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1103','127.0.0.1','0','2','1172079412','clandb','add');
+INSERT INTO ezems_stats VALUES ('1104','127.0.0.1','0','2','1172079418','clandb','add');
+INSERT INTO ezems_stats VALUES ('1105','127.0.0.1','0','2','1172079503','clandb','add');
+INSERT INTO ezems_stats VALUES ('1106','127.0.0.1','0','2','1172079511','clandb','add');
+INSERT INTO ezems_stats VALUES ('1107','127.0.0.1','0','2','1172079619','clandb','add');
+INSERT INTO ezems_stats VALUES ('1108','127.0.0.1','0','2','1172079632','clandb','add');
+INSERT INTO ezems_stats VALUES ('1109','127.0.0.1','0','2','1172079753','clandb','add');
+INSERT INTO ezems_stats VALUES ('1110','127.0.0.1','0','2','1172079778','clandb','add');
+INSERT INTO ezems_stats VALUES ('1111','127.0.0.1','0','2','1172079793','clandb','add');
+INSERT INTO ezems_stats VALUES ('1112','127.0.0.1','0','2','1172079802','clandb','add');
+INSERT INTO ezems_stats VALUES ('1113','127.0.0.1','0','2','1172080033','system','admin');
+INSERT INTO ezems_stats VALUES ('1114','127.0.0.1','0','2','1172080035','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1115','127.0.0.1','0','2','1172080039','clandb','add');
+INSERT INTO ezems_stats VALUES ('1116','127.0.0.1','0','2','1172080049','clandb','add');
+INSERT INTO ezems_stats VALUES ('1117','127.0.0.1','0','2','1172080151','clandb','add');
+INSERT INTO ezems_stats VALUES ('1118','127.0.0.1','0','2','1172080155','clandb','add');
+INSERT INTO ezems_stats VALUES ('1119','127.0.0.1','0','2','1172080165','clandb','add');
+INSERT INTO ezems_stats VALUES ('1120','127.0.0.1','0','2','1172080192','clandb','add');
+INSERT INTO ezems_stats VALUES ('1121','127.0.0.1','0','2','1172080204','clandb','add');
+INSERT INTO ezems_stats VALUES ('1122','127.0.0.1','0','2','1172080229','clandb','add');
+INSERT INTO ezems_stats VALUES ('1123','127.0.0.1','0','2','1172080253','clandb','add');
+INSERT INTO ezems_stats VALUES ('1124','127.0.0.1','0','2','1172080268','clandb','add');
+INSERT INTO ezems_stats VALUES ('1125','127.0.0.1','0','2','1172080317','clandb','add');
+INSERT INTO ezems_stats VALUES ('1126','127.0.0.1','0','2','1172080441','clandb','add');
+INSERT INTO ezems_stats VALUES ('1127','127.0.0.1','0','2','1172080449','clandb','add');
+INSERT INTO ezems_stats VALUES ('1128','127.0.0.1','0','2','1172080476','clandb','add');
+INSERT INTO ezems_stats VALUES ('1129','127.0.0.1','0','2','1172080582','clandb','add');
+INSERT INTO ezems_stats VALUES ('1130','127.0.0.1','0','2','1172080591','clandb','add');
+INSERT INTO ezems_stats VALUES ('1131','127.0.0.1','0','2','1172080610','clandb','add');
+INSERT INTO ezems_stats VALUES ('1132','127.0.0.1','0','2','1172080630','clandb','add');
+INSERT INTO ezems_stats VALUES ('1133','127.0.0.1','0','2','1172080632','clandb','add');
+INSERT INTO ezems_stats VALUES ('1134','127.0.0.1','0','2','1172080644','clandb','add');
+INSERT INTO ezems_stats VALUES ('1135','127.0.0.1','0','2','1172080694','clandb','add');
+INSERT INTO ezems_stats VALUES ('1136','127.0.0.1','0','2','1172080696','clandb','add');
+INSERT INTO ezems_stats VALUES ('1137','127.0.0.1','0','2','1172080706','clandb','add');
+INSERT INTO ezems_stats VALUES ('1138','127.0.0.1','0','2','1172080751','clandb','add');
+INSERT INTO ezems_stats VALUES ('1139','127.0.0.1','0','2','1172080769','clandb','add');
+INSERT INTO ezems_stats VALUES ('1140','127.0.0.1','0','2','1172080820','clandb','add');
+INSERT INTO ezems_stats VALUES ('1141','127.0.0.1','0','2','1172080825','clandb','add');
+INSERT INTO ezems_stats VALUES ('1142','127.0.0.1','0','2','1172080833','clandb','add');
+INSERT INTO ezems_stats VALUES ('1143','127.0.0.1','0','2','1172080849','clandb','add');
+INSERT INTO ezems_stats VALUES ('1144','127.0.0.1','0','2','1172080887','clandb','add');
+INSERT INTO ezems_stats VALUES ('1145','127.0.0.1','0','2','1172081063','clandb','add');
+INSERT INTO ezems_stats VALUES ('1146','127.0.0.1','0','2','1172081073','clandb','add');
+INSERT INTO ezems_stats VALUES ('1147','127.0.0.1','0','2','1172081143','clandb','add');
+INSERT INTO ezems_stats VALUES ('1148','127.0.0.1','0','2','1172081202','clandb','add');
+INSERT INTO ezems_stats VALUES ('1149','127.0.0.1','0','2','1172081252','clandb','add');
+INSERT INTO ezems_stats VALUES ('1150','127.0.0.1','0','2','1172081429','clandb','add');
+INSERT INTO ezems_stats VALUES ('1151','127.0.0.1','0','2','1172081447','clandb','add');
+INSERT INTO ezems_stats VALUES ('1152','127.0.0.1','0','2','1172081485','clandb','add');
+INSERT INTO ezems_stats VALUES ('1153','127.0.0.1','0','2','1172081514','clandb','add');
+INSERT INTO ezems_stats VALUES ('1154','127.0.0.1','0','2','1172081524','clandb','add');
+INSERT INTO ezems_stats VALUES ('1155','127.0.0.1','0','2','1172081626','clandb','add');
+INSERT INTO ezems_stats VALUES ('1156','127.0.0.1','0','2','1172081634','clandb','add');
+INSERT INTO ezems_stats VALUES ('1157','127.0.0.1','0','2','1172081640','clandb','add');
+INSERT INTO ezems_stats VALUES ('1158','127.0.0.1','0','2','1172081659','clandb','add');
+INSERT INTO ezems_stats VALUES ('1159','127.0.0.1','0','2','1172081840','clandb','add');
+INSERT INTO ezems_stats VALUES ('1160','127.0.0.1','0','2','1172081844','clandb','add');
+INSERT INTO ezems_stats VALUES ('1161','127.0.0.1','0','2','1172081847','clandb','add');
+INSERT INTO ezems_stats VALUES ('1162','127.0.0.1','0','2','1172081854','clandb','add');
+INSERT INTO ezems_stats VALUES ('1163','127.0.0.1','0','2','1172082048','clandb','add');
+INSERT INTO ezems_stats VALUES ('1164','127.0.0.1','0','2','1172082069','clandb','add');
+INSERT INTO ezems_stats VALUES ('1165','127.0.0.1','0','2','1172082448','system','admin');
+INSERT INTO ezems_stats VALUES ('1166','127.0.0.1','0','2','1172082452','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1167','127.0.0.1','0','2','1172082455','clandb','delete');
+INSERT INTO ezems_stats VALUES ('1168','127.0.0.1','0','2','1172082456','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1169','127.0.0.1','0','2','1172082459','clandb','add');
+INSERT INTO ezems_stats VALUES ('1170','127.0.0.1','0','2','1172082469','clandb','add');
+INSERT INTO ezems_stats VALUES ('1171','127.0.0.1','0','2','1172082491','system','admin');
+INSERT INTO ezems_stats VALUES ('1172','127.0.0.1','0','2','1172082493','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1173','127.0.0.1','0','2','1172082497','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1174','127.0.0.1','0','2','1172082505','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1175','127.0.0.1','0','2','1172082511','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1176','127.0.0.1','0','2','1172082514','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1177','127.0.0.1','0','2','1172082520','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1178','127.0.0.1','0','2','1172082525','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1179','127.0.0.1','0','2','1172082544','clandb','delete');
+INSERT INTO ezems_stats VALUES ('1180','127.0.0.1','0','2','1172082545','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1181','127.0.0.1','0','2','1172094054','system','admin');
+INSERT INTO ezems_stats VALUES ('1182','127.0.0.1','0','2','1172094068','users','login');
+INSERT INTO ezems_stats VALUES ('1183','127.0.0.1','0','2','1172094074','users','home');
+INSERT INTO ezems_stats VALUES ('1184','127.0.0.1','0','2','1172094076','system','admin');
+INSERT INTO ezems_stats VALUES ('1185','127.0.0.1','0','2','1172094083','clanwars','manage');
+INSERT INTO ezems_stats VALUES ('1186','127.0.0.1','0','2','1172094093','clanwars','add');
+INSERT INTO ezems_stats VALUES ('1187','127.0.0.1','0','2','1172094136','system','admin');
+INSERT INTO ezems_stats VALUES ('1188','127.0.0.1','0','2','1172094142','clanwars','manage');
+INSERT INTO ezems_stats VALUES ('1189','127.0.0.1','0','2','1172146411','system','admin');
+INSERT INTO ezems_stats VALUES ('1190','127.0.0.1','0','2','1172146418','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1191','127.0.0.1','0','2','1172146564','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1192','127.0.0.1','0','2','1172146620','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1193','127.0.0.1','0','2','1172146652','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1194','127.0.0.1','0','2','1172146692','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1195','127.0.0.1','0','2','1172146724','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1196','127.0.0.1','0','2','1172146735','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1197','127.0.0.1','0','2','1172146760','system','admin');
+INSERT INTO ezems_stats VALUES ('1198','127.0.0.1','0','2','1172146762','groups','manage');
+INSERT INTO ezems_stats VALUES ('1199','127.0.0.1','0','2','1172146873','groups','manage');
+INSERT INTO ezems_stats VALUES ('1200','127.0.0.1','0','2','1172146876','system','admin');
+INSERT INTO ezems_stats VALUES ('1201','127.0.0.1','0','2','1172146879','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1202','127.0.0.1','0','2','1172146949','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1203','127.0.0.1','0','2','1172147123','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1204','127.0.0.1','0','2','1172147126','clandb','add');
+INSERT INTO ezems_stats VALUES ('1205','127.0.0.1','0','2','1172147146','clandb','add');
+INSERT INTO ezems_stats VALUES ('1206','127.0.0.1','0','2','1172147147','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1207','127.0.0.1','0','2','1172147164','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1208','127.0.0.1','0','2','1172147173','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1209','127.0.0.1','0','2','1172147178','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1210','127.0.0.1','0','2','1172147198','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1211','127.0.0.1','0','2','1172147200','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1212','127.0.0.1','0','2','1172147205','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1213','127.0.0.1','0','2','1172147207','clandb','add');
+INSERT INTO ezems_stats VALUES ('1214','127.0.0.1','0','2','1172147208','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1215','127.0.0.1','0','2','1172147210','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1216','127.0.0.1','0','2','1172147216','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1217','127.0.0.1','0','2','1172147218','clandb','add');
+INSERT INTO ezems_stats VALUES ('1218','127.0.0.1','0','2','1172147226','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1219','127.0.0.1','0','2','1172147349','system','admin');
+INSERT INTO ezems_stats VALUES ('1220','127.0.0.1','0','2','1172147351','groups','manage');
+INSERT INTO ezems_stats VALUES ('1221','127.0.0.1','0','2','1172147353','groups','access');
+INSERT INTO ezems_stats VALUES ('1222','127.0.0.1','0','2','1172147698','system','admin');
+INSERT INTO ezems_stats VALUES ('1223','127.0.0.1','0','2','1172147720','clanwars','manage');
+INSERT INTO ezems_stats VALUES ('1224','127.0.0.1','0','2','1172147724','system','admin');
+INSERT INTO ezems_stats VALUES ('1225','127.0.0.1','0','2','1172147726','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1226','127.0.0.1','0','2','1172147729','clandb','remove');
+INSERT INTO ezems_stats VALUES ('1227','127.0.0.1','0','2','1172147778','clandb','remove');
+INSERT INTO ezems_stats VALUES ('1228','127.0.0.1','0','2','1172147783','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1229','127.0.0.1','0','2','1172147790','system','admin');
+INSERT INTO ezems_stats VALUES ('1230','127.0.0.1','0','2','1172147792','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1231','127.0.0.1','0','2','1172147801','system','admin');
+INSERT INTO ezems_stats VALUES ('1232','127.0.0.1','0','2','1172147803','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1233','127.0.0.1','0','2','1172147806','clandb','add');
+INSERT INTO ezems_stats VALUES ('1234','127.0.0.1','0','2','1172148040','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1235','127.0.0.1','0','2','1172148187','clandb','add');
+INSERT INTO ezems_stats VALUES ('1236','127.0.0.1','0','2','1172148206','clandb','add');
+INSERT INTO ezems_stats VALUES ('1237','127.0.0.1','0','2','1172148207','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1238','127.0.0.1','0','2','1172148209','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1239','127.0.0.1','0','2','1172148290','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1240','127.0.0.1','0','2','1172148389','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1241','127.0.0.1','0','2','1172148637','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1242','127.0.0.1','0','2','1172148759','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1243','127.0.0.1','0','2','1172148771','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1244','127.0.0.1','0','2','1172148823','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1245','127.0.0.1','0','2','1172148833','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1246','127.0.0.1','0','2','1172148834','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1247','127.0.0.1','0','2','1172148836','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1248','127.0.0.1','0','2','1172148842','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1249','127.0.0.1','0','2','1172148847','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1250','127.0.0.1','0','2','1172148888','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1251','127.0.0.1','0','2','1172148890','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1252','127.0.0.1','0','2','1172148895','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1253','127.0.0.1','0','2','1172148900','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1254','127.0.0.1','0','2','1172148904','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1255','127.0.0.1','0','2','1172149173','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1256','127.0.0.1','0','2','1172149183','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1257','127.0.0.1','0','2','1172149185','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1258','127.0.0.1','0','2','1172149232','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1259','127.0.0.1','0','2','1172149273','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1260','127.0.0.1','0','2','1172149299','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1261','127.0.0.1','0','2','1172149367','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1262','127.0.0.1','0','2','1172149378','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1263','127.0.0.1','0','2','1172149420','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1264','127.0.0.1','0','2','1172149431','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1265','127.0.0.1','0','2','1172149486','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1266','127.0.0.1','0','2','1172149498','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1267','127.0.0.1','0','2','1172149500','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1268','127.0.0.1','0','2','1172149532','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1269','127.0.0.1','0','2','1172149540','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1270','127.0.0.1','0','2','1172149564','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1271','127.0.0.1','0','2','1172149574','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1272','127.0.0.1','0','2','1172149584','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1273','127.0.0.1','0','2','1172149625','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1274','127.0.0.1','0','2','1172149709','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1275','127.0.0.1','0','2','1172149725','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1276','127.0.0.1','0','2','1172149770','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1277','127.0.0.1','0','2','1172149789','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1278','127.0.0.1','0','2','1172149810','clandb','edit');
+INSERT INTO ezems_stats VALUES ('1279','127.0.0.1','0','2','1172149812','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1280','127.0.0.1','0','2','1172149840','clandb','manage');
+INSERT INTO ezems_stats VALUES ('1281','127.0.0.1','0','2','1172149875','system','admin');
+INSERT INTO ezems_stats VALUES ('1282','127.0.0.1','0','2','1172149877','clanwars','list');
+INSERT INTO ezems_stats VALUES ('1283','127.0.0.1','0','2','1172149881','clanwars','details');
+INSERT INTO ezems_stats VALUES ('1284','127.0.0.1','0','2','1172149902','system','admin');
+INSERT INTO ezems_stats VALUES ('1285','127.0.0.1','0','2','1172149909','clanwars','list');
+INSERT INTO ezems_stats VALUES ('1286','127.0.0.1','0','2','1172149947','system','admin');
+INSERT INTO ezems_stats VALUES ('1287','127.0.0.1','0','2','1172149976','system','admin');
+INSERT INTO ezems_stats VALUES ('1288','127.0.0.1','0','2','1172150004','system','database');
+INSERT INTO ezems_stats VALUES ('1289','127.0.0.1','0','2','1172150008','system','database');
 
 
 
@@ -1519,7 +1740,7 @@ INSERT INTO ezems_themes VALUES ('3','4future','4Future Design','Phoenix & Phene
 # data for table 'ezems_users'
 #
 INSERT INTO ezems_users VALUES ('1','admin','cb1dc18279ac7ff8a78ec2d7aa9efd4a','1','1','1','3','2','1172005940','0','Christian','R?egg','info@ezems.net',NULL);
-INSERT INTO ezems_users VALUES ('2','master','ca5a7dc9d04717fd3213b6c86f8ee47c','1','1','1','3','2','1172060320','0','Phillip','Wadecki','info@ezems.net',NULL);
+INSERT INTO ezems_users VALUES ('2','master','ca5a7dc9d04717fd3213b6c86f8ee47c','1','1','1','3','2','1172150008','0','Phillip','Wadecki','info@ezems.net',NULL);
 INSERT INTO ezems_users VALUES ('9','COOLover','ac1445af464eb9f1b542f87aa8126bc3','1','1','1','3','2','1171993575','0','Marco','Fester','webmaster@scz-clan.info','1160784784');
 
 

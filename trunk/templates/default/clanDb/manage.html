@@ -2,55 +2,51 @@
 <div class="head">
 	<img src="{icon:32:clandb}" alt="title" width="32" height="32" /> {?siteTitle}
 </div>
+<!-siteHead>
+<!+clandbHead>
 <div class="clickTabBox">
 	<ul>
-		<li><a>{?menuVerw}</a></li>
-		<li><a>{?menuAdd}</a></li>
+		<li><a>{?clanTitle}</a></li>
+		<li><a>{?addTitle}</a></li>
 	</ul>
-<!-siteHead>
-
-<!+siteEntry>
-<div class="clickTab">
-<form id="SiteData" name="SiteData" action="index.php?view=clandb&site=delete&amp;action=selectiondelete" method="post">
-<table style="width:{ecTableWidth}" class="table">
-	<tr>
-		<td width="2%"></td>
-		<td width="40%">{?clanName}</td>
-		<td width="20%">{?clanTag}</td>
-		<td width="38%">{?function}</td>
-	</tr>
-<!-siteEntry>
-
-<!+siteData>
-	<tr>
-		<td><input name="delete[]" style="width:20px" type="checkbox" value="{$clanId}"/></td>
-		<td><a onclick="ecOpenPopup('{$clanName}','{$popup}','{?close}')" href="javascript:void(0)">{$clanName}</a></td>
-		<td>{$clanTag}</td>
-		<td><a href="index.php?view=clandb&site=edit&amp;clanId={$clanId}" ><img src="{icon:16:edit}" /></a> <a href="index.php?view=clandb&site=delete&amp;action=delete&id={$clanId}"><img src="{icon:16:delete}" /></a></td>
-	</tr>
-<!-siteData>
-
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td width="10%"><strong>{?clanId}</strong></td>
+			<td><strong>{?clanName}</strong></td>
+			<td><strong>{?clanTag}</strong></td>
+			<td width="5%"><img src="{icon:16:edit}" width="16" height="16" /></td>
+		    <td width="5%"><img src="{icon:16:delete}" width="16" height="16" /></td>
+		  </tr>
+		<!-clandbHead>
+		<!+clandbData>
+		  <tr>
+			<td># {$clanId}</td>
+			<td width="30%"><a onclick="ecOpenPopup('{$clanName}','{$popup}','{?close}')" href="javascript:void(0)">{$clanName}</a></td>
+			<td width="10%">{$clanTag}</td>
+			<td><a href="index.php?view=clandb&site=edit&amp;id={$clanId}" ><img src="{icon:16:edit}" width="16" height="16" /></a></td>
+		    <td><a href="index.php?view=clandb&site=remove&amp;id={$clanId}"><img src="{icon:16:delete}" width="16" height="16" /></a></td>
+		  </tr>
+		<!-clandbData>
+		<!+clandbFoot>
+		</table>
+	</div>
+<!-clandbFoot>
+<!+clandbAdd>
+	<div class="clickTab">
+		<img src="{icon:16:new}" width="16" height="16" border="0" />
+		<a href="index.php?view=clandb&amp;site=add"><strong>{?clanAdd}</strong></a>
+	</div>
+<!-clandbAdd>
 <!+siteFoot>
-	<tr>
-		<td colspan="2"><input name="allbox" type="checkbox" style="width:20px"  onclick="ecCheckAll('SiteData')" /></td>
-		<td colspan="2"><input name="del" type="submit" id="reset" value="{?delete}" /></td>
-	</tr>
-</table>
-</form>
 </div>
 <!-siteFoot>
-
-<!+siteAdd>
-<div class="clickTab">
-<table>
-	<tr>
-		<td class="cellmiddle"><strong>{?clansNew} </strong><br />
-		<img src="{icon:16:new}" width="16" height="16" border="0" />
-		<a href="index.php?view=clandb&amp;site=add">{?clansAdd}</a></td>
-	</tr>
-</table>
-</div>
-</div>
-<!-siteAdd>
-
-<!+moreInfoClan>{?ClanInfo}<br /><br /><strong>{?clanName}:</strong> {$clanName}<br /><strong>{?clanShortName}:</strong> {$clanShortName}<br /><strong>{?clanTag}:</strong> {$clanTag}<br /><strong>{?clanCountry}:</strong> {$clanCountry}<br /><strong>{?clanHomepage}:</strong> {$clanHomepage}<br /><!-moreInfoClan>
+<!+clandbSaved>
+	<div class="clickTabBox">
+		<ul>
+			<li><a>{?clanSaved}</a></li>
+		</ul>
+		<div class="clickTab">{$next}</div>
+	</div>
+<!-clandbSaved>
+<!+moreInfoClan>{?ClanInfo}<br /><br /><strong>{?clanName}:</strong> {$clanName}<br /><strong>{?clanShortName}:</strong> {$clanShortName}<br /><strong>{?clanTag}:</strong> {$clanTag}<br /><strong>{?clanCountry}:</strong> {$clanCountry}<br /><strong>{?clanWWW}:</strong> {$clanWWW}<br /><!-moreInfoClan>

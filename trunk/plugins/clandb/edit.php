@@ -1,76 +1,64 @@
 <?php
-	/*
-	 (C) 2006 EZEMS.NET Alle Rechte vorbehalten.
-	 
-	 Dieses Programm ist urheberrechtlich geschützt.
-	 Die Verwendung für private Zwecke ist gesattet.
-	 Unbrechtigte Nutzung (Verkauf, Weiterverbreitung,
-	 Nutzung ohne Urherberrechtsvermerk, kommerzielle
-	 Nutzung) ist strafbar.
-	 Die Nutzung des Scriptes erfolgt auf eigene Gefahr.
-	 Schäden die durch die Nutzung entstanden sind,
-	 trägt allein der Nutzer des Programmes.
-	*/ $ecFile = 'plugins/clandb/edit.php';
-	
-	echo ecTemplate('clanDb', 'edit', 'siteHead');
-	$ecLang = ecGetLang('clandb', 'edit');
-	if (isset($_POST['save']))
+/*
+ (C) 2006 EZEMS.NET Alle Rechte vorbehalten.
+
+ Dieses Programm ist urheberrechtlich geschützt.
+ Die Verwendung für private Zwecke ist gesattet.
+ Unbrechtigte Nutzung (Verkauf, Weiterverbreitung,
+ Nutzung ohne Urherberrechtsvermerk, kommerzielle
+ Nutzung) ist strafbar. 
+ Die Nutzung des Scriptes erfolgt auf eigene Gefahr.
+ Schäden die durch die Nutzung entstanden sind,
+ trägt allein der Nutzer des Programmes.
+*/ $ecFile = 'plugins/clandb/edit.php';
+
+echo ecTemplate('clandb', 'edit', 'siteHead');
+$ecLang = ecGetLang('clandb', 'edit');
+$id = $_REQUEST['id'];
+if (isset($_POST['save']))
+{
+	if (!empty($_POST['clanName']))
 	{
-		//Überprüfe ob ein Name eingebene wurde
-		if (!empty($_POST['clanDbName']))
+		$update['clanDbName'] = $_POST['clanName'];
+		$update['clanDbShortName'] = $_POST['clanShortName'];
+		$update['clanDbTag'] = $_POST['clanTag'];
+		//$update['ClanDbCountry'] = $_POST['clanCountry'];
+		$update['clanDbHomepage'] = $_POST['clanWWW'];
+		
+		dbUpdate(1, 'clandb', $update, "clanDbId = $id");
+		
+		if ($_FILES['clanImage']['error'] != 4)
 		{
-			//Daten auslesen
-			$clanId = $_POST['clanDbId'];
-			$update['clanDbName'] = $_POST['clanDbName'];
-			$update['clanDbShortName'] =  $_POST['clanDbShortName'];
-			$update['clanDbTag'] = $_POST['clanDbTag'];
-			$update['clanDbHomepage'] = $_POST['clanDbHomepage'];
+			$datatyp = pathinfo($_FILES['clanImage']['name']);
+			$datatyp = strtolower($datatyp['extension']);
 			
-			//Datenbank updaten
-			dbUpdate(1, 'clandb', $update, $clanDbId = $clanId);
-			
-			//Überprüfen ob was hochgeladen wurde
-			if($_FILES['clanPic']['error'] != 4)
+			if($datatyp  == 'jpg' || $datatyp  == 'jpeg' || $datatyp  == 'png' || $datatyp  == 'gif' || $datatyp == 'bmp')
 			{
-				$datatyp = pathinfo($_FILES['clanPic']['name']);
-				$datatyp = strtolower($datatyp['extension']);
-				
-				//Überprüfen ob es sich um Bilder handelt
-				if($datatyp  == 'jpg' || $datatyp  == 'jpeg' || $datatyp  == 'png' || $datatyp  == 'gif' || $datatyp == 'bmp')
-				{
-					//Hochladen
-					ecUploadFile('clanPic', 'clandb', $clanId.'.'.$datatyp);
-					//Bild in die Datenbank einfügen
-					$update['clanDbImage'] = $clanId.'.'.$datatyp;
-					dbUpdate(1,'clandb',$update,'clanDbId = '.$clanId);
-				}
+				ecUploadFile('clanImage', 'clandb', $id.'.'.$datatyp);
+				$update['clanDbImage'] = $id.'.'.$datatyp;
+				dbUpdate(1,'clandb',$update,'clanDbId = '.$id);
 			}
-			$next = ecReferer('index.php?view=clandb&amp;site=manage');
-			echo ecTemplate('clandb', 'edit', 'clanEdited');
 		}
-		else
-		{
-			//Wenn kein Name eingegeben wurde dann Error
-			$errorMsg = $ecLang['errorEmpty'];
-			echo ecTemplate('clandb', 'edit', 'siteEntry');
-		}
+		$next = ecReferer('index.php?view=clandb&amp;site=manage');
+		echo ecTemplate('clandb', 'edit', 'clanEdited');
 	}
 	else
 	{
-		$id = $_REQUEST['clanId'];
-		$errorMsg = '';
-		
-		//Daten der entsprechenden ID auslesen und ausgeben
-		$ecClanDbData = dbSelect('*', 1, 'clandb', 'clanDbId = '.$id);
-		while ($clanInfo = mysql_fetch_object($ecClanDbData))
-		{
-			$clanDbId = $clanInfo->clanDbId;
-			$clanDbName = $clanInfo->clanDbName;
-			$clanDbShortName = $clanInfo->clanDbShortName;
-			$clanDbTag = $clanInfo->clanDbTag;
-			//$clanCountry = $clanInfo->clanDbCountry;
-			$clanDbHomepage = $clanInfo->clanDbHomepage;
-			echo ecTemplate('clanDb', 'edit', 'siteEntry');
-		}
+		$errorMsg = $ecLang['errorEmpty'];
+		echo ecTemplate('clandb', 'edit', 'clanEdit');
 	}
+}
+else
+{
+	$ecGroupsData = dbSelect('*',1,'clandb', "clanDbId = $id");
+	while($clan = mysql_fetch_object($ecGroupsData))
+	{
+		$clanName = $clan->clanDbName;
+		$clanShortName = $clan->clanDbShortName;
+		$clanTag = $clan->clanDbTag;
+		$clanWWW = $clan->clanDbHomepage;
+		$errorMsg = '';
+		echo ecTemplate('clandb', 'edit', 'clanEdit');
+	}
+}
 ?>

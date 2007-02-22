@@ -60,6 +60,6 @@
 	{
 		$errorMsg = '';
 		$clanDbHomepage = 'http://';
-		echo ecTemplate('clanDb', 'add', 'siteEntry');
+		echo ecTemplate('clandb', 'add', 'siteEntry');
 	}
 ?>

@@ -1,0 +1,33 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:clandb}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<!-siteHead>
+<!+clandbRemove>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?clanRemove}</a></li>
+	</ul>
+	<div class="clickTab">
+		<form id="form" name="form" method="post" action="index.php?view=clandb&amp;site=remove">
+				<table width="100%" border="0">
+					<tr>
+					  <td><span style="color:#FF0000">{?clanRemove}</span></td>
+					  </tr>
+					<tr>
+					  <td><input name="remove" type="submit" id="reset" value="{?remove}" />
+						<input name="id" type="hidden" id="id" value="{$id}" /></td>
+					</tr>
+				</table>
+		</form>
+  </div>
+</div>
+<!-clandbRemove>
+<!+clandbRemoved>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?clanRemoved}</a></li>
+	</ul>
+	<div class="clickTab">{$next}</div>
+</div>
+<!-clandbRemoved>

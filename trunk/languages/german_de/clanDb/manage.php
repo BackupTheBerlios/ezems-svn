@@ -1,26 +1,30 @@
 <?php
-$ecFile = 'language/german_de/clanDb/manage.php';
+$ecFile = 'langs/german_de/clandb/manage.php';
 
-$ecLang['siteTitle']	= 'Clans - Verwaltung';
+$ecLang['siteTitle'] = 'Clan - Verwaltung';
 
-//Verwaltung		
-$ecLang['clanName']		= 'Name';
-$ecLang['clanTag']		= 'Kürzel';
-$ecLang['function']		= 'Funktionen';
-$ecLang['delete']		= 'Löschen';
+$ecLang['clanTitle'] 			= 'Clan Übersicht';
+	$ecLang['clanId'] 			= 'ClanId';
+	$ecLang['clanName'] 		= 'Clan Name';
+	$ecLang['clanShortName'] 	= 'Clan K&uuml;rzel';
+	$ecLang['clanTag'] 			= 'Clan Tag';
+	$ecLang['clanCountry']		= 'Clan Herkunft';
+	$ecLang['clanWWW']	 		= 'Website / Link';
 
-//Menu Namen
-$ecLang['menuVerw']		= 'Verwaltung';
-$ecLang['menuAdd']		= 'Neu';
+$ecLang['accessTitle'] = 'Zugriff';
+	$ecLang['accessDescription']	= 'Beschreibung';
+	$ecLang['activate']	= 'Aktivieren';
+	$ecLang['accessComments']	= 'Kommentare';
 
-//Hinzufügen
-$ecLang['clansNew']		= 'Neu';
-$ecLang['clansAdd']		= 'Clan hinzufügen';
+$ecLang['addTitle'] = 'Clan hinzufügen';
+	$ecLang['clanAdd'] = 'Clan hinzufügen';
 
-//Popup
-$ecLang['ClanInfo']			= 'Clan Informationen';
-$ecLang['clanShortName']	= 'Clan Short-Name';
-$ecLang['clanCountry']		= 'Land';
-$ecLang['clanHomepage']		= 'Homepage';
-$ecLang['close']			= 'Schließen';
+	$ecLang['add'] = 'Hinzufügen';
+	$ecLang['close'] = 'Schließen';
+	$ecLang['edit'] = 'Edit';
+	$ecLang['save'] = 'Speichern';
+	$ecLang['reset'] = 'Zurücksetzen';
+
+$ecLang['clanSaved'] = 'Die Einstellungen wurden gespeichert';
+$ecLang['clanInfo'] = 'Clan Information';
 ?>

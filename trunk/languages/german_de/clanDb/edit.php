@@ -1,24 +1,22 @@
 <?php
-$ecFile = 'languages/german_de/clandb/edit.php';
+$ecFile = 'langs/german_de/clandb/edit.php';
 
-$ecLang['siteTitle']	= 'Clan - editieren';
+$ecLang['siteTitle'] 			= 'Clanverwaltung';
 
-//Allgemein		
-$ecLang['clanName']			= 'Name';
-$ecLang['clanShortName']	= 'Clan Short-Name';
-$ecLang['clanTag']			= 'Kürzel';
-$ecLang['clanTagPos']			= 'Position';
-$ecLang['clanCountry']		= 'Land';
-$ecLang['clanHomepage']		= 'Homepage';
-$ecLang['clanPic']			= 'Bild';
+$ecLang['clanMain'] 			= 'Allgemeine Angaben';
+	$ecLang['clanName'] 		= 'Clan Name';
+	$ecLang['clanShortName'] 	= 'Clan Kürzel';
+	$ecLang['clanTag'] 			= 'Clan Tag';
+	$ecLang['clanCountry']		= 'Clan Herkunft';
+	$ecLang['clanWWW']	 		= 'Website / Link';
+	$ecLang['clanImage'] 		= 'Clan Bild';
 
-//Menu Namen
-$ecLang['menuAngaben']		= 'Allgemeine Angaben';
-$ecLang['menuSave']			= 'Editieren';
+	$ecLang['clanSave'] 		= 'Speichern';
 
-$ecLang['save']				= 'Speichern';
-$ecLang['reset']			= 'Nochmal';
+$ecLang['errorEmpty'] 			= 'Fehler: Du musst alle mit einem Sternchen gekennzeichneten Felder ausfüllen!';
 
-$ecLang['errorEmpty'] 		= 'Fehler: Du musst alle mit einem Sternchen gekennzeichneten Felder ausfüllen!';
-$ecLang['clanEdited'] 		= 'Clan erfolgreich editiert';
+$ecLang['clanEdited'] 			= 'Clan erfolgreich editiert';
+
+$ecLang['save'] 				= 'Speichern';
+$ecLang['reset'] 				= 'Nochmal';
 ?>

@@ -1,0 +1,51 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:games}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<!-siteHead>
+<!+gamesHead>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?gamesTitle}</a></li>
+		<li><a>{?addTitle}</a></li>
+	</ul>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td width="20%"><strong>{?gamesId}</strong></td>
+			<td><strong>{?gamesName}</strong></td>
+			<td><strong>{?gamesIcon}</strong></td>
+			<td width="5%"><img src="{icon:16:edit}" width="16" height="16" /></td>
+		    <td width="5%"><img src="{icon:16:delete}" width="16" height="16" /></td>
+		  </tr>
+		<!-gamesHead>
+		<!+gamesData>
+		  <tr>
+			<td># {$gamesId}</td>
+			<td width="30%">{$gamesName}</td>
+			<td width="10%"><img src="uploads/games/{$gamesIcon}" width="16" height="16"/></td>
+			<td><a href="index.php?view=games&site=edit&amp;id={$gamesId}" ><img src="{icon:16:edit}" width="16" height="16" /></a></td>
+		    <td><a href="index.php?view=games&site=remove&amp;id={$gamesId}"><img src="{icon:16:delete}" width="16" height="16" /></a></td>
+		  </tr>
+		<!-gamesData>
+		<!+gamesFoot>
+		</table>
+	</div>
+<!-gamesFoot>
+<!+gamesAdd>
+	<div class="clickTab">
+		<img src="{icon:16:new}" width="16" height="16" border="0" />
+		<a href="index.php?view=games&amp;site=add"><strong>{?gamesAdd}</strong></a>
+	</div>
+<!-gamesAdd>
+<!+siteFoot>
+</div>
+<!-siteFoot>
+<!+gamesSaved>
+	<div class="clickTabBox">
+		<ul>
+			<li><a>{?gamesSaved}</a></li>
+		</ul>
+		<div class="clickTab">{$next}</div>
+	</div>
+<!-gamesSaved>

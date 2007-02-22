@@ -13,7 +13,6 @@
 */ $ecFile = 'plugins/clandb/add.php';
 
 echo ecTemplate('clandb', 'add', 'siteHead');
-$ecLang = ecGetLang('users', 'add');
 if (isset($_POST['save']))
 {
 	if (!empty($_POST['clanName']))

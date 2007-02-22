@@ -1,0 +1,60 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:games}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<!-siteHead>
+<!+gamesEdit>
+<form method="post" action="index.php?view=games&amp;site=edit&amp;id={$id}" enctype="multipart/form-data">
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?gamesMain}</a></li>
+	</ul>
+	<div class="clickTab">
+          <span style="color:#FF0000">{$errorMsg}</span>
+          <table class="table">
+            <tr>
+              <td width="40%">{?gamesName}*</td>
+              <td width="60%"><input name="gamesName" type="text" id="gamesName" value="{$gamesName}" /></td>
+            </tr>
+            <tr>
+              <td width="40%">{?gamesVersion}</td>
+              <td width="60%"><input name="gamesVersion" type="text" id="gamesVersion" value="{$gamesVersion}" /></td>
+            </tr>
+            <tr>
+              <td width="40%">{?gamesPublisher}</td>
+              <td width="60%"><input name="gamesPublisher" type="text" id="gamesPublisher" value="{$gamesPublisher}" /></td>
+            </tr>
+            <tr>
+              <td>{?gamesWWW}</td>
+              <td><input name="gamesWWW" type="text" id="gamesWWW" value="{$gamesWWW}" /></td>
+            </tr>
+            <tr>
+              <td width="40%">{?gamesIcon}</td>
+              <td width="60%"><input name="gamesIcon" type="file" /></td>
+            </tr>
+		</table>
+	</div>
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?gamesSave}</a></li>
+	</ul>
+	<div class="clickTab">
+        <table width="100%" border="0">
+          <tr>
+            <td colspan="2"><input name="save" type="submit" id="save" value="{?save}" />
+              <input name="reset"  type="reset" id="reset" value="{?reset}" /></td>
+          </tr>
+        </table>
+	</div>
+</div>
+</form>
+<!-gamesEdit>
+<!+gamesEdited>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?gamesEdited}</a></li>
+	</ul>
+	<div class="clickTab">{$next}</div>
+</div>
+<!-gamesEdited>

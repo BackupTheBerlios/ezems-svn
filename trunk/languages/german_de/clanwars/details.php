@@ -3,7 +3,7 @@ $ecFile = 'languages/german_de/clanwars/details.php';
 
 $ecLang['siteTitle']			= 'ClanWar Details';
 
-$ecLang['squads']			= 'Squads';
+$ecLang['squads']		= 'Squads';
 $ecLang['vs']			= 'vs';
 $ecLang['matchDetails']	= 'Match Details';
 $ecLang['matchtyp']		= 'Matchtyp:';

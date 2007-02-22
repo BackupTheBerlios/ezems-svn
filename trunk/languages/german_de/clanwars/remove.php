@@ -1,5 +1,5 @@
 <?php
-$ecFile = 'langs/german/clanwars/add.php';
+$ecFile = 'langs/german_de/clanwars/add.php';
 
 $ecLang['siteTitle'] 	= 'Clanwars';
 

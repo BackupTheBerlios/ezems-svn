@@ -52,7 +52,7 @@ echo ecTemplate('system', 'admin', 'systemToolsFoot');
 // Versioncheck
 $ecLang = ecGetLang('system', 'admin');
 $installedVersion = $ecSettings['system']['version'];
-$serverVersion = implode('',file('http://www.phoenix-swiss.net/version.php'));
+$serverVersion = implode('',file('http://www.ezems.net/status/'));
 
 if (version_compare($installedVersion, $serverVersion) != -1)
 {

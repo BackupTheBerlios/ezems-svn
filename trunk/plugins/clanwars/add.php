@@ -214,9 +214,10 @@ if($action == 'add')
 	{
 		$updates['clanwarsFiles'] = $update;
 		dbUpdate(1, 'clanwars', $updates, 'clanwarsId = '.$mysqlInsertId);
+		
+		$next = ecReferer('index.php?view=clanwars&amp;site=manage');
+		echo ecTemplate('clanwars', 'add', 'saved');
 	}
-	$next = ecReferer('index.php?view=clanwars&amp;site=manage');
-	echo ecTemplate('clanwars', 'add', 'saved');
 }
 else
 {
@@ -312,7 +313,7 @@ else
 		}
 		//Minuten
 		$mi = 0;
-		while($mi <= 60)
+		while($mi <= 50)
 		{
 			//Minuten Template laden
 			$minOption .= ecTemplate('clanwars',$gameTemplate.'add', 'min');

@@ -7,107 +7,102 @@
 		<li><a>{?squads}</a></li>
 	</ul>
 	<div class="clickTab">
-	
-        <table width="100%" border="0">
-	<tr>
-		<td colspan=3><strong>{$gameName}</strong></td>
-	</tr>
-	<tr>
-		<td align="center" width="40%"><img src="uploads/squads/{$squadPic}" width="100px" height="100px"><br />
-	  {$squadName}</td>
-		<td align="center" width="10%">{?vs}</td>
-		<td align="center" width="40%"><img src="uploads/clandb/{$enemyPic}" width="100px" height="100px"><br />
-	  {$enemyName}</td>
-	</tr>
-        </table>
+	<table class="table">
+		<tr>
+			<td colspan=3><strong>{$gameName}</strong></td>
+		</tr>
+		<tr>
+			<td align="center" width="40%"><img src="uploads/squads/{$squadPic}" width="100px" height="100px"><br />
+				{$squadName}
+			</td>
+			<td align="center" width="10%">{?vs}</td>
+			<td align="center" width="40%"><img src="uploads/clandb/{$enemyPic}" width="100px" height="100px"><br />
+				{$enemyName}
+			</td>
+		</tr>
+	</table>
 	</div>
 </div>
-
-
-
 
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?matchDetails}</a></li>
 	</ul>
 	<div class="clickTab">
-        <table width="100%" border="0">
-	<tr>
-		<td>{?matchtyp}</td>
-		<td colspan="2">{$matchTyp}</td>
-	</tr>
-	<tr>
-		<td>{?date}</td>
-		<td colspan="2">{$date} {?hour}</td>
-	</tr>
-        </table>
+	<table class="table">
+		<tr>
+			<td>{?matchtyp}</td>
+			<td>{$matchTyp}</td>
+		</tr>
+		<tr>
+			<td>{?date}</td>
+			<td>{$date} {?hour}</td>
+		</tr>
+	</table>
 	</div>
 </div>
-
-
 
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?lineup}</a></li>
 	</ul>
 	<div class="clickTab">
-        <table width="100%" border="0">
-	<tr>
-		<td valign="top">
-			<table style="width:{ecTableWidth}" border="0">
-				<tr>
-					<td colspan="2"><b>{?SquadLineup}</b></td>
-				<tr>
-					<td><b>{?nick}</b></td>
-					<td><b>{?function}</b></td>
-				</tr>
-				{$squadLineup}
-			</table>
-		</td>
-		<td></td>
-		<td valign="top">
-			<table style="width:{ecTableWidth}" border="0">
-				<tr>
-					<td><b>{?enemyLineup}</b></td>
-				</tr>
-				<tr>
-					<td><b>{?nick}</b></td>
-				</tr>
-				{$enemyLineup}
-			</table>
-	</tr>
-        </table>
+	<table class="table">
+		<tr>
+			<td valign="top">
+				<table>
+					<tr>
+						<td colspan="2"><b>{?SquadLineup}</b></td>
+					</tr>	
+					<tr>
+						<td><b>{?nick}</b></td>
+						<td><b>{?function}</b></td>
+					</tr>
+					{$squadLineup}
+				</table>
+			</td>
+			<td></td>
+			<td valign="top">
+				<table>
+					<tr>
+						<td><b>{?enemyLineup}</b></td>
+					</tr>
+					<tr>
+						<td><b>{?nick}</b></td>
+					</tr>
+					{$enemyLineup}
+				</table>
+			</td>
+		</tr>
+	</table>
 	</div>
 </div>
-
 
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?Rounds}</a></li>
 	</ul>
 	<div class="clickTab">
-        <table width="100%" border="0">
-{$maptemplate}
-        </table>
+	<table class="table">
+		{$maptemplate}
+	</table>
 	</div>
 </div>
-
-
 
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?misc}</a></li>
 	</ul>
 	<div class="clickTab">
-        <table width="100%" border="0">
-	<tr>
-		<td colspan="3"><b>{?Report}</b></td>
-	</tr>
-	<tr>
-		<td colspan="3">{$bericht}</td>
-	</tr>
-	{$media}
-        </table>
+	<table class="table">
+		<tr>
+			<td colspan="3"><b>{?Report}</b></td>
+		</tr>
+		<tr>
+			<td colspan="3">{$bericht}</td>
+		</tr>
+		{$media}
+	</table>
 	</div>
 </div>
 <!-siteEntry>
@@ -125,7 +120,7 @@
 </tr>
 <!-enemyLineup>
 <!+mapRound>
-<table style="width:{ecTableWidth}" border="0" class="table">
+<table class="table">
 	<tr>
 		<td width="20%">{?ct}</td>
 		<td width="10%">{$score1}</td>
@@ -133,7 +128,7 @@
 		<td width="20%">{?t}</td>
 		<td width="10%">{$score2}</td>
 	</tr>
-		<tr>
+	<tr>
 		<td width="20%">{?t}</td>
 		<td width="10%">{$score3}</td>
 		<td width="40%"></td>
@@ -155,19 +150,19 @@
 <!-medienImage>
 
 <!+medien>
-	<tr>
-		<td colspan="3"><strong>{?Medien}</strong></td>
-	</tr>
-	<tr>
-		<td valign="top"><strong>{?images}</strong>
-			<table style="width:{ecTableWidth}" border="0">
-				{$medienImageTemplate}
-			</table>	
-		</td>
-		<td colspan="2" valign="top"><strong>{?archives}</strong>
-			<table style="width:{ecTableWidth}" border="0">
-				{$medienArchivTemplate}
-			</table>
-		</td>
-	</tr>
+<tr>
+	<td colspan="3"><strong>{?Medien}</strong></td>
+</tr>
+<tr>
+	<td valign="top"><strong>{?images}</strong>
+		<table class="table">
+			{$medienImageTemplate}
+		</table>	
+	</td>
+	<td colspan="2" valign="top"><strong>{?archives}</strong>
+		<table class="table">
+			{$medienArchivTemplate}
+		</table>
+	</td>
+</tr>
 <!-medien>

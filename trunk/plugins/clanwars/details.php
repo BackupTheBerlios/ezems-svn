@@ -12,7 +12,7 @@
  trägt allein der Nutzer des Programmes.
 */ $ecFile = 'plugins/clanwars/details.php';
 
-$cwId = isset($_REQUEST['cwId']) ? $_REQUEST['cwId'] : '';
+$cwId = isset($_REQUEST['Id']) ? $_REQUEST['Id'] : '';
 
 $gameName = '';
 $gameTemplate = '';

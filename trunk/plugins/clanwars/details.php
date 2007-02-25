@@ -38,7 +38,7 @@ while ($cwDetails = mysql_fetch_object($ecClanwarData))
 	{
 		$squadName = $squadInfo->squadsName;
 		$squadTag = $squadInfo->squadsTag;
-		$squadPic = !empty($squadInfo->squadsPic) ? '$squadInfo->squadsPic' : 'default.png';
+		$squadPic = !empty($squadInfo->squadsPic) ? $squadInfo->squadsPic : 'default.png';
 	}
 	
 	//Durch die Gegnerid die Gegnerinformationen aus der ClanDb holen
@@ -47,7 +47,7 @@ while ($cwDetails = mysql_fetch_object($ecClanwarData))
 	while ($enemyClanInfo = mysql_fetch_object($enemy))
 	{
 		$enemyName = $enemyClanInfo->clanDbName;
-		$enemyPic = $enemyClanInfo->clanDbImage;
+		$enemyPic = !empty($enemyClanInfo->clanDbImage) ? $enemyClanInfo->clanDbImage : 'default.png';
 	}
 
 	//Datumausgabe im Script

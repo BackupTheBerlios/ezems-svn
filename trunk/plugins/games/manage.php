@@ -20,7 +20,7 @@ while($games = mysql_fetch_object($ecGamesData))
 {
 	$gamesId = $games->gamesId;
 	$gamesName = $games->gamesName;
-	$gamesIcon = $games->gamesIcon;
+	$gamesIcon = !empty($games->gamesIcon) ? $games->gamesIcon : 'default.png';
 	echo ecTemplate('games', 'manage', 'gamesData');
 }
 echo ecTemplate('games', 'manage', 'gamesFoot');

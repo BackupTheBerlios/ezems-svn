@@ -67,6 +67,10 @@
    border: none;
  }
  
+ input.file {
+   width: auto;
+ }
+ 
  select {
   font-size: 12px;
   border: 1px solid #c0c0c0;

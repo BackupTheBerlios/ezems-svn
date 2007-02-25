@@ -47,7 +47,6 @@
 			</td>
 		</tr>
 	</table>
-	
 	<table class="table">
 		<tr>
 			<td  width="30%"><strong>{?squads}</strong></td>
@@ -99,7 +98,6 @@
 			</td>
 		</tr>
 	</table>
-	
 	<table class="table">
 		<tr>
 			<td>
@@ -127,36 +125,22 @@
 		</tr>
 	</table>
 	</div>
-	<div class="clickTab">
-	<table style="width:{ecTableWidth}" border="0" class="table">
-		<tr>
-			<td><strong>{?bericht}</strong></td>
-		</tr>
-		<tr>
-			<td><textarea>DEMO noch nicht eingebaut, da ich auf den BBCODE warte</textarea></td>
-		</tr>
-	</table>
-	
+	<div class="clickTab"><strong>{?bericht}</strong>
+	  <br />
+	  <textarea name="textarea">DEMO noch nicht eingebaut, da ich auf den BBCODE warte</textarea>
 	<table class="table">
 		{$uploadAllowed}
 	</table>
 	</div>
 </div>
-
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?save}</a></li>
 	</ul>
 	<div class="clickTab">
-	<table class="table">
-		<tr>
-			<td colspan="2">
-				<input type="hidden" name="game" value="{$gameId}" />
-				<input name="save" type="submit" id="save" value="{?save}" />
-				<input name="reset"  type="reset" id="reset" value="{?reset}" />
-			</td>
-		</tr>
-	</table>
+		<input type="hidden" name="game" value="{$gameId}" />
+		<input name="save" type="submit" id="save" value="{?save}" />
+		<input name="reset"  type="reset" id="reset" value="{?reset}" />
 	</div>
 </div>
 </form>

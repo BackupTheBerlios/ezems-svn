@@ -15,21 +15,13 @@
 $ecLang = ecGetLang('users', 'navlogin');
 if (isset($_REQUEST['view']))
 {
-	$loginPlugin = $_REQUEST['view'];
-	if (isset($_REQUEST['site']))
-	{
-		$loginSite = $_REQUEST['site'];
-	}
-	else
-	{
-		$loginSite = 'list';
-	}
+	$loginPage = serialize($_GET);
 }
 else
 {
-	$loginPlugin = 'users';
-	$loginSite = 'home';
+	$loginPage = serialize(array('view' => 'users','site' => 'home'));
 }
+$loginPage = str_replace('"','@',$loginPage);
 $username = isset($_REQUEST['loginUsername']) ? $_REQUEST['loginUsername'] : $ecLang['username'];
 $password = isset($_REQUEST['loginPassword']) ? $_REQUEST['loginPassword'] : $ecLang['password'];
 echo ecTemplate('users', 'navlogin');

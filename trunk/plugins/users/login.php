@@ -17,9 +17,17 @@ echo ecTemplate('users', 'login', 'siteHead');
 $ecLang = ecGetLang('users', 'login');
 if ($loginStatus == 1)
 {
-	$loginPlugin = $_POST['loginPlugin'];
-	$loginSite = $_POST['loginSite'];
-	$next = ecReferer('index.php?view='.$loginPlugin.'&amp;site='.$loginSite);
+	$loginPage = unserialize(str_replace('@','"',$_POST['loginPage']));
+	$nextPage = 'index.php?';
+	$count = count($loginPage);
+	$i = 0;
+	foreach ($loginPage as $index => $value)
+	{
+		$i++;
+		$nextPage .= $index.'='.$value;
+		if ($i != $count) $nextPage .= '&amp;';
+	}
+	$next = ecReferer($nextPage);
 	echo ecTemplate('users', 'login', 'loginOk');
 }
 elseif ($loginStatus == 2)

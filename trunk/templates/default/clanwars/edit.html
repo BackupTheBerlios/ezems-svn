@@ -11,165 +11,146 @@
 		<li><a>{?menuMaps}</a></li>
 		<li><a>{?menuMisc}</a></li>
 	</ul>
-		<div class="clickTab">
-		<table class="table">
-		  <tr>
-			<td>
-<table style="width:{ecTableWidth}" border="0" class="table">
-  <tr>
-  	<td><strong>{?category}</strong></td>
-  	<td><select name="category">
-			<option value="{$categoryId}">{$categoryName}</option>
-  			<option value="">- - -</option>
-  				{$categoryOptions}
-  		</select> - <input name="newCategory" type="text" />  	</td>
-  </tr>
-</table>
+	<div class="clickTab">
+	<table class="table">
+		<tr>
+			<td><strong>{?category}</strong></td>
+			<td><select name="category">
+					<option value="{$categoryId}">{$categoryName}</option>
+					<option value="">- - -</option>
+						{$categoryOptions}
+				</select> - <input name="newCategory" type="text" />
 			</td>
-		  </tr>
-		</table>
+		</tr>
+	</table>
 	</div>
 	<div class="clickTab">
-		<table class="table">
-		  <tr>
-			<td>
-<table style="width:{ecTableWidth}" border="0" class="table">
-  <tr>
-  	<td valign="top" width="30%"><strong>{?enemyClan}</strong></td>
-  	<td><input type="hidden" name="newClanHide"/>
-		<select name="clanDb">
-			<option value="{$clanId}">{$clanName}</option>
-			<option value="">- - -</option>
-  				{$clanDbOptions}
-			<option value="" onclick="ecMakeVisible('newClanHide','another')">{?another}</option>
-  		</select>
-		<div style="display:none" id="another"><input name="newClan" type="text" /> </div>
-  </tr>
-  <tr>
-  	<td colspan="2"  width="30%"><strong>{?enemyList}</strong></td>
-  </tr>
-  <tr>
-  	<td valign="bottom" width="30%"></td>
-	<td>{$enemyNamesOption}
-		<div id="enemyNames"><div name="id"></div></div>
-		<a href="javascript:void(0)" onclick="ecDynamicInput('enemyNames',1,{$enemyInputCount})"><img src="{icon:16:new}" /></a> <a href="javascript:void(0)" onclick="ecDynamicInput('enemyNames',2,{$enemyInputCount})"><img src="{icon:16:no}" /></a>
-	</td>
-  </tr>
-</table>
-
-<table style="width:{ecTableWidth}" border="0" class="table">
-  <tr>
-  	<td  width="30%"><strong>{?squads}</strong></td>
-  	<td><input type="hidden" name="squadPlayerVersteckt" value="{$squadCurrentId}">
-  		<select name="squad" onchange="ecMakeVisible('squadPlayerVersteckt',this.value)">
-			<option value="{$squadCurrentId}">{$squadNameCurrentMatch}</option>
-			<option value="">- - -</option>
-  				{$squadOptions}
-  		</select>  	</td>
-  </tr>
-  <tr>
-  	<td valign="top" width="30%"><strong>{?SquadPlayer}</strong></td>
-  	<td>{$squadPlayer}</td>
-  </tr>
-</table>
+	<table class="table">
+		<tr>
+			<td valign="top" width="30%"><strong>{?enemyClan}</strong></td>
+			<td><input type="hidden" name="newClanHide"/>
+				<select name="clanDb">
+					<option value="{$clanId}">{$clanName}</option>
+					<option value="">- - -</option>
+						{$clanDbOptions}
+					<option value="" onclick="ecMakeVisible('newClanHide','another')">{?anotherClan}</option>
+				</select>
+				<div style="display:none" id="another"><input name="newClan" type="text" /></div>
 			</td>
-		  </tr>
-		</table>
+		</tr>
+		<tr>
+			<td colspan="2"  width="30%"><strong>{?enemyList}</strong></td>
+		</tr>
+		<tr>
+			<td valign="bottom" width="30%"></td>
+			<td>{$enemyNamesOption}
+				<div id="enemyNames"><div name="id"></div></div>
+				<a href="javascript:void(0)" onclick="ecDynamicInput('enemyNames',1,{$enemyInputCount})"><img src="{icon:16:new}" /></a>
+				<a href="javascript:void(0)" onclick="ecDynamicInput('enemyNames',2,{$enemyInputCount})"><img src="{icon:16:no}" /></a>
+			</td>
+		</tr>
+	</table>
+	
+	<table class="table">
+		<tr>
+			<td  width="30%"><strong>{?squads}</strong></td>
+			<td><input type="hidden" name="squadPlayerVersteckt" value="{$squadCurrentId}">
+				<select name="squad" onchange="ecMakeVisible('squadPlayerVersteckt',this.value)">
+					<option value="{$squadCurrentId}">{$squadNameCurrentMatch}</option>
+					<option value="">- - -</option>
+						{$squadOptions}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" width="30%"><strong>{?SquadPlayer}</strong></td>
+			<td>{$squadPlayer}</td>
+		</tr>
+	</table>
 	</div>
 	<div class="clickTab">
-		<table class="table">
-		  <tr>
-			<td>
-<table style="width:{ecTableWidth}" border="0" class="table">
-  <tr>
-  	<td width="30%"><strong>{?Date}</strong></td>
-  	<td><select name="day">
-			<option value="{$day}">{$day}</option>
-  			<option value="">- - -</option>
-  				{$dayOption}
-  		</select>
-  		<select name="month">
-			<option value="{$month}">{$month}</option>
-  			<option value="">- - -</option>
-  				{$monthOption}
-  		</select>
-  		<select name="year">
-		<option value="{$year}">{$year}</option>
-  			<option value="">- - -</option>
-  				{$yearOption}
-  		</select>  	</td>
-  </tr>
-  <tr>
-  	<td width="30%"><strong>{?time}</strong></td>
-	<td><select name="hour">
-		<option value="{$hour}">{$hour}</option>
-			<option value="">- - -</option>
-				{$hourOption}
-		</select>
-:		
-<select name="min">
-			<option value="{$min}">{$min}</option>
-			<option value="">- - -</option>
-				{$minOption}
-		</select>	</td>
-  </tr>
-</table>
-
-<table style="width:{ecTableWidth}" border="0" class="table">
-  <tr>
-  	<td colspan="2">{$mapscore}</td>
-  </tr>
-  <tr>
-  	<td colspan="2"><input type="button" value="{?addRound}" onClick="ecDynamicMapInput('score',1,{$countAllMaps})"><input type="button" value="{?deleteRound}" onClick="ecDynamicMapInput('score',2,{$countAllMaps})"></td>
-  </tr>
-</table>
+	<table class="table">
+		<tr>
+			<td width="30%"><strong>{?Date}</strong></td>
+			<td><select name="day">
+					<option value="{$day}">{$day}</option>
+					<option value="">- - -</option>
+						{$dayOption}
+				</select>
+				<select name="month">
+					<option value="{$month}">{$month}</option>
+					<option value="">- - -</option>
+						{$monthOption}
+				</select>
+				<select name="year">
+					<option value="{$year}">{$year}</option>
+					<option value="">- - -</option>
+						{$yearOption}
+				</select>
 			</td>
-		  </tr>
-		</table>
+		</tr>
+		<tr>
+			<td width="30%"><strong>{?time}</strong></td>
+			<td><select name="hour">
+					<option value="{$hour}">{$hour}</option>
+					<option value="">- - -</option>
+						{$hourOption}
+				</select>
+				:
+				<select name="min">
+					<option value="{$min}">{$min}</option>
+					<option value="">- - -</option>
+						{$minOption}
+				</select>
+			</td>
+		</tr>
+	</table>
+	
+	<table class="table">
+		<tr>
+			<td colspan="2">{$mapscore}</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="button" value="{?addRound}" onClick="ecDynamicMapInput('score',1,{$countAllMaps})">
+				<input type="button" value="{?deleteRound}" onClick="ecDynamicMapInput('score',2,{$countAllMaps})">
+			</td>
+		</tr>
+	</table>
 	</div>
 	<div class="clickTab">
-		<table class="table">
-		  <tr>
-			<td>
-<table style="width:{ecTableWidth}" border="0" class="table">
-  <tr>
-  	<td><strong>{?bericht}</strong></td>
-  </tr>
-  <tr>
-  	<td><textarea>DEMO noch nicht eingebaut, da ich auf den BBCODE warte</textarea></td>
-  </tr>
-</table>
-
-  {$media}
-<table style="width:{ecTableWidth}" border="0" class="table">
-	<tr>
-		<td>{$uploadAllowed}</td>
-	</tr>
-</table>  
- 
-  
-			</td>
-		  </tr>
-		</table>
-	</div></div>
+	<table class="table">
+		<tr>
+			<td><strong>{?bericht}</strong></td>
+		</tr>
+		<tr>
+			<td><textarea>DEMO noch nicht eingebaut, da ich auf den BBCODE warte</textarea></td>
+		</tr>
+	</table>
+	
+	{$media}
+	<table class="table">
+		<tr>
+			<td>{$uploadAllowed}</td>
+		</tr>
+	</table>  
+	</div>
+</div>
 
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?submit}</a></li>
 	</ul>
 	<div class="clickTab">
-	
-        <table width="100%" border="0">
-          <tr></tr>
-
-          <tr>
-            <td colspan="2">
-			  <input type="hidden" name="game" value="{$gameId}" />
-			  <input name="save" type="submit" id="save" value="{?submit}" />
-              <input name="reset"  type="reset" id="reset" value="{?reset}" />
+	<table class="table">
+		<tr>
+			<td>
+				<input type="hidden" name="game" value="{$gameId}" />
+				<input name="save" type="submit" id="save" value="{?submit}" />
+				<input name="reset"  type="reset" id="reset" value="{?reset}" />
 			</td>
-          </tr>
-        </table>
+		</tr>
+	</table>
 	</div>
 </div>
 </form>
@@ -218,38 +199,39 @@
 <!-min
 
 <!+uploadAllowed>
-	<table style="width:{ecTableWidth}" border="0" class="table">
-	  <tr>
-		<td valign="top" width="30%"><strong>{?allowed}</strong></td>
-		<td>{$pics}<br />{$archiver}</td>
-	  </tr>
-	  <tr>
-		<td colspan="2">
-			<tbody id='uploads'></tbody>
-		</td>
-	  </tr>
-	  <tr>
-		<td colspan="2"><input type="button" value="{?fileAdd}" onClick="ecFileInput('uploads')"></td>
-	  </tr>
+	<table class="table">
+		<tr>
+			<td valign="top" width="30%"><strong>{?allowed}</strong></td>
+			<td>{$pics}<br />{$archiver}</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<tbody id='uploads'></tbody>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="button" value="{?fileAdd}" onClick="ecFileInput('uploads')"></td>
+		</tr>
 	</table>
 <!-uploadAllowed>
 
 <!+mapScore>
-	<table style="width:{ecTableWidth}" border="0" id="score">
+	<table id="score">
 		<tr>
 			<td valign="top" width="30%"><strong>{?map}</strong></td>
-			<td><input name="map[]" value="{$map}"/>
-			</td>
+			<td><input name="map[]" value="{$map}"/></td>
 		</tr>
 		<tr>
 			<td><strong>{?scoreTeam1}</strong></td>
-			<td><input type="text" name="score[]" size="5" value="{$score1}"> 
-			: <input type="text" name="score[]" size="5" value="{$score2}"/></td>
+			<td><input type="text" name="score[]" size="5" value="{$score1}"> : 
+				<input type="text" name="score[]" size="5" value="{$score2}"/>
+			</td>
 		</tr>
 		<tr>
 			<td><strong>{?scoreTeam2}</strong></td>
-			<td><input type="text" name="score[]" size="5" value="{$score3}"> 
-			: <input type="text" name="score[]" size="5" value="{$score4}"/></td>
+			<td><input type="text" name="score[]" size="5" value="{$score3}"> : 
+				<input type="text" name="score[]" size="5" value="{$score4}"/>
+			</td>
 		</tr>
 	</table>
 <!-mapScore>
@@ -266,7 +248,7 @@
 <!-uploadetFiles>
 
 <!+medien>
-	<table style="width:{ecTableWidth}" border="0" class="table">
+	<table class="table">
 		<tr>
 			<td colspan="2"><strong>{?dataOnServer}</strong></td>
 		</tr>
@@ -286,75 +268,56 @@
 <!-archiver>
 
 <!+Error>
-
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?warning}</a></li>
 	</ul>
+	
 	<div class="clickTab">
-        <table width="100%" border="0">
-		  <tr>
-		    <td class="cellmiddle">
-<table>
-<tr><td></td></tr>
-			{$enemyError}
-			{$enemyPlayerError}
-			{$playerError}
-			{$mapError}
-			{$scoreError}
-</table>
-			  </strong>
-			  <br /><br />
-			  <a href="javascript:history.back()"><strong>{?back}</strong></a>
+	<table class="table">
+		<tr>
+			<td><span style="color:#FF0000">
+			    {$enemyError}<br />
+				{$enemyPlayerError}<br />
+				{$playerError}<br />
+				{$mapError}<br />
+				</span>
 			</td>
-		  </tr>
-        </table>
+		</tr>
+		<tr>
+			<td><a href="javascript:history.back()"><strong>{?back}</strong></a></td>
+		</tr>
+	</table>
 	</div>
 </div>
 <!-Error>
 
 <!+enemyError>
-		<tr>
-			<td>{?enemyError}</td>
-		</tr>
+	{?enemyError}
 <!-enemyError>
 <!+enemyPlayerError>
-		<tr>
-			<td>{?enemyPlayerError}</td>
-		</tr>
+	{?enemyPlayerError}
 <!-enemyPlayerError>
-
 <!+playerError>
-		<tr>
-			<td>{?playerError}</td>
-		</tr>
+	{?playerError}
 <!-playerError>
-
 <!+mapError>
-		<tr>
-			<td>{?mapError}</td>
-		</tr>
+	{?mapError}
 <!-mapError>
-<!+scoreError>
-		<tr>
-			<td>{?scoreError}</td>
-		</tr>
-<!-scoreError>
 <!+saved>
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?clanwarSavedHeader}</a></li>
 	</ul>
 	<div class="clickTab">
-	
-        <table width="100%" border="0">
-		  <tr>
-			<td>
-    <td class="cellmiddle"><strong>{?clanwarSaved}<br />
-      </strong><br />
-      {$next}</td>
-  </tr>
-        </table>
+	<table class="table">
+		<tr>
+			<td class="cellmiddle"><strong>{?clanwarSaved}</strong></td>
+		</tr>
+		<tr>
+			<td>{$next}</td>
+		</tr>
+	</table>
 	</div>
 </div>
 <!-saved>

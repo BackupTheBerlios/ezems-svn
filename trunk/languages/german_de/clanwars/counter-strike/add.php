@@ -36,7 +36,6 @@ $ecLang['warning']				= 'Warnung';
 	$ecLang['mapError']				= 'Bitte wählen Sie eine Map aus';
 	$ecLang['back']					= 'zurück';
 	
-	
 $ecLang['clanwarSavedHeader'] 	= 'Clanwar gespeichert';
 	$ecLang['clanwarSaved']			= 'Das von Ihnen eingetragene Clanwar wurde gespeichert';
 	

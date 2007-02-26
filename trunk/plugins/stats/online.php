@@ -26,103 +26,57 @@
 			switch ($data->statsBrowser)
 			{
 				case 1:
-					$statsBrowser = 'Microsoft Internet Explorer';
-					break;
+					$statsBrowser = 'Internet Explorer'; break;
 				case 2:
-					$statsBrowser = 'Microsoft Internet Explorer 4.x';
-					break;
+					$statsBrowser = 'Netscape'; break;
 				case 3:
-					$statsBrowser = 'Microsoft Internet Explorer 5.x';
-					break;
+					$statsBrowser = 'Opera'; break;
 				case 4:
-					$statsBrowser = 'Microsoft Internet Explorer 6.x';
-					break;
+					$statsBrowser = 'Firefox'; break;
 				case 5:
-					$statsBrowser = 'Microsoft Internet Explorer 7.x';
-					break;
-				case 9:
-					$statsBrowser = 'CrazyBrowser';
-					break;
-				case 10:
-					$statsBrowser = 'Opera 4.x';
-					break;
-				case 11:
-					$statsBrowser = 'Opera 5.x';
-					break;
-				case 12:
-					$statsBrowser = 'Opera 6.x';
-					break;
-				case 13:
-					$statsBrowser = 'Opera 7.x';
-					break;
-				case 14:
-					$statsBrowser = 'Opera 8.x';
-					break;
-				case 15:
-					$statsBrowser = 'Opera 9.x';
-					break;
-				case 20:
-					$statsBrowser = 'Netscape Navigator';
-					break;
-				case 21:
-					$statsBrowser = 'Netscape 4.x';
-					break;
-				case 22:
-					$statsBrowser = 'Mozilla/Netscape 6.x';
-					break;
-				case 30:
-					$statsBrowser = 'Firefox 0.x';
-					break;
-				case 31:
-					$statsBrowser = 'Firefox 1.x';
-					break;
-				case 32:
-					$statsBrowser = 'Firefox 2.x';
-					break;
-				case 40:
-					$statsBrowser = 'Konqueror/Safari';
-					break;
-				case 41:
-					$statsBrowser = 'Netgem/iPlayer';
-					break;
-				case 42:
-					$statsBrowser = 'Handy WAP';
-					break;
+					$statsBrowser = 'Konqueror'; break;
+				case 6:
+					$statsBrowser = 'Safari'; break;
+				case 7:
+					$statsBrowser = 'AOL Browser'; break;
 				default:
 					$statsBrowser = 'Other';
 			}
 			switch ($data->statsSystem)
 			{
 				case 1:
-					$statsOS = 'Microsoft Windows';
-					break;
+					$statsOS = 'Macintosh'; break;
 				case 2:
-					$statsOS = 'Windows 9x';
-					break;
+					$statsOS = 'Linux'; break;
 				case 3:
-					$statsOS = 'Windows Millenium';
-					break;
+					$statsOS = 'FreeBSD'; break;
 				case 4:
-					$statsOS = 'Windows 2000';
-					break;
+					$statsOS = 'SunOS'; break;
 				case 5:
-					$statsOS = 'Windows NT';	
-					break;
+					$statsOS = 'BeOS'; break;
 				case 6:
-					$statsOS = 'Windows XP';
-					break;
-				case 7:
-					$statsOS = 'Windows 2003';
-					break;
-				case 8:
-					$statsOS = 'Windows Vista';
-					break;
+					$statsOS = 'OS2'; break;
+				case 9:
+					$statsOS = 'Windows'; break;
 				case 10:
-					$statsOS = 'Macintosh';
-					break;
+					$statsOS = 'Windows Visual'; break;
+				case 11:
+					$statsOS = 'Windows 95'; break;
+				case 12:
+					$statsOS = 'Windows 98'; break;
+				case 13:
+					$statsOS = 'Windows Millenium'; break;
+				case 14:
+					$statsOS = 'Windows NT'; break;
 				case 15:
-					$statsOS = 'Linux/Unix';
-					break;
+					$statsOS = 'Windows XP'; break;
+				case 16:
+					$statsOS = 'Windows 2000'; break;
+				case 17:
+					$statsOS = 'Windows 2003'; break;
+				case 18:
+					$statsOS = 'Windows Vista'; break;
+
 				default:
 					$statsOS = 'Other';
 			}

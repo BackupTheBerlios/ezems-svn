@@ -12,15 +12,10 @@
 	 trägt allein der Nutzer des Programmes.
 	*/ $ecFile = 'plugins/stats/system.php';
 
-	include './plugins/stats/detect.php';
-
-	$browser = Net_UserAgent_Detect::getBrowserString();
-	$system = Net_UserAgent_Detect::getOSString();
-
 	$insertstats = array();
 	
 	$insertstats['statsIP'] = $ecLocal['userIP'];
-
+/*
 	switch ($browser)
 	{
 		case 'Microsoft Internet Explorer':
@@ -128,6 +123,9 @@
 		default:
 			$insertstats['statsSystem'] = 0;
 	}
+*/
+$insertstats['statsBrowser'] = 0;
+$insertstats['statsSystem'] = 0;
 	$insertstats['statsReferer'] = 0;
 	$insertstats['statsUriPlug'] = $ecLocal['plugin'];
 	$insertstats['statsUriSite'] = $ecLocal['site'];

@@ -1,0 +1,79 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:squads}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<!-siteHead>
+<!+squadHead>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?menuTitle}</a></li>
+		<li><a>{?menuAdd}</a></li>
+		<li><a>{?menuMember}</a></li>
+		<li><a>{?menuMemberAdd}</a></li>
+	</ul>
+	<div class="clickTab">
+		<table class="table">
+			<tr>
+				<td width="20%"><strong>{?squadId}</strong></td>
+				<td><strong>{?squadName}</strong></td>
+				<td><strong>{?squadGame}</strong></td>
+				<td width="5%"><img src="{icon:16:edit}" width="16" height="16" /></td>
+		    	<td width="5%"><img src="{icon:16:delete}" width="16" height="16" /></td>
+			</tr>
+		<!-squadHead>
+		<!+squadData>
+			<tr>
+				<td># {$squadId}</td>
+				<td width="50%">{$squadName}</td>
+				<td width="20"><img src="uploads/games/{$squadGame}" alt="{$squadGame}" width="16" height="16"/></td>
+				<td><a href="index.php?view=squads&site=squadedit&id={$squadId}"><img src="{icon:16:edit}" width="16" height="16" />
+				</td>
+		    	<td><a href="index.php?view=squads&site=squadremove&id={$squadId}"><img src="{icon:16:delete}" width="16" height="16" /></td>
+			</tr>
+		<!-squadData>
+	<!+squadFoot>
+	</table>
+	</div>
+<!-squadFoot>
+<!+squadAdd>
+	<div class="clickTab">
+		<img src="{icon:16:new}" width="16" height="16" border="0" />
+		<a href="index.php?view=squads&amp;site=squadadd"><strong>{?squadAdd}</strong></a>
+	</div>
+<!-squadAdd>
+
+<!+memberHead>
+	<div class="clickTab">
+	<table class="table">
+		<tr>
+			<td width="20%"><strong>{?memberId}</strong></td>
+			<td><strong>{?memberNick}</strong></td>
+			<td><strong>{?memberFunktion}</strong></td>
+			<td width="5%"><img src="{icon:16:edit}" width="16" height="16" /></td>
+		   	<td width="5%"><img src="{icon:16:delete}" width="16" height="16" /></td>
+		</tr>
+<!-memberHead>
+<!+memberData>
+		<tr>
+			<td># {$memberId}</td>
+			<td width="40%">{$memberNick}</td>
+			<td width="30%">{$memberFunktion}</td>
+			<td><img src="{icon:16:edit}" width="16" height="16" /></td>
+		   	<td><img src="{icon:16:delete}" width="16" height="16" /></td>
+		</tr>
+<!-memberData>
+<!+memberFoot>
+	</table>
+	</div>
+<!-memberFoot>
+
+<!+memberAdd>
+	<div class="clickTab">
+		<img src="{icon:16:new}" width="16" height="16" border="0" />
+		<strong>{?memberAdd}</strong>	
+	</div>
+<!-memberAdd>
+
+<!+siteFoot>
+</div>
+<!-siteFoot>

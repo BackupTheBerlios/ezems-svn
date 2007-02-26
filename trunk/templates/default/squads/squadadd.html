@@ -1,0 +1,76 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:squads}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<!-siteHead>
+<!+squadAdd>
+<form id="form1" name="form1" method="post" action="index.php?view=squads&amp;site=squadadd" enctype="multipart/form-data">
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?squadMain}</a></li>
+	</ul>
+	<div class="clickTab">
+    	<span style="color:#FF0000">{$errorMsg}</span>
+        <table class="table">
+			<tr>
+				<td width="40%">{?squadName}*</td>
+				<td width="60%"><input name="squadName" type="text"/></td>
+            </tr>
+            <tr>
+				<td width="40%">{?squadTag}</td>
+				<td width="60%"><input name="squadTag" type="text"/></td>
+            </tr>
+            <tr>
+				<td width="40%">{?squadFight}</td>
+				<td width="60%">
+					{?yes}<input name="squadFight" type="radio" value="0" class="radio" checked="checked"/>
+					{?no}<input name="squadFight" type="radio" value="1" class="radio"/>
+				</td>
+			<tr>
+			</tr>
+				<td width="40%">{?squadGame}*</td>
+				<td width="60%">
+			  		<select name="squadGame">
+						<option value="">- - -</option>
+						{$gameOption}
+					</select>
+				</td>
+			</tr>
+            <tr>
+				<td width="40%">{?squadPic1}</td>
+				<td width="60%"><input type="file" name="small_pic"/></td>
+            </tr>
+			<tr>
+				<td width="40%">{?squadPic2}</td>
+				<td width="60%"><input type="file" name="large_pic"/></td>
+            </tr>
+		</table>
+	</div>
+</div>
+
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?squadSave}</a></li>
+	</ul>
+	<div class="clickTab">
+        <table width="100%" border="0">
+          <tr>
+            <td colspan="2"><input name="save" type="submit" id="save" value="{?save}" />
+              <input name="reset"  type="reset" id="reset" value="{?reset}" /></td>
+          </tr>
+        </table>
+	</div>
+</div>
+</form>
+<!-squadAdd>
+<!+gameOption>
+	<option value="{$gameId}">{$gameName}</option>
+<!-gameOption>
+<!+squadAdded>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?squadAdded}</a></li>
+	</ul>
+	<div class="clickTab">{$next}</div>
+</div>
+<!-squadAdded>

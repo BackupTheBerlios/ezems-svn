@@ -1,0 +1,101 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:squads}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<!-siteHead>
+<!+squadEdit>
+<form id="form1" name="form1" method="post" action="index.php?view=squads&amp;site=squadedit" enctype="multipart/form-data">
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?squadMain}</a></li>
+	</ul>
+	<div class="clickTab">
+        <table class="table">
+			<tr>
+				<td width="40%">{?squadName}*</td>
+				<td width="60%"><input name="squadName" type="text" value="{$squadName}"/></td>
+            </tr>
+            <tr>
+				<td width="40%">{?squadTag}</td>
+				<td width="60%"><input name="squadTag" type="text" value="{$squadTag}"/></td>
+            </tr>
+            <tr>
+				<td width="40%">{?squadFight}</td>
+				<td width="60%">
+					{?yes}<input name="squadFight" type="radio" value="0" class="radio" {$yes}/>
+					{?no}<input name="squadFight" type="radio" value="1" class="radio" {$no}/>
+				</td>
+			<tr>
+			</tr>
+				<td width="40%">{?squadGame}*</td>
+				<td width="60%">
+			  		<select name="squadGame">
+						<option value="{$squadGameId}">{$squadGameName}</option>
+						<option value="">- - -</option>
+						{$gameOption}
+					</select>
+				</td>
+			</tr>
+            <tr>
+				<td width="40%">{?squadPic1}</td>
+				<td width="60%"><input type="file" name="small_pic"/></td>
+            </tr>
+			<tr>
+				<td colspan="2"><img src="uploads/squads/{$squadPicSmall}" alt="{$squadPicSmall}" /></td>
+			</tr>
+			<tr>
+				<td width="40%">{?squadPic2}</td>
+				<td width="60%"><input type="file" name="large_pic"/></td>
+            </tr>
+			<tr>
+				<td colspan="2"><img src="uploads/squads/{$squadPicLarge}" alt="{$squadPicLarge}" /></td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?squadEdit}</a></li>
+	</ul>
+	<div class="clickTab">
+        <table width="100%" border="0">
+          <tr>
+            <td colspan="2">
+				<input name="id" type="hidden" value="{$id}"/>
+				<input name="save" type="submit" id="save" value="{?save}" />
+				<input name="reset"  type="reset" id="reset" value="{?reset}" /></td>
+          </tr>
+        </table>
+	</div>
+</div>
+</form>
+<!-squadEdit>
+<!+gameOption>
+	<option value="{$gameId}">{$gameName}</option>
+<!-gameOption>
+<!+squadEdited>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?squadEdited}</a></li>
+	</ul>
+	<div class="clickTab">{$next}</div>
+</div>
+<!-squadEdited>
+<!+squadWarning>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?squadWarning}</a></li>
+	</ul>
+	<div class="clickTab">
+		<table class="table">
+			<tr>
+				<td><span style="color:#FF0000">{?errorEmpty}</span></td>
+			</tr>
+			<tr>
+				<td>{$next}</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<!-squadWarning>

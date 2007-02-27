@@ -50,14 +50,14 @@
 	<div class="clickTab">
 		<table class="table">
 			<tr>
-				<td>{?squadMembers}</td>
-				<td>{?member}</td>
-				<td>{?task}</td>
+				<td width="40%"><strong>{?squadMembers}</strong></td>
+				<td width="30%"><strong>{?member}</strong></td>
+				<td width="30%"><strong>{?task}</strong></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td colspan="2">
-					<table id="member" class="table">
+					<table width="100%" class="table" id="member">
 						<tr>
 							<td width="50%">
 								<select name="member[]">
@@ -72,7 +72,7 @@
 								</select>
 							</td>
 						</tr>
-					</table>
+				  </table>
 				</td>
 			</tr>
 			<tr>
@@ -91,12 +91,8 @@
 		<li><a>{?squadSave}</a></li>
 	</ul>
 	<div class="clickTab">
-        <table width="100%" border="0">
-          <tr>
-            <td colspan="2"><input name="save" type="submit" id="save" value="{?save}" />
-              <input name="reset"  type="reset" id="reset" value="{?reset}" /></td>
-          </tr>
-        </table>
+		<input name="save" type="submit" id="save" value="{?save}" />
+		<input name="reset"  type="reset" id="reset" value="{?reset}" /></td>
 	</div>
 </div>
 </form>

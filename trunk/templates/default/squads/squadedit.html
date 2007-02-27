@@ -17,36 +17,35 @@
 				<td width="60%"><input name="squadName" type="text" value="{$squadName}"/></td>
             </tr>
             <tr>
-				<td width="40%">{?squadTag}</td>
-				<td width="60%"><input name="squadTag" type="text" value="{$squadTag}"/></td>
+				<td>{?squadTag}</td>
+				<td><input name="squadTag" type="text" value="{$squadTag}"/></td>
             </tr>
             <tr>
-				<td width="40%">{?squadFight}</td>
-				<td width="60%">
-					{?yes}<input name="squadFight" type="radio" value="0" class="radio" {$yes}/>
-					{?no}<input name="squadFight" type="radio" value="1" class="radio" {$no}/>
-				</td>
+				<td>{?squadFight}</td>
+				<td>
+					{?yes}
+					  <input name="squadFight" type="radio" value="0" class="radio" {$yes}/>
+					{?no}<input name="squadFight" type="radio" value="1" class="radio" {$no}/>			  </td>
 			<tr>
 			</tr>
-				<td width="40%">{?squadGame}*</td>
-				<td width="60%">
+				<td>{?squadGame}*</td>
+				<td>
 			  		<select name="squadGame">
 						<option value="{$squadGameId}">{$squadGameName}</option>
 						<option value="">- - -</option>
 						{$gameOption}
-					</select>
-				</td>
+					</select>				</td>
 			</tr>
             <tr>
-				<td width="40%">{?squadPic1}</td>
-				<td width="60%"><input type="file" name="small_pic"/></td>
+				<td>{?squadPic1}</td>
+				<td><input type="file" name="small_pic"/></td>
             </tr>
 			<tr>
 				<td colspan="2"><img src="uploads/squads/{$squadPicSmall}" alt="{$squadPicSmall}" /></td>
 			</tr>
 			<tr>
-				<td width="40%">{?squadPic2}</td>
-				<td width="60%"><input type="file" name="large_pic"/></td>
+				<td>{?squadPic2}</td>
+				<td><input type="file" name="large_pic"/></td>
             </tr>
 			<tr>
 				<td colspan="2"><img src="uploads/squads/{$squadPicLarge}" alt="{$squadPicLarge}" /></td>
@@ -56,16 +55,16 @@
 	<div class="clickTab">
 		<table class="table">
 			<tr>
-				<td><strong>{?squadMembers}</strong></td>
-				<td><strong>{?member}</strong></td>
-				<td><strong>{?task}</strong></td>
-				<td><img src="{icon:16:delete}" width="16" height="16" /></td>
+				<td width="40%"><strong>{?squadMembers}</strong></td>
+				<td width="25%"><strong>{?member}</strong></td>
+				<td width="25%"><strong>{?task}</strong></td>
+				<td width="10%"><img src="{icon:16:delete}" width="16" height="16" /></td>
 			</tr>
 				{$squadPlayer}
 			<tr>
 				<td></td>
 				<td colspan="2">
-				<table id="member" class="table">
+				<table width="100%" id="member">
 						<tr>
 							<td width="50%">
 								<select name="member[]">
@@ -83,7 +82,7 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td colspan="2">
+				<td colspan="3">
 					<input type="button" value="{?addMember}" id="add" onClick="ecDynamicMapInput('member',1,0)">
 					<input type="button" value="{?deleteMember}" id="remove" onClick="ecDynamicMapInput('member',2,0)">				</td>
 			</tr>
@@ -96,14 +95,9 @@
 		<li><a>{?squadEdit}</a></li>
 	</ul>
 	<div class="clickTab">
-        <table width="100%" border="0">
-          <tr>
-            <td colspan="2">
-				<input name="id" type="hidden" value="{$id}"/>
-				<input name="save" type="submit" id="save" value="{?save}" />
-				<input name="reset"  type="reset" id="reset" value="{?reset}" /></td>
-          </tr>
-        </table>
+		<input name="id" type="hidden" value="{$id}"/>
+		<input name="save" type="submit" id="save" value="{?save}" />
+		<input name="reset"  type="reset" id="reset" value="{?reset}" /></td>
 	</div>
 </div>
 </form>

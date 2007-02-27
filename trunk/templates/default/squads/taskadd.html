@@ -1,0 +1,45 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:squads}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<!-siteHead>
+<!+taskAdd>
+<form id="form1" name="form1" method="post" action="index.php?view=squads&amp;site=taskadd">
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?taskMain}</a></li>
+	</ul>
+	<div class="clickTab">
+    	<span style="color:#FF0000">{$errorMsg}</span>
+        <table class="table">
+            <tr>
+              <td width="40%">{?taskName}*</td>
+              <td width="60%"><input name="taskName" type="text" id="taskName" /></td>
+            </tr>
+		</table>
+	</div>
+</div>
+
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?taskSave}</a></li>
+	</ul>
+	<div class="clickTab">
+        <table width="100%" border="0">
+          <tr>
+            <td colspan="2"><input name="save" type="submit" id="save" value="{?save}" />
+              <input name="reset"  type="reset" id="reset" value="{?reset}" /></td>
+          </tr>
+        </table>
+	</div>
+</div>
+</form>
+<!-taskAdd>
+<!+taskAdded>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?taskAdded}</a></li>
+	</ul>
+	<div class="clickTab">{$next}</div>
+</div>
+<!-taskAdded>

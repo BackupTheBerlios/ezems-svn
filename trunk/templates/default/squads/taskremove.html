@@ -1,0 +1,33 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:squad}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<!-siteHead>
+<!+taskRemove>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?taskRemove}</a></li>
+	</ul>
+	<div class="clickTab">
+		<form id="form" name="form" method="post" action="index.php?view=squads&amp;site=taskremove">
+				<table width="100%" border="0">
+					<tr>
+					  <td><span style="color:#FF0000">{?taskRemove}</span></td>
+					  </tr>
+					<tr>
+					  <td><input name="remove" type="submit" id="reset" value="{?remove}" />
+						<input name="id" type="hidden" id="id" value="{$id}" /></td>
+					</tr>
+				</table>
+		</form>
+  </div>
+</div>
+<!-taskRemove>
+<!+taskRemoved>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?taskRemoved}</a></li>
+	</ul>
+	<div class="clickTab">{$next}</div>
+</div>
+<!-taskRemoved>

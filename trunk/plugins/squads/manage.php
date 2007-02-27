@@ -28,17 +28,16 @@ echo ecTemplate('squads', 'manage', 'squadFoot');
 echo ecTemplate('squads', 'manage', 'squadAdd');
 
 //Member Übersicht
-echo ecTemplate('squads', 'manage', 'memberHead');
-$ecMemberData = dbSelect('*',1,'squadplayer,squads,users', "(squadplayerUserId = usersId) && (squadplayerSquadId = squadsId)",'squadplayerId',1);
-while($member = mysql_fetch_object($ecMemberData))
+echo ecTemplate('squads', 'manage', 'taskHead');
+$ecTaskData = dbSelect('*',1,'squadtask');
+while($task = mysql_fetch_object($ecTaskData))
 {
-	$memberId = $member->squadplayerId;
-	$memberNick = $member->usersUsername;
-	$memberSquad = $member->squadsName;
-	echo ecTemplate('squads', 'manage', 'memberData');
+	$taskId = $task->squadtaskId;
+	$taskName = $task->squadtaskName;
+	echo ecTemplate('squads', 'manage', 'taskData');
 }
-echo ecTemplate('squads', 'manage', 'memberFoot');
-echo ecTemplate('squads', 'manage', 'memberAdd');
+echo ecTemplate('squads', 'manage', 'taskFoot');
+echo ecTemplate('squads', 'manage', 'taskAdd');
 
 echo ecTemplate('squads', 'manage', 'siteFoot');
 ?>

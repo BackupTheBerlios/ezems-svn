@@ -14,8 +14,8 @@ $ecLang['menuAdd'] 				= 'Squad hinzufügen';
 $ecLang['menuMember'] 			= 'Member Übersicht';
 	$ecLang['memberId']			= 'MemberId';
 	$ecLang['memberNick'] 		= 'Member Nick';
-	$ecLang['memberFunktion']	= 'Member Funktion';
+	$ecLang['memberSquad']		= 'Member Squad';
 
-$ecLang['menuMemberAdd']		= 'Member hinzufügen';
-	$ecLang['memberAdd'] 		= 'Member hinzufügen';
+$ecLang['menuTaskAdd']			= 'Aufgabe hinzufügen';
+	$ecLang['taskAdd'] 			= 'Aufgabe hinzufügen';
 ?>

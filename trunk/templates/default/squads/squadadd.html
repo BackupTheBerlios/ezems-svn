@@ -8,6 +8,7 @@
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?squadMain}</a></li>
+		<li><a>{?squadMember}</a></li>
 	</ul>
 	<div class="clickTab">
     	<span style="color:#FF0000">{$errorMsg}</span>
@@ -46,6 +47,43 @@
             </tr>
 		</table>
 	</div>
+	<div class="clickTab">
+		<table class="table">
+			<tr>
+				<td>{?squadMembers}</td>
+				<td>{?member}</td>
+				<td>{?task}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td colspan="2">
+					<table id="member" class="table">
+						<tr>
+							<td width="50%">
+								<select name="member[]">
+									<option value="">- - -</option>
+									{$memberOptions}
+								</select>
+							</td>
+							<td width="50%">
+								<select name="task[]">
+									<option value="">- - -</option>
+									{$taskOptions}
+								</select>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td colspan="2">
+					<input type="button" value="{?addMember}" id="add" onClick="ecDynamicMapInput('member',1,0)">
+					<input type="button" value="{?deleteMember}" id="remove" onClick="ecDynamicMapInput('member',2,0)">
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>
 
 <div class="clickTabBox">
@@ -63,9 +101,17 @@
 </div>
 </form>
 <!-squadAdd>
+
 <!+gameOption>
 	<option value="{$gameId}">{$gameName}</option>
 <!-gameOption>
+<!+memberOption>
+	<option value="{$userId}">{$userNick}</option>
+<!-memberOption>
+<!+taskOption>
+	<option value="{$taskId}">{$taskName}</option>
+<!-taskOption>
+
 <!+squadAdded>
 <div class="clickTabBox">
 	<ul>

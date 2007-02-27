@@ -12,17 +12,18 @@
 	 trägt allein der Nutzer des Programmes.
 	*/ $ecFile = 'plugins/squads/squadremove.php';
 	
-	echo ecTemplate('squads', 'squadremove', 'siteHead');
+	echo ecTemplate('squads', 'memberremove', 'siteHead');
 	$id = $_REQUEST['id'];
 	if (isset($_POST['remove']))
 	{
-		dbDelete(1, 'squads', "squadsId = $id");
-		dbDelete(1, 'squadplayer', "squadplayerSquadId = $id");
-		$next = ecReferer('index.php?view=squads&amp;site=manage');
-		echo ecTemplate('squads', 'squadremove', 'squadRemoved');
+		
+		dbDelete(1, 'squadplayer', "squadplayerId = $id");
+		$next = ecReferer('index.php?view=squads&amp;site=squadedit&amp;id='.$_POST['squad']);
+		echo ecTemplate('squads', 'memberremove', 'memberRemoved');
 	}
 	else
 	{
-		echo ecTemplate('squads', 'squadremove', 'squadRemove');
+		$squad = $_REQUEST['squad'];
+		echo ecTemplate('squads', 'memberremove', 'memberRemove');
 	}
 ?>

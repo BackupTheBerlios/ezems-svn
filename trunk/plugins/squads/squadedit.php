@@ -25,6 +25,30 @@ if (isset($_POST['save']))
 		$update['squadsGameId'] = $_POST['squadGame'];
 		dbUpdate(1,'squads',$update,'squadsId = '.$id);
 		
+		$squadPlayerArray = $_POST['members'];
+		$squadPlayerTaskArray = $_POST['tasks'];
+		for($i=0; $i < count($squadPlayerArray); $i++)
+		{
+			if (!empty($squadPlayerArray[$i])) 
+			{
+				$update2['squadplayerTaskId'] = $squadPlayerTaskArray[$i];
+				dbUpdate(1, 'squadplayer', $update2, "(squadplayerId = ".$squadPlayerArray[$i].")");
+			}
+		}
+		
+		$squadPlayersArray = $_POST['member'];
+		$squadPlayersTaskArray = $_POST['task'];
+		for($i=0; $i < count($squadPlayersArray); $i++)
+		{
+			if (!empty($squadPlayersArray[$i])) 
+			{
+				$insert2['squadplayerSquadId'] = $id;
+				$insert2['squadplayerTaskId'] = $squadPlayersTaskArray[$i];
+				$insert2['squadplayerUserId'] = $squadPlayersArray[$i];
+				dbInsert(1, 'squadplayer', $insert2);
+			}
+		}
+		
 		if ($_FILES['small_pic']['error'] != 4)
 		{
 			$datatyp = pathinfo($_FILES['small_pic']['name']);
@@ -50,7 +74,7 @@ if (isset($_POST['save']))
 				dbUpdate(1,'squads',$update,'squadsId = '.$id);
 			}
 		}
-		$next = ecReferer('index.php?view=squads&amp;site=manage');
+		//$next = ecReferer('index.php?view=squads&amp;site=manage');
 		echo ecTemplate('squads', 'squadedit', 'squadEdited');
 	}
 	else 
@@ -82,6 +106,36 @@ else
 		$gameId = $games->gamesId;
 		$gameName = $games->gamesName;
 		$gameOption .= ecTemplate('squads', 'squadedit', 'gameOption');
+	}
+		
+	$memberOptions = '';
+	//Games auslesen
+	$ecUserData = dbSelect('*', 1, 'users');
+	while ($users = mysql_fetch_object($ecUserData))
+	{
+		$userId = $users->usersId;
+		$userNick = $users->usersUsername;
+		$memberOptions .= ecTemplate('squads', 'squadedit', 'memberOption');
+	}
+	
+	$taskOptions = '';
+	//Games auslesen
+	$ecTaskData = dbSelect('*', 1, 'squadtask');
+	while ($task = mysql_fetch_object($ecTaskData))
+	{
+		$taskId = $task->squadtaskId;
+		$taskName = $task->squadtaskName;
+		$taskOptions .= ecTemplate('squads', 'squadedit', 'taskOption');
+	}
+	$squadPlayer = '';
+	$ecSquadMemberData = dbSelect('*', 1, 'squadplayer,users,squadtask',"(squadplayerSquadId = $id) && (squadplayerUserID = usersId) && (squadplayerTaskId = squadtaskId)", 'squadplayerId', 1);
+	while ($squadMember = mysql_fetch_object($ecSquadMemberData))
+	{
+		$squadPlayerId = $squadMember->squadplayerId;
+		$squadPlayerName = $squadMember->usersUsername;
+		$squadPlayerTaskId = $squadMember->squadplayerTaskId;
+		$squadPlayerTaskName = $squadMember->squadtaskName;
+		$squadPlayer .= ecTemplate('squads', 'squadedit', 'squadPlayer');
 	}
 	echo ecTemplate('squads', 'squadedit', 'squadEdit');
 }

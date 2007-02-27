@@ -29,12 +29,12 @@ echo ecTemplate('squads', 'manage', 'squadAdd');
 
 //Member Übersicht
 echo ecTemplate('squads', 'manage', 'memberHead');
-$ecMemberData = dbSelect('*',1,'player,users', "playerUserId = usersId",'playerId',1);
+$ecMemberData = dbSelect('*',1,'squadplayer,squads,users', "(squadplayerUserId = usersId) && (squadplayerSquadId = squadsId)",'squadplayerId',1);
 while($member = mysql_fetch_object($ecMemberData))
 {
-	$memberId = $member->playerId;
+	$memberId = $member->squadplayerId;
 	$memberNick = $member->usersUsername;
-	$memberFunktion = $member->playerSquadFunction;
+	$memberSquad = $member->squadsName;
 	echo ecTemplate('squads', 'manage', 'memberData');
 }
 echo ecTemplate('squads', 'manage', 'memberFoot');

@@ -26,6 +26,19 @@ if (isset($_POST['save']))
 		dbInsert(1, 'squads', $insert);
 		$id = mysql_insert_id();
 		
+		$squadPlayerArray = $_POST['member'];
+		$squadPlayerTaskArray = $_POST['task'];
+		for($i=0; $i < count($squadPlayerArray); $i++)
+		{
+			if (!empty($squadPlayerArray[$i])) 
+			{
+				$insert2['squadplayerSquadId'] = $id;
+				$insert2['squadplayerTaskId'] = $squadPlayerTaskArray[$i];
+				$insert2['squadplayerUserId'] = $squadPlayerArray[$i];
+				dbInsert(1, 'squadplayer', $insert2);
+			}
+		}
+		
 		if ($_FILES['small_pic']['error'] != 4)
 		{
 			$datatyp = pathinfo($_FILES['small_pic']['name']);
@@ -65,6 +78,26 @@ if (isset($_POST['save']))
 			$gameName = $games->gamesName;
 			$gameOption .= ecTemplate('squads', 'squadadd', 'gameOption');
 		}
+		
+		$memberOptions = '';
+		//Games auslesen
+		$ecUserData = dbSelect('*', 1, 'users');
+		while ($users = mysql_fetch_object($ecUserData))
+		{
+			$userId = $users->usersId;
+			$userNick = $users->usersUsername;
+			$memberOptions .= ecTemplate('squads', 'squadadd', 'memberOption');
+		}
+		
+		$taskOptions = '';
+		//Games auslesen
+		$ecTaskData = dbSelect('*', 1, 'squadtask');
+		while ($task = mysql_fetch_object($ecTaskData))
+		{
+			$taskId = $task->squadtaskId;
+			$taskName = $task->squadtaskName;
+			$taskOptions .= ecTemplate('squads', 'squadadd', 'taskOption');
+		}
 		$errorMsg = $ecLang['errorEmpty'];
 		echo ecTemplate('squads', 'squadadd', 'squadAdd');
 	}
@@ -79,6 +112,26 @@ else
 		$gameId = $games->gamesId;
 		$gameName = $games->gamesName;
 		$gameOption .= ecTemplate('squads', 'squadadd', 'gameOption');
+	}
+	
+	$memberOptions = '';
+	//Games auslesen
+	$ecUserData = dbSelect('*', 1, 'users');
+	while ($users = mysql_fetch_object($ecUserData))
+	{
+		$userId = $users->usersId;
+		$userNick = $users->usersUsername;
+		$memberOptions .= ecTemplate('squads', 'squadadd', 'memberOption');
+	}
+	
+	$taskOptions = '';
+	//Games auslesen
+	$ecTaskData = dbSelect('*', 1, 'squadtask');
+	while ($task = mysql_fetch_object($ecTaskData))
+	{
+		$taskId = $task->squadtaskId;
+		$taskName = $task->squadtaskName;
+		$taskOptions .= ecTemplate('squads', 'squadadd', 'taskOption');
 	}
 	$errorMsg = '';
 	echo ecTemplate('squads', 'squadadd', 'squadAdd');

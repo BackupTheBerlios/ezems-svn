@@ -8,6 +8,7 @@
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?squadMain}</a></li>
+		<li><a>{?squadMember}</a></li>
 	</ul>
 	<div class="clickTab">
         <table class="table">
@@ -52,6 +53,42 @@
 			</tr>
 		</table>
 	</div>
+	<div class="clickTab">
+		<table class="table">
+			<tr>
+				<td><strong>{?squadMembers}</strong></td>
+				<td><strong>{?member}</strong></td>
+				<td><strong>{?task}</strong></td>
+				<td><img src="{icon:16:delete}" width="16" height="16" /></td>
+			</tr>
+				{$squadPlayer}
+			<tr>
+				<td></td>
+				<td colspan="2">
+				<table id="member" class="table">
+						<tr>
+							<td width="50%">
+								<select name="member[]">
+									<option value="">- - -</option>
+									{$memberOptions}
+								</select>							</td>
+							<td width="50%">
+								<select name="task[]">
+									<option value="">- - -</option>
+									{$taskOptions}
+								</select>							</td>
+						</tr>
+				  </table>				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td colspan="2">
+					<input type="button" value="{?addMember}" id="add" onClick="ecDynamicMapInput('member',1,0)">
+					<input type="button" value="{?deleteMember}" id="remove" onClick="ecDynamicMapInput('member',2,0)">				</td>
+			</tr>
+		</table>
+	</div>
 </div>
 
 <div class="clickTabBox">
@@ -71,9 +108,32 @@
 </div>
 </form>
 <!-squadEdit>
+
 <!+gameOption>
 	<option value="{$gameId}">{$gameName}</option>
 <!-gameOption>
+<!+memberOption>
+	<option value="{$userId}">{$userNick}</option>
+<!-memberOption>
+<!+taskOption>
+	<option value="{$taskId}">{$taskName}</option>
+<!-taskOption>
+
+<!+squadPlayer>
+<tr>
+	<td></td>
+	<td>{$squadPlayerName}<input type="hidden" name="members[]" value="{$squadPlayerId}" /> </td>
+	<td>
+		<select name="tasks[]">
+			<option value="{$squadPlayerTaskId}">{$squadPlayerTaskName}</option>
+			<option value="">- - -</option>
+			{$taskOptions}
+		</select>
+	</td>
+	<td><a href="index.php?view=squads&site=memberremove&squad={$id}&id={$squadPlayerId}"><img src="{icon:16:delete}" width="16" height="16" /></a></td>
+</tr>
+<!-squadPlayer>
+
 <!+squadEdited>
 <div class="clickTabBox">
 	<ul>

@@ -9,7 +9,7 @@
 		<li><a>{?menuTitle}</a></li>
 		<li><a>{?menuAdd}</a></li>
 		<li><a>{?menuMember}</a></li>
-		<li><a>{?menuMemberAdd}</a></li>
+		<li><a>{?menuTaskAdd}</a></li>
 	</ul>
 	<div class="clickTab">
 		<table class="table">
@@ -26,8 +26,7 @@
 				<td># {$squadId}</td>
 				<td width="50%">{$squadName}</td>
 				<td width="20"><img src="uploads/games/{$squadGame}" alt="{$squadGame}" width="16" height="16"/></td>
-				<td><a href="index.php?view=squads&site=squadedit&id={$squadId}"><img src="{icon:16:edit}" width="16" height="16" />
-				</td>
+				<td><a href="index.php?view=squads&site=squadedit&id={$squadId}"><img src="{icon:16:edit}" width="16" height="16" /></td>
 		    	<td><a href="index.php?view=squads&site=squadremove&id={$squadId}"><img src="{icon:16:delete}" width="16" height="16" /></td>
 			</tr>
 		<!-squadData>
@@ -48,7 +47,7 @@
 		<tr>
 			<td width="20%"><strong>{?memberId}</strong></td>
 			<td><strong>{?memberNick}</strong></td>
-			<td><strong>{?memberFunktion}</strong></td>
+			<td><strong>{?memberSquad}</strong></td>
 			<td width="5%"><img src="{icon:16:edit}" width="16" height="16" /></td>
 		   	<td width="5%"><img src="{icon:16:delete}" width="16" height="16" /></td>
 		</tr>
@@ -57,7 +56,7 @@
 		<tr>
 			<td># {$memberId}</td>
 			<td width="40%">{$memberNick}</td>
-			<td width="30%">{$memberFunktion}</td>
+			<td width="30%">{$memberSquad}</td>
 			<td><img src="{icon:16:edit}" width="16" height="16" /></td>
 		   	<td><img src="{icon:16:delete}" width="16" height="16" /></td>
 		</tr>
@@ -70,7 +69,7 @@
 <!+memberAdd>
 	<div class="clickTab">
 		<img src="{icon:16:new}" width="16" height="16" border="0" />
-		<strong>{?memberAdd}</strong>	
+		<strong>{?taskAdd}</strong>	
 	</div>
 <!-memberAdd>
 

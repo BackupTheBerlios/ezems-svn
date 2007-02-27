@@ -3,31 +3,33 @@
 	<img src="{icon:32:squad}" alt="title" width="32" height="32" /> {?siteTitle}
 </div>
 <!-siteHead>
-<!+squadRemove>
+<!+memberRemove>
 <div class="clickTabBox">
 	<ul>
-		<li><a>{?squadRemove}</a></li>
+		<li><a>{?memberRemove}</a></li>
 	</ul>
 	<div class="clickTab">
-		<form id="form" name="form" method="post" action="index.php?view=squads&amp;site=squadremove">
+		<form id="form" name="form" method="post" action="index.php?view=squads&amp;site=memberremove">
 				<table width="100%" border="0">
 					<tr>
-					  <td><span style="color:#FF0000">{?squadRemove}</span></td>
+					  <td><span style="color:#FF0000">{?memberRemove}</span></td>
 					  </tr>
 					<tr>
-					  <td><input name="remove" type="submit" id="reset" value="{?remove}" />
+					  <td>
+					  	<input type="hidden" name="squad" value="{$squad}" />
+						<input name="remove" type="submit" id="reset" value="{?remove}" />
 						<input name="id" type="hidden" id="id" value="{$id}" /></td>
 					</tr>
 				</table>
 		</form>
   </div>
 </div>
-<!-squadRemove>
-<!+squadRemoved>
+<!-memberRemove>
+<!+memberRemoved>
 <div class="clickTabBox">
 	<ul>
-		<li><a>{?squadRemoved}</a></li>
+		<li><a>{?memberRemoved}</a></li>
 	</ul>
 	<div class="clickTab">{$next}</div>
 </div>
-<!-squadRemoved>
+<!-memberRemoved>

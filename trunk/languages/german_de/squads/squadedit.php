@@ -11,6 +11,13 @@ $ecLang['squadMain'] 			= 'Allgemeine Angaben';
 	$ecLang['squadPic1'] 		= 'Squad Bild 1<br />max 100x100px';
 	$ecLang['squadPic2'] 		= 'Squad Bild 2';
 
+$ecLang['squadMember']			= 'Member';
+	$ecLang['squadMembers']		= 'Squadmembers:';
+	$ecLang['member']			= 'Member';
+	$ecLang['task']				= 'Aufgabe';
+	$ecLang['addMember']		= 'Member hinzufügen';
+	$ecLang['deleteMember']		= 'Member entfernen';
+	
 $ecLang['squadEdit'] 			= 'Speichern';
 	$ecLang['save'] 			= 'Speichern';
 	$ecLang['reset'] 			= 'Nochmal';

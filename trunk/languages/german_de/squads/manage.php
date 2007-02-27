@@ -14,6 +14,7 @@ $ecLang['menuAdd'] 				= 'Squad hinzufügen';
 $ecLang['menuTask'] 			= 'Aufgaben Übersicht';
 	$ecLang['taskId']			= 'AufgabenId';
 	$ecLang['taskName'] 		= 'Aufgaben Name';
+	$ecLang['taskPriority'] 	= 'Aufgaben Priorität';
 
 $ecLang['menuTaskAdd']			= 'Aufgabe hinzufügen';
 	$ecLang['taskAdd'] 			= 'Aufgabe hinzufügen';

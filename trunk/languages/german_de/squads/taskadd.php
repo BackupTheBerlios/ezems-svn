@@ -5,6 +5,7 @@ $ecLang['siteTitle'] 			= 'Aufgabe hinzufügen';
 
 $ecLang['taskMain'] 			= 'Allgemeine Angaben';
 	$ecLang['taskName'] 		= 'Aufgaben Name';
+	$ecLang['taskPriority'] 	= 'Aufgaben Priorität';
 
 	$ecLang['taskSave'] 		= 'Speichern';
 

@@ -47,6 +47,7 @@
 		<tr>
 			<td width="20%"><strong>{?taskId}</strong></td>
 			<td><strong>{?taskName}</strong></td>
+			<td><strong>{?taskPriority}</strong></td>
 			<td width="5%"><img src="{icon:16:edit}" width="16" height="16" /></td>
 		   	<td width="5%"><img src="{icon:16:delete}" width="16" height="16" /></td>
 		</tr>
@@ -54,7 +55,8 @@
 <!+taskData>
 		<tr>
 			<td># {$taskId}</td>
-			<td>{$taskName}</td>
+			<td width="50%">{$taskName}</td>
+			<td width="20">{$taskPriority}</td>
 			<td><a href="index.php?view=squads&site=taskedit&id={$taskId}"/><img src="{icon:16:edit}" width="16" height="16" /></td></a>
 		   	<td><a href="index.php?view=squads&site=taskremove&id={$taskId}"/><img src="{icon:16:delete}" width="16" height="16" /></a></td>
 		</tr>

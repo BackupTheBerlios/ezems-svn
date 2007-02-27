@@ -20,6 +20,7 @@ if (isset($_POST['save']))
 	if (!empty($_POST['taskName']))
 	{
 		$update['squadtaskName'] = $_POST['taskName'];	
+		$update['squadtaskPriority'] = $_POST['taskPriority'];
 		dbUpdate(1, 'squadtask', $update, "squadtaskId = $id");
 		
 		$next = ecReferer('index.php?view=squads&amp;site=manage');
@@ -37,6 +38,7 @@ else
 	while($tasks = mysql_fetch_object($ecTaskData))
 	{
 		$taskName = $tasks->squadtaskName;
+		$taskPriority = $tasks->squadtaskPriority;
 		$errorMsg = '';
 		echo ecTemplate('squads', 'taskedit', 'taskEdit');
 	}

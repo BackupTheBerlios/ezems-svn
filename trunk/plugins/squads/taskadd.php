@@ -18,7 +18,7 @@ if (isset($_POST['save']))
 	if (!empty($_POST['taskName']))
 	{
 		$insert['squadtaskName'] = $_POST['taskName'];
-			
+		$insert['squadtaskPriority'] = $_POST['taskPriority'];	
 		dbInsert(1, 'squadtask', $insert);
 		
 		$next = ecReferer('index.php?view=squads&amp;site=manage');

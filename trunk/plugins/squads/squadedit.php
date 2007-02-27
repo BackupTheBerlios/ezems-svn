@@ -139,7 +139,7 @@ else
 		$taskOptions .= ecTemplate('squads', 'squadedit', 'taskOption');
 	}
 	$squadPlayer = '';
-	$ecSquadMemberData = dbSelect('*', 1, 'squadplayer,users,squadtask',"(squadplayerSquadId = $id) && (squadplayerUserID = usersId) && (squadplayerTaskId = squadtaskId)", 'squadplayerId', 1);
+	$ecSquadMemberData = dbSelect('*', 1, 'squadplayer,users,squadtask',"(squadplayerSquadId = $id) && (squadplayerUserID = usersId) && (squadplayerTaskId = squadtaskId)", 'squadtaskId', 1);
 	while ($squadMember = mysql_fetch_object($ecSquadMemberData))
 	{
 		$squadPlayerId = $squadMember->squadplayerId;

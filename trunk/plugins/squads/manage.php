@@ -29,11 +29,12 @@ echo ecTemplate('squads', 'manage', 'squadAdd');
 
 //Member Übersicht
 echo ecTemplate('squads', 'manage', 'taskHead');
-$ecTaskData = dbSelect('*',1,'squadtask');
+$ecTaskData = dbSelect('*',1,'squadtask','','squadtaskPriority',1);
 while($task = mysql_fetch_object($ecTaskData))
 {
 	$taskId = $task->squadtaskId;
 	$taskName = $task->squadtaskName;
+	$taskPriority = $task->squadtaskPriority;
 	echo ecTemplate('squads', 'manage', 'taskData');
 }
 echo ecTemplate('squads', 'manage', 'taskFoot');

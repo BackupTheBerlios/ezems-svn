@@ -74,7 +74,7 @@ if (isset($_POST['save']))
 				dbUpdate(1,'squads',$update,'squadsId = '.$id);
 			}
 		}
-		//$next = ecReferer('index.php?view=squads&amp;site=manage');
+		$next = ecReferer('index.php?view=squads&amp;site=manage');
 		echo ecTemplate('squads', 'squadedit', 'squadEdited');
 	}
 	else 

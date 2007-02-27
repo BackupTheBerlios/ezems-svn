@@ -26,17 +26,28 @@ if (isset($_POST['save']))
 		dbInsert(1, 'squads', $insert);
 		$id = mysql_insert_id();
 		
+		$vorhanden = 0;
 		$squadPlayerArray = $_POST['member'];
 		$squadPlayerTaskArray = $_POST['task'];
-		for($i=0; $i < count($squadPlayerArray); $i++)
+		for ($i=0; $i < count($squadPlayerArray); $i++)
 		{
-			if (!empty($squadPlayerArray[$i])) 
+			$ecSquadPlayerData = dbSelect('*',1,'squadplayer','squadplayerSquadId = '.$id);
+			while ($member = mysql_fetch_object($ecSquadPlayerData))
+			{
+				$memberUserId = $member->squadplayerUserId;
+				if ($memberUserId == $squadPlayerArray[$i])
+				{
+					$vorhanden += 1;
+				}
+			}
+			if ($vorhanden == 0 && !empty($squadPlayerArray[$i]))
 			{
 				$insert2['squadplayerSquadId'] = $id;
 				$insert2['squadplayerTaskId'] = $squadPlayerTaskArray[$i];
 				$insert2['squadplayerUserId'] = $squadPlayerArray[$i];
 				dbInsert(1, 'squadplayer', $insert2);
 			}
+			$vorhanden = 0;
 		}
 		
 		if ($_FILES['small_pic']['error'] != 4)

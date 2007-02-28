@@ -262,10 +262,10 @@ else
 			$squadOptions .= ecTemplate('clanwars',$gameTemplate.'add', 'squadOptions');
 			
 			//Player zum Squad auslesen
-			$ecClanwarSquadInfo = dbSelect('*', 1, 'player,users', "(playerSquadId = $squadId) && (playerUserId = usersId)");
+			$ecClanwarSquadInfo = dbSelect('*', 1, 'squadplayer,users', "(squadplayerSquadId = $squadId) && (squadplayerUserId = usersId)");
 			while ($userinfos = mysql_fetch_object($ecClanwarSquadInfo))
 			{
-				$playerIds = $userinfos->playerId;
+				$playerIds = $userinfos->squadplayerId;
 				$playerName = $userinfos->usersUsername;
 				$squadNames .= ecTemplate('clanwars',$gameTemplate.'add', 'squadPlayer');
 			}

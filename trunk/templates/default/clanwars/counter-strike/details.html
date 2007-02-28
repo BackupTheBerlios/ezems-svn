@@ -53,8 +53,7 @@
 						<td colspan="2"><b>{?SquadLineup}</b></td>
 					</tr>	
 					<tr>
-						<td><b>{?nick}</b></td>
-						<td><b>{?function}</b></td>
+						<td colspan="2"><b>{?nick}</b></td>
 					</tr>
 					{$squadLineup}
 				</table>
@@ -102,9 +101,14 @@
 	</div>
 </div>
 <!-siteEntry>
+<!+squadLineup>
+<tr>
+	<td>{$gamerName}</td>
+</tr>
+<!-squadLineup>
 <!+enemyLineup>
 <tr>
-	<td>{$enemyGamerName}</td>
+	<td colspan="2">{$enemyGamerName}</td>
 </tr>
 <!-enemyLineup>
 <!+mapRound>

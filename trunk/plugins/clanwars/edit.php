@@ -370,13 +370,13 @@ else
 		$squadOptions .= ecTemplate('clanwars', $gamesName.'/add', 'squadOptions');
 		
 		//Player zum Squad auslesen
-		$ecClanwarSquadInfo = dbSelect('*', 1, 'player,users', "(playerSquadId = $squadId) && (playerUserId = usersId)");
+		$ecClanwarSquadInfo = dbSelect('*', 1, 'squadplayer,users', "(squadplayerSquadId = $squadId) && (squadplayerUserId = usersId)");
 		while ($userinfos = mysql_fetch_object($ecClanwarSquadInfo))
 		{
 			//Die Ids der Player überprüfen ob sie am MAtch dabei waren
 			for($i = 0; $i < count($squadGamer); $i++)
 			{
-				$playerIds = $userinfos->playerId;
+				$playerIds = $userinfos->squadsplayerId;
 				$playerName = $userinfos->usersUsername;
 				$checked = ($squadGamer[$i] == $playerIds) ? 'checked="checked"' : '';
 			}

@@ -61,7 +61,7 @@ while ($cwDetails = mysql_fetch_object($ecClanwarData))
 	while ($i < count($squadPlayer))
 	{
 		$gamer = $squadPlayer[$i];
-		$squadPlayerInfo = dbSelect('*', 1, 'player,users', "(playerId = $gamer) && (playerUserId = usersId)");
+		$squadPlayerInfo = dbSelect('*', 1, 'squadplayer,squadtask,users', "(squadplayerId = $gamer) && (squadplayerTaskId = squadtaskID) && (squadplayerUserId = usersId)");
 		while ($squadPlayerInfos  = mysql_fetch_object($squadPlayerInfo)) 
 		{
 			$gamerName = $squadTag.$squadPlayerInfos->usersUsername;

@@ -82,7 +82,7 @@ $ecLang['titleImpressume']			= 'Impressum (erweitert)';
 		$ecLang['impressumeDomainAdminCOrt']		= 'Stadt';
 		$ecLang['impressumeDomainAdminCLand']		= 'Land';
 		$ecLang['impressumeDomainAdminCTelefon']	= 'Tel-Nr.';
-		$ecLang['impressumeDomainAdminCTelefax']	= 'Fax-Nr.';';
+		$ecLang['impressumeDomainAdminCTelefax']	= 'Fax-Nr.';
 		$ecLang['impressumeDomainAdminCEMail']		= 'eMail';
 
 //Tech-C

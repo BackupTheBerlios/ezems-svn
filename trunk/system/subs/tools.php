@@ -231,4 +231,35 @@ function ecReferer($refererPath, $refererTime = 'usual', $refererMessage = 1)
 	if ($refererMessage == 1) 
 		return $ecGobalLang['referer1'].' '.$ecLocal['referer']['time'].' '.$ecGobalLang['referer2'].' <a href="'.$ecLocal['referer']['path'].'">['.$ecGobalLang['next'].']</a>';
 }
+
+// ICQ Status
+function ecGetICQ($uin) 
+{
+	// Skript by http://www.designerzone.de
+	if(!is_numeric($uin)) return 'unknown';
+	$fp = fsockopen('status.icq.com', 80, &$errno, &$errstr, 8);
+	if(!$fp) return 'unknown';
+	$request = "HEAD /online.gif?icq=$uin HTTP/1.0\r\n"."Host: web.icq.com\r\n"."Connection: close\r\n\r\n";
+	fputs($fp, $request);
+	do
+	{
+		$response = fgets($fp, 1024);
+	}
+	while(!feof($fp) && !stristr($response, 'Location'));
+	fclose($fp);
+	if(strstr($response, 'online1')) return 'online';
+	if(strstr($response, 'online0')) return 'offline';
+	if(strstr($response, 'online2')) return 'unknown';
+	return 'unknown';
+}
+
+// ICQ Protect
+function ecICQ($uin) 
+{
+	$return = substr($uin,0,3).'-';
+	$return .= substr($uin,3,3).'-';
+	$return .= substr($uin,6,3);
+	return $return;
+}
+
 ?>

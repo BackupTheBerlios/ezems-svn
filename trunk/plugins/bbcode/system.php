@@ -160,14 +160,10 @@ function ecBBCode($replace,$html = 0)
 	
 		// Quote by... 
 		$replace = preg_replace("/\[quote=(.*)\](.*)\[\/quote\]/isU", 
-			"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"quote\">
-			  <tr>
-				<td class=\"quote_head\">".$ecLang['quote']." - ".$ecLang['quote2']." $1:</td>
-			  </tr>
-			  <tr>
-				<td class=\"quote_main\">$2</td>
-			  </tr>
-			</table>",
+			"<div id=\"quote\">
+				".$ecLang['quote']." - ".$ecLang['quote2']." $1:
+				<br />
+				$2",
 			$replace);
 		// Dynamic Symbols
 		$ec_bbcode_data = db_select('*', 1, 'bbcode', 'typ=3');

@@ -25,14 +25,15 @@ if (isset($_POST['save']))
 		$update['squadsGameId'] = $_POST['squadGame'];
 		dbUpdate(1,'squads',$update,'squadsId = '.$id);
 		
-		$squadPlayerArray = $_POST['members'];
-		$squadPlayerTaskArray = $_POST['tasks'];
-		for($i=0; $i < count($squadPlayerArray); $i++)
+		$squadPlayerArray = isset($_POST['members']) ? $_POST['members'] : array();
+		$squadPlayerTaskArray = isset($_POST['tasks']) ? $_POST['tasks'] : array();
+		for ($i=0; $i < count($squadPlayerArray); $i++)
 		{
 			if (!empty($squadPlayerArray[$i])) 
 			{
 				$update2['squadplayerTaskId'] = $squadPlayerTaskArray[$i];
-				dbUpdate(1, 'squadplayer', $update2, "(squadplayerId = ".$squadPlayerArray[$i].")");
+				$playerId = $squadPlayerArray[$i];
+				dbUpdate(1, 'squadplayer', $update2, "(squadplayerId = $playerId)");
 			}
 		}
 		
@@ -120,7 +121,7 @@ else
 	}
 		
 	$memberOptions = '';
-	//Games auslesen
+	//Users auslesen
 	$ecUserData = dbSelect('*', 1, 'users');
 	while ($users = mysql_fetch_object($ecUserData))
 	{
@@ -130,7 +131,7 @@ else
 	}
 	
 	$taskOptions = '';
-	//Games auslesen
+	//Tasks auslesen
 	$ecTaskData = dbSelect('*', 1, 'squadtask');
 	while ($task = mysql_fetch_object($ecTaskData))
 	{

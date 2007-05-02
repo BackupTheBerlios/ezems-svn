@@ -35,6 +35,13 @@ $ecGobalLang['october'] = 'Oktober';
 $ecGobalLang['november'] = 'November';
 $ecGobalLang['december'] = 'Dezember';
 
+// Countrys
+$ecGobalLang['country']['ch'] = 'Schweiz';
+$ecGobalLang['country']['de'] = 'Deutschland';
+$ecGobalLang['country']['at'] = 'Österreich';
+$ecGobalLang['country']['uk'] = 'Vereinigtes Königreich';
+$ecGobalLang['country']['us'] = 'Vereinigte Staaten';
+
 // Date
 $ecGobalLang['charset']  = 'ISO-8859-15';
 $ecGobalLang['datetyp']  = 'd.m.Y';

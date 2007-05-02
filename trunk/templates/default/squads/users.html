@@ -1,0 +1,62 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:users}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<!-siteHead>
+<!+detailsBarHead>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?detailsBar}</a></li>
+	</ul>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td colspan="3">
+			<!-detailsBarHead>
+			<!+detailsBarUsers>
+			<a href="?view=users&amp;site=details&amp;id={$id}">{?detailsBarUsers}</a>
+			<!-detailsBarUsers>
+			<!+detailsBarClans>
+			- <em>{?detailsBarClans}</em> 
+			<!-detailsBarClans>
+			<!+detailsBarComputer>
+			- <a href="?view=computer&amp;site=users&amp;id={$id}">{?detailsBarComputer}</a> 
+			<!-detailsBarComputer>
+			<!+detailsBarBoard>
+			- <a href="?view=board&amp;site=users&amp;id={$id}">{?detailsBarBoard}</a> 
+			<!-detailsBarBoard>
+			<!+detailsBarGBook>
+			- <a href="?view=gbook&amp;site=users&amp;id={$id}">{?detailsBarGBook}</a>
+			<!-detailsBarGBook>
+			<!+detailsBarFoot>			</td>
+	      </tr>
+		</table>
+	</div>
+</div>
+<!-detailsBarFoot>
+<!+squadHead>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?squadMember}</a></li>
+	</ul>
+	<div class="clickTab">
+		<table class="table">
+			<tr>
+				<td width="50%"><strong>{?squadName}</strong></td>
+			    <td width="40%"><strong>{?squadTask}</strong></td>
+			    <td width="10%"><strong>{?squadGame}</strong></td>
+			</tr>
+			<!-squadHead>
+			<!+squadData>
+			<tr>
+			  <td><a href="?view=squads&amp;site=members&amp;id={$squadId}">{$squadName}</a></td>
+		      <td><a href="?view=games&amp;site=details&amp;id={$squadGameId}"></a>{$squadTask}</td>
+		      <td><a href="?view=games&amp;site=details&amp;id={$squadGameId}"><img src="uploads/games/{$squadGameImg}" alt="{$squadGameImg}" width="16" height="16" border="0" /></a></td>
+		  </tr>
+		  	<!-squadData>
+			<!+squadFoot>
+      </table>
+		<br />
+	</div>
+</div>
+<!-squadFoot>

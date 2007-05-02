@@ -1,0 +1,144 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:users}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<!-siteHead>
+<!+detailsBarHead>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?detailsBar}</a></li>
+	</ul>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td colspan="3">
+			<!-detailsBarHead>
+			<!+detailsBarUsers>
+			<em>{?detailsBarUsers}</em>
+			<!-detailsBarUsers>
+			<!+detailsBarClans>
+			- <a href="?view=squads&amp;site=users&amp;id={$id}">{?detailsBarClans}</a> 
+			<!-detailsBarClans>
+			<!+detailsBarComputer>
+			- <a href="?view=computer&amp;site=users&amp;id={$id}">{?detailsBarComputer}</a> 
+			<!-detailsBarComputer>
+			<!+detailsBarBoard>
+			- <a href="?view=board&amp;site=users&amp;id={$id}">{?detailsBarBoard}</a> 
+			<!-detailsBarBoard>
+			<!+detailsBarGBook>
+			- <a href="?view=gbook&amp;site=users&amp;id={$id}">{?detailsBarGBook}</a>
+			<!-detailsBarGBook>
+			<!+detailsBarFoot>			</td>
+	      </tr>
+		</table>
+	</div>
+</div>
+<!-detailsBarFoot>
+<!+personalData>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?personalData}</a></li>
+	</ul>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td width="30%">
+			<span class="head"><img src="{icon:16:vcard}" alt="vcard" width="16" height="16" /></span> {?usersUsername}            </td>
+		    <td width="40%"> {$usersUsername} </td>
+		    <td width="30%" rowspan="11" valign="top"><div align="center"><span class="head"><img src="uploads/users/profil/{$usersProfilImg}" alt="{$usersProfilImg}" /></span></div></td>
+		  </tr>
+		  <tr>
+		    <td> <span class="head"><img src="{icon:16:user}" alt="user" width="16" height="16" /></span> {?usersFirstname} </td>
+		    <td> {$usersFirstname} </td>
+	      </tr>
+		  <tr>
+		    <td><span class="head"><img src="{icon:16:user}" alt="user" width="16" height="16" /></span> {?usersLastname} </td>
+		    <td> {$usersLastname} </td>
+	      </tr>
+		  <tr>
+		    <td> <span class="head"><img src="{icon:16:{$usersSexImg}}" alt="{$usersSexImg}" width="16" height="16" /></span> {?usersSex} </td>
+		    <td> {$usersSex} </td>
+	      </tr>
+		  <tr>
+		    <td> <span class="head"><img src="{icon:16:date}" alt="date" width="16" height="16" /></span> {?usersBirthday} </td>
+		    <td> {$usersBirthday} ({$usersAge}) </td>
+	      </tr>
+		  <tr>
+		    <td> <span class="head"><img src="{icon:16:size}" alt="size" width="16" height="16" /></span> {?usersSize} </td>
+		    <td> {$usersSize} cm </td>
+	      </tr>
+		  <tr>
+		    <td> <span class="head"><img src="{icon:16:house_go}" alt="house_go" width="16" height="16" /></span> {?usersAdress} </td>
+		    <td> {$usersAdress} </td>
+	      </tr>
+		  <tr>
+		    <td> <span class="head"><img src="{icon:16:house}" alt="house" width="16" height="16" /></span> {?usersCity} </td>
+		    <td> {$usersCity} </td>
+	      </tr>
+		  <tr>
+		    <td> <span class="head"><img src="{icon:country:{$usersNationImg}}" alt="{$usersNationImg}" width="16" height="11" /></span> {?usersNation} </td>
+		    <td>{$usersNation} </td>
+	      </tr>
+		  <tr>
+		    <td> <span class="head"><img src="{icon:16:hourglass}" alt="hourglass" width="16" height="16" /></span> {?usersRegistred} </td>
+		    <td> {$usersRegistredDate}  {?at} {$usersRegistredTime}  </td>
+	      </tr>
+		  <tr>
+		    <td> <span class="head"><img src="{icon:16:hourglass_add}" alt="hourglass_add" width="16" height="16" /></span> {?usersOnline} </td>
+		    <td>{$usersOnlineDate}  {?at}  {$usersOnlineTime} </td>
+	      </tr>
+		</table>
+	</div>
+</div>
+<!-personalData>
+<!+contactData>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?contactData}</a></li>
+	</ul>
+	<div class="clickTab">
+		<table class="table">
+		  <tr>
+			<td width="30%"><span class="head"><img src="{icon:16:email}" alt="www" width="16" height="16" /></span> {?usersEmail}</td>
+		    <td width="70%"> {$usersEmail}</td>
+	      </tr>
+		  <tr>
+		    <td><span class="head"><img src="{icon:16:www}" alt="www" width="16" height="16" /></span> {?usersWWW}</td>
+		    <td><a href="http://{$usersWWW}" target="_blank"> {$usersWWW}</a></td>
+	      </tr>
+		  <tr>
+		    <td><span class="head"><img src="{icon:16:icq_{$usersICQImg}}" alt="{$usersICQImg}" width="16" height="16" /></span> {?usersICQ}</td>
+		    <td>{$usersICQ}</td>
+	      </tr>
+		  <tr>
+		    <td><span class="head"><img src="{icon:16:msn}" alt="msn" width="16" height="16" /></span>  {?usersMSN}</td>
+		    <td>{$usersMSN}</td>
+	      </tr>
+		  <tr>
+		    <td><span class="head"><img src="{icon:16:skype}" alt="skype" width="16" height="16" /></span> {?usersSkype}</td>
+		    <td>{$usersSkype}</td>
+	      </tr>
+		  <tr>
+		    <td> <span class="head"><img src="{icon:16:xfire}" alt="xfire" width="16" height="16" /></span> {?usersXfire}</td>
+		    <td>{$usersXfire}</td>
+	      </tr>
+		  <tr>
+		    <td><span class="head"><img src="{icon:16:telephone}" alt="telephone" width="16" height="16" /></span> {?usersTel}</td>
+		    <td>{$usersTel}</td>
+	      </tr>
+		  <tr>
+		    <td> <span class="head"><img src="{icon:16:phone}" alt="phone" width="16" height="16" /></span> {?usersMobile} </td>
+		    <td> {$usersMobile} </td>
+	      </tr>
+		</table>
+	</div>
+</div>
+<!-contactData>
+<!+userNotfound>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?userNotfound}</a></li>
+	</ul>
+  <div class="clickTab">{?userNotfoundText}</div>
+</div>
+<!-userNotfound>

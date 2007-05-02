@@ -79,11 +79,10 @@ function ecDate($date, $typ = 1)
 
 function ecAge($birthDate)
 {
-	$yearDiff = date("Y", $ecLocal['timestamp']) - date("Y", $birthDate);
-	$monthDiff = date("m", $ecLocal['timestamp']) - date("m", $birthDate);
-	$dayDiff  = date("d", $ecLocal['timestamp']) - date("d", $birthDate);
-	if ($dayDiff < 0 || $monthDiff < 0) $yearDiff--;
-	return $yearDiff;
+	global $ecLocal;
+	$age = date("Y",$ecLocal['timestamp'])-date("Y",$birthDate); 
+	if (date("md",$ecLocal['timestamp']) < date("md",$birthDate)) $age--;  
+	return $age;
 }
 
 // Date & Time

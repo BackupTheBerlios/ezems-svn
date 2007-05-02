@@ -15,11 +15,17 @@
 echo ecTemplate('users', 'navonline', 'onlineHead');
 $onlineTime = $ecLocal['timestamp'] - 180;
 $ecOnlineData = dbSelect('usersId,usersUsername,usersLastname',1,'users',"(usersLastOnline > $onlineTime) AND (usersGhostOnline = 0)");
+$count = 0;
 while($users = mysql_fetch_object($ecOnlineData))
 {
 	$usersId = $users->usersId;
 	$usersUsername = $users->usersUsername;
 	echo ecTemplate('users', 'navonline', 'onlineData');
+	$count++;
+}
+if (empty($count))
+{
+	echo ecTemplate('users', 'navonline', 'onlineNoOne');
 }
 echo ecTemplate('users', 'navonline', 'onlineFoot');
 ?>

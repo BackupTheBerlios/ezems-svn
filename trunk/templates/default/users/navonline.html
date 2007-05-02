@@ -6,7 +6,12 @@
     <td width="10%"><img src="{icon:16:online}" width="16" height="16" /></td>
     <td width="90%"><a href="index.php?view=users&amp;site=details&amp;id={$usersId}">{$usersUsername}</a></td>
   </tr>
-  <!-onlineData>
+    <!-onlineData>
+	<!+onlineNoOne>
+  <tr>
+    <td colspan="2">{?noOne}</td>
+  </tr>
+  <!-onlineNoOne>
   <!+onlineFoot>
 </table>
 <!-onlineFoot>

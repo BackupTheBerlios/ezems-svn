@@ -1,0 +1,37 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:squads}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<!-siteHead>
+<!+squadData>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{$squadName}</a></li>
+	</ul>
+	<div class="clickTab">
+		<table class="table">
+			<tr>
+				<td width="30%" rowspan="4"><div align="center"><span class="head"><img src="uploads/squads/{$squadPicSmall}" alt="{$squadPicSmall}" /></span></div></td>
+			    <td width="30%">{?squadName}</td>
+			    <td width="40%"><a href="?view=squads&amp;site=members&amp;id={$squadId}">{$squadName}</a></td>
+			</tr>
+			<tr>
+			  <td>{?squadGame}</td>
+		      <td><span class="head"><img src="uploads/games/{$squadGameImg}" alt="title" width="16" height="16" /></span> <a href="?view=games&amp;site=details&amp;id={$squadGameId}">{$squadGame} - {$squadGameVersion} </a></td>
+		  </tr>
+			<tr>
+			  <td>{?squadPlayersCount}</td>
+		      <td>{$squadPlayersCount}</td>
+		  </tr>
+			<tr>
+			  <td>{?squadPlayers}</td>
+		      <td>{$squadPlayers}</td>
+		  </tr>
+      </table>
+		<br />
+	</div>
+</div>
+<!-squadData>
+<!+squadPlayer>
+<a href="?view=users&amp;site=details&amp;id={$squadPlayerId}">{$squadPlayer}</a>
+<!-squadPlayer>

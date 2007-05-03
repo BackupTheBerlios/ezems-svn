@@ -12,182 +12,128 @@
  trägt allein der Nutzer des Programmes.
 */ $ecFile = 'plugins/clanwars/add.php';
 
-$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
-
-if($action == 'add')
+echo ecTemplate('clanwars', 'add', 'siteTitle');
+if(isset($_POST['save']))
 {
-	$error = 0;
-	$enemyError = '';
-	$enemyPlayerError = '';
-	$playerError = '';
-	$mapError = '';
-	$scoreError = '';
-	
-	//Variablen einlesen
-	$gameId = $_POST['game'];
-	$day = (!empty($_POST['day'])) ? $_POST['day'] : date('j');
-	$month = (!empty($_POST['month'])) ? $_POST['month'] : date('n');
-	$year = (!empty($_POST['year'])) ? $_POST['year'] : date('Y');
-	$hour = (!empty($_POST['hour']) || $_POST['hour'] == '0') ? $_POST['hour'] : date('G');
-	$min =(!empty($_POST['min']) || $_POST['min'] == '0') ? $_POST['min'] : "0";
-	//Zeit und Datum in UnixTimeStamp umwandeln
-		$insert['clanwarsDate'] = mktime($hour,$min,0,$month,$day,$year);
-		
-	//Enemyclan auslesen
-	if(!empty($_POST['clanDb']))
+	$insert['clanwarsGameId'] = $_POST['clanwarsGameId'];
+	$insert['clanwarsTypId'] = $_POST['clanwarsTypId'];
+
+	if($_POST['clanwarsClanId'] != 'OtherClan')
 	{
-		$insert['clanwarsEnemyId'] = $_POST['clanDb'];
+		$insert['clanwarsEnemyId'] = $_POST['clanwarsClanId'];
 	}
 	else
 	{
-		//Falls ein neuer Clan hinzugefügt wurde, soll er ihn in die ClanDB schreiben
-		if(empty($_POST['newClan']))
+		// New Clan
+		if(empty($_POST['clanwarsClanName']))
 		{
-			$enemyError = ecTemplate('clanwars', 'add', 'enemyError');
-			$error += 1;
+			$error = 1;
 		}
 		else
 		{
-			$insertClan['clanDbName'] = $_POST['newClan'];
+			$insertClan['clandbName'] = $_POST['clanwarsClanName'];
+			$insertClan['clandbCountry'] = $_POST['clanwarsClanCountry'];
 			dbInsert(1, 'clandb', $insertClan);
-			//und dessen ID in die Clanwars Datenbank
 			$enemyClanId = mysql_insert_id();
 			$insert['clanwarsEnemyId'] = $enemyClanId;
 		}
 	}
 	
-	//enemy Player auslesen
-	$enemyPlayerArray = $_POST['enemyNames'];
-	$enemyNames = "";
-	for($i=0; $i < count($enemyPlayerArray); $i++)
+	
+	// Enemy Player
+	$enemyPlayerArray = $_POST['clanwarsEnemyNames'];
+	$enemyNames = '';
+	foreach($enemyPlayerArray as $player)
 	{
-		if(!empty($enemyPlayerArray[0]))
+		if (!empty($player))
 		{
-			if (!empty($enemyPlayerArray[$i]))
-			{
-				$enemyNames .= $enemyPlayerArray[$i]."|µ|"; 
-			}	
-		}
-		else
-		{
-			$enemyPlayerError = ecTemplate('clanwars', 'add', 'enemyPlayerError');
+			$enemyNames .= $player."|µ|"; 
 		}
 	}
+	$insert['clanwarsListEnemy'] = $enemyNames;
 	
-	//Squadplayer auslesen
-	//Auf vorhandensein prüfen
-	if(empty($_POST['squadPlayer']))
+	$insert['clanwarsSquadId'] = $_POST['clanwarsSquadId'];
+	
+	// Squadplayer
+	if(empty($_POST['clanwarsSquadPlayer']))
 	{
-		$playerError = ecTemplate('clanwars', 'add', 'playerError');
-		$error += 1;
+		$error = 1;
 	}
 	else
 	{
-		$squadPlayerArray = $_POST['squadPlayer'];
-		$squadPlayerId = "";
-		for($i=0; $i < count($squadPlayerArray); $i++)
+		$squadPlayerArray = $_POST['clanwarsSquadPlayer'];
+		$squadPlayerIds = '';
+		foreach($squadPlayerArray as $playerId)
 		{
-			if (!empty($squadPlayerArray[$i])) 
+			if (!empty($playerId)) 
 			{ 
-				$squadPlayerId .= "|µ|".$squadPlayerArray[$i]; 
+				$squadPlayerIds .= $playerId.'|µ|'; 
 			}	
 		}
 	}
+	$insert['clanwarsSquadListId'] = $squadPlayerIds;
 	
+	// Unix Timestamp
+	$insert['clanwarsTime'] = mktime($_POST['clanwarsHour'],$_POST['clanwarsMin'],0,$_POST['clanwarsMonth'],$_POST['clanwarsDay'],$_POST['clanwarsYear']);
+
 	//Maps einlesen
-	$mapArray = $_POST['map'];
-	//Auf vorhandensein prüfen
-	if($mapArray[0] == '')
+	if(empty($_POST['clanwarsMap']))
 	{
-		$mapError = ecTemplate('clanwars', 'add', 'mapError');
-		$error += 1;
+		$error = 1;
 	}
 	else 
 	{
-		$vorhanden = 0;
-		$map = "";
-		//Schauen wie viele Maps es sind
-		for($i=0; $i < count($mapArray); $i++)
+		$mapArray = $_POST['clanwarsMap'];
+		$clanwarsMaps = '';
+		foreach($mapArray as $map)
 		{
-			//In der Datenbank nachschauen ob die Map schon existiert
-			$ecMapInfoData = dbSelect('*', 1, 'maps');
-			while ($maps = mysql_fetch_object ($ecMapInfoData)) 
-			{
-				$mapsId = $maps->mapsId;
-				$mapsNamen = $maps->mapsName;
-				
-				if($mapsNamen == $mapArray[$i])
-				{
-					//Wenn die Map bereits da ist, vorhanden auf 1 setzen
-					$vorhanden += 1;
-					$map .= $mapsId.":";
-				}
-			}
-			//Wenn die Map neu ist, in die Datenbank schreiben
-			if($vorhanden == 0)
-			{
-				//Falls eine neue Map hinzugefügt wurde, soll er es in die Maps-Db schreiben
-				$insertMap['mapsGameId'] = $gameId;
-				$insertMap['mapsName'] = $mapArray[$i];
-				dbInsert(1, 'maps', $insertMap);
-				//und dessen ID in das Map-Array
-				$newMapsId = mysql_insert_id();
-				$map .= $newMapsId.":";
-			}
-			//vorhanden wieder reseten
-			$vorhanden = 0;
+			if (!empty($map)) 
+			{ 
+				$clanwarsMaps .= $map."|µ|"; 
+			}	
 		}
 	}
+	$insert['clanwarsMaps'] = $clanwarsMaps;
 
-	//Ergebnisse auslesen
-	$scoreArray = $_POST['score'];
-	$scores = "";
-	for($i=0; $i < count($scoreArray); $i++)
+	// Score
+	$scoreArray = $_POST['clanwarsScore'];
+	$clanwarsScores = '';
+	$i = 0;
+	foreach($scoreArray as $score)
 	{
-		if (!empty($scoreArray[$i]) || $scoreArray[$i] == 0) 
+		if (!empty($score) || $score == 0) 
 		{
-			//Jedem 4ten Wert ändern, damit man ihn besser den Maps zuordnen kann
+			// Every 4th Value changed
+			$i++;
 			if($i % 4 == 0 && $i != 0)
 			{
-				$scores .= (!empty($scoreArray[$i])) ? "|µ|".$scoreArray[$i] : "|µ|"."0"; 
+				$clanwarsScores .= $score.'|µ|';
 			}
 			else 
 			{
-				$scores .= (!empty($scoreArray[$i])) ? ":".$scoreArray[$i] : ":"."0";
+				$clanwarsScores .= $score.':';
 			}
 		}
 		else 
 		{
-			$scoreError = ecTemplate('clanwars', 'add', 'scoreError');
-			$error += 1;
+			$error = 1;
 		}
 	}
-	
-	//Wenn kein Error vorhanden ist, in die Datenbank schreiben
-	if($error == 0)
-	{
-		//Daten in die Datenbank schreiben
-		$insert['clanwarsGameId'] = $gameId;
-		$insert['clanwarsSquadListPlayerId'] = $squadPlayerId;
-		$insert['clanwarsSquadId'] = $_POST['squad'];
-		$insert['clanwarsListEnemy'] = $enemyNames;
-		$insert['clanwarsMapsId'] = $map;
-		$insert['clanwarsResults'] = $scores;
-		
+	$insert['clanwarsResults'] = $clanwarsScores;
+	$insert['clanwarsInfo'] = $_POST['clanwarsInfo'];
+
+	if(!isset($error))
 		dbInsert(1, 'clanwars', $insert);
-	}
 	else
-	{
-		echo ecTemplate('clanwars', 'add', 'Error');
-	}
+		echo ecTemplate('clanwars', 'add', 'clanwarsError');
 	
-	//Welche uploads sind erlaub
+	// Allowed Uploads
 	$pics = ($ecSettings['clanwars']['pics'] == 1) ? 'jpg' ||  'jpeg' || 'png' || 'gif' || 'bmp' : '';
-	$archive = ($ecSettings['clanwars']['archiver'] == 1) ? 'rar' || 'zip' || 'ace' || 'gz' || 'tar' : '';
+	$archives = ($ecSettings['clanwars']['archives'] == 1) ? 'rar' || 'zip' || 'ace' || 'gz' || 'tar' : '';
 	
 	//Uploads erfassen und hochladen
-	$mysqlInsertId = mysql_insert_id();
-	$update = '';
+	$lastInsertId = mysql_insert_id();
+	$update['clanwarsFiles'] = '';
 	foreach ($_FILES as $index => $value) 
 	{
 		if($value['error'] != 4)
@@ -196,152 +142,100 @@ if($action == 'add')
 			$datatyp = pathinfo($value["name"]);
 			$datatyp = $datatyp["extension"];
 			
-			if($datatyp == $pics || $datatyp == $archive)
+			if($datatyp == $pics || $datatyp == $archives)
 			{
-				//Anhand des Datentyps entscheiden wo es abgespeichert werde soll:
+				// Save Folder
 				$folder = ($datatyp  == 'jpg' || $datatyp  == 'jpeg' || $datatyp  == 'png' || $datatyp  == 'gif' || $datatyp == 'bmp') ? 'images' : 'archives';
 	
-	
-				$newDataName = $mysqlInsertId.'_'.$value["name"];
+				$newDataName = $lastInsertId.'_'.$value["name"];
 				ecUploadFile($index, 'clanwars/'.$folder, $newDataName);
 				
-				$update .= $newDataName.":";
+				$update['clanwarsFiles'] .= $newDataName.":";
 			}
 		}
 	}
-	//Datei-Namen in die Datenbank schreiben
-	if($error == 0)
+	// Update Filenames in Database
+	if(!isset($error))
 	{
-		$updates['clanwarsFiles'] = $update;
-		dbUpdate(1, 'clanwars', $updates, 'clanwarsId = '.$mysqlInsertId);
+		dbUpdate(1, 'clanwars', $update, "clanwarsId = $lastInsertId");
 		
 		$next = ecReferer('index.php?view=clanwars&amp;site=manage');
-		echo ecTemplate('clanwars', 'add', 'saved');
+		echo ecTemplate('clanwars', 'add', 'clanwarsSaved');
 	}
 }
 else
 {
-	//Array erstmal leer machen :)
-	$clanDbOptions = '';
-	$squadOptions = '';
-	$squadPlayer = '';
-	$dayOption = '';
-	$monthOption ='';
-	$yearOption = '';
-	$minOption = '';
-	$hourOption = '';
-	$gameTemplate = '';
-	$gamesName = '';
-	//GameId senden zur Weiterverarbeitung
-	
-	if(!empty($_POST['gameId']))
+	$ecLang = ecGetLang('clanwars','add');
+	// Clanwartypes
+	$clanwarsTypes = '';
+	$cwTypes = array(	1 => 'Clanwar',
+						2 => 'Funwar',
+						3 => 'Friendlywar',
+						4 => 'Trainwar',
+						5 => 'Ligawar',
+						6 => 'Other');
+	foreach ($cwTypes as $value => $name)
 	{
-		$gameId = $_POST['gameId'];
-		//GameName für das Template holen
-		$gameTemplateSql = dbSelect('gamesName',1,'games', 'gamesId = '.$gameId);
-		while($gameNameTemplate = mysql_fetch_object($gameTemplateSql))
-		{
-			$gamesName .= $gameNameTemplate->gamesName;
-			if(file_exists('templates/'.$ecLocal['template'].'/clanwars/'.$gamesName.'/add.html'))
-			{
-				
-				$gameTemplate = $gamesName."/";
-			}
-		}
-		
-		//ID auswerten
-		$ecClanwarInfoData = dbSelect('*', 1, 'squads', 'squadsGameId = '.$gameId);
-		while ($games = mysql_fetch_object($ecClanwarInfoData))
-		{
-			//Daten auslesen
-			$squadId = $games->squadsId;
-			$squadName = $games->squadsName;
-			$squadNames = '';
-	
-			//Squads Template laden
-			$squadOptions .= ecTemplate('clanwars',$gameTemplate.'add', 'squadOptions');
-			
-			//Player zum Squad auslesen
-			$ecClanwarSquadInfo = dbSelect('*', 1, 'squadplayer,users', "(squadplayerSquadId = $squadId) && (squadplayerUserId = usersId)");
-			while ($userinfos = mysql_fetch_object($ecClanwarSquadInfo))
-			{
-				$playerIds = $userinfos->squadplayerId;
-				$playerName = $userinfos->usersUsername;
-				$squadNames .= ecTemplate('clanwars',$gameTemplate.'add', 'squadPlayer');
-			}
-			//Squad Player Template laden
-			$squadPlayer .= ecTemplate('clanwars',$gameTemplate.'add', 'squadView');
-		}
-		
-		//Gegner Clan einfügen aus der Clandatenbank
-		$ecClanDb = dbSelect('clanDbId,clanDbName', 1, 'clandb');
-		while ($clandb = mysql_fetch_object($ecClanDb))
-		{
-			$clanId = $clandb->clanDbId;
-			$clanName = $clandb->clanDbName;
-			
-			//Clans Template laden
-			$clanDbOptions .= ecTemplate('clanwars', $gameTemplate.'add', 'clanDbOptions');
-		}
-		
-		//Tages Zahlen
-		for($d=1; $d<32; $d++)
-		{
-			//Tage Template laden
-			$dayOption .= ecTemplate('clanwars',$gameTemplate.'add', 'day');;
-		}	
-		//Monats Zahlen
-		for($m=1; $m<=12; $m++)
-		{
-			//Monats Template laden
-			$monthOption .= ecTemplate('clanwars',$gameTemplate.'add', 'month');
-		}
-		
-		//Jahres Zahlen
-		$dateYear = date('Y')+2;
-		for($y = $dateYear; $y >= 1970; $y--)
-		{
-			//Jahres Template laden
-			$yearOption .= ecTemplate('clanwars',$gameTemplate.'add', 'years');
-		}
-		
-		//Stunden
-		for($h = 0; $h < 24; $h++)
-		{
-			//Stunden Template laden
-			$hourOption .= ecTemplate('clanwars',$gameTemplate.'add', 'hour');
-		}
-		//Minuten
-		$mi = 0;
-		while($mi <= 50)
-		{
-			//Minuten Template laden
-			$minOption .= ecTemplate('clanwars',$gameTemplate.'add', 'min');
-			$mi = $mi + 10;
-		}
-	
-		//Maps laden
-		$mapNamen = "";
-		$ecMapData = dbSelect('*', 1, 'maps', "(mapsGameId = $gameId)");
-		while ($map = mysql_fetch_object($ecMapData))
-		{
-			$mapName = $map->mapsName;
-			$mapNamen .= '"'.$mapName.'",';
-		}
-		
-		//Welche Dateitypen sind erlaubt für den Upload?
-		$pics = ($ecSettings['clanwars']['pics'] == 1) ? ecTemplate('clanwars', 'add', 'pics') : '';
-		$archiver = ($ecSettings['clanwars']['archiver'] == 1) ? ecTemplate('clanwars', 'add', 'archiver') : '';
-		
-		$uploadAllowed = ($ecSettings['clanwars']['pics'] == 1 || $ecSettings['clanwars']['archiver'] == 1) ? ecTemplate('clanwars',$gameTemplate.'add', 'uploadAllowed') : '';
-		
-		//Lade Template des Games
-		echo ecTemplate('clanwars',$gameTemplate.'add', 'siteEntry',$gameTemplate.'add');
+		$clanwarsTypes .= ecTemplate('clanwars', 'add', 'select');
 	}
-	else 
+	// Games
+	$clanwarsGames = '';
+	$ecGameData = dbSelect('gamesId,gamesName',1,'games');
+	while($games = mysql_fetch_object($ecGameData))
 	{
-		$next = ecReferer('index.php?view=clanwars&amp;site=manage');
-		echo ecTemplate('clanwars',$gameTemplate.'add', 'noGame',$gameTemplate.'add');
+		$name = $games->gamesName;
+		$value = $games->gamesId;
+		$clanwarsGames .= ecTemplate('clanwars', 'add', 'select');
 	}
+	$countries = '';
+	foreach ($ecGobalLang['country'] as $short => $name)
+	{
+		$countries .= ecTemplate('clandb', 'add', 'select');
+	}
+	// EnemyClans
+	$clanwarsEnemyClans = '';
+	$ecEnemyClanData = dbSelect('clandbId,clandbName',1,'clandb');
+	while($clans = mysql_fetch_object($ecEnemyClanData))
+	{
+		$name = $clans->clandbName;
+		$value = $clans->clandbId;
+		$clanwarsEnemyClans .= ecTemplate('clanwars', 'add', 'select');
+	}
+	
+	// Squads
+	$clanwarsSquads = '';
+	$clanwarsSquadPlayer = '';
+	$ecSquadsData = dbSelect('*', 1, 'squads');
+	while ($squads = mysql_fetch_object($ecSquadsData))
+	{
+		$value = $squads->squadsId;
+		$name = $squads->squadsName;
+		$clanwarsSquads .= ecTemplate('clanwars', 'add', 'select');
+		// Players
+		$squadNames = '';
+		$ecPlayerData = dbSelect('*', 1, 'squadplayer,users', "(squadplayerSquadId = $value) AND (squadplayerUserId = usersId)");
+		while ($player = mysql_fetch_object($ecPlayerData))
+		{
+			$playerId = $player->squadplayerId;
+			$playerName = $player->usersUsername;
+			$squadNames .= ecTemplate('clanwars', 'add', 'squadPlayer');
+		}
+		$clanwarsSquadPlayer .= ecTemplate('clanwars', 'add', 'squadView');
+	}
+	
+	// Years
+	$clanwarsYears = '';
+	foreach(ecMakeYear() as $value)
+	{
+		$name = $value;
+		$clanwarsYears .= ecTemplate('clanwars', 'add', 'select');
+	}
+	
+	// Upload Filetypes
+	$uploadPictures = ($ecSettings['clanwars']['pics'] == 1) ? $ecLang['picturesTypes'] : '';
+	$uploadArchives = ($ecSettings['clanwars']['archives'] == 1) ? $ecLang['archivesTypes'] : '';
+	$uploadAllowed = ($ecSettings['clanwars']['pics'] == 1 || $ecSettings['clanwars']['archives'] == 1) ? ecTemplate('clanwars', 'add', 'uploadAllowed') : '';
+	
+	echo ecTemplate('clanwars', 'add', 'clanwarsAdd');
 }
 ?>

@@ -61,6 +61,7 @@ elseif ($do == 'delete')
 }
 else
 {
+	echo ecTemplate('system', 'database', 'siteHead');
 	echo ecTemplate('system', 'database', 'dbOptimize');
 	echo ecTemplate('system', 'database', 'tablesHead');
 	$ecTablesData = dbShowtable();
@@ -92,5 +93,6 @@ else
 		}
 	}
 	echo ecTemplate('system', 'database', 'backupsFoot');
+	echo ecTemplate('system', 'database', 'siteFoot');
 }
 ?>

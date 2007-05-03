@@ -33,6 +33,7 @@ while($squad = mysql_fetch_object($ecSquadData))
 	$squadGameId = $squad->gamesId;
 	$squadGameImg = !empty($squad->gamesIcon) ? $squad->gamesIcon : 'default.png';	
 	$squadTask = $squad->squadtaskName;
+	$squadTime = ecDate($squad->squadplayerTime,2);
 	echo ecTemplate('squads', 'users', 'squadData');
 }
 echo ecTemplate('squads', 'users', 'squadFoot');

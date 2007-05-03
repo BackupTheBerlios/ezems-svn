@@ -12,118 +12,84 @@
  trägt allein der Nutzer des Programmes.
 */ $ecFile = 'plugins/clanwars/list.php';
 
-//Ergebnisse Zusammenzählen für Statistik:
-$statistikErgebnisTeam1 = 0;
-$statistikErgebnisTeam2 = 0;
-$lost = 0;
-$draw = 0;
-$won = 0;
-$countWars = 0;
-$wars = '';
+echo ecTemplate('clanwars', 'list', 'siteTitle');
 
-//Template leeren
-$clanwarList = '';
-
-$clanwarsSql = dbSelect('*', 1, 'clanwars');
-while ($clanwarInfos = mysql_fetch_object($clanwarsSql))
+$scoreLoses = 0;
+$scoreDraws = 0;
+$scoreWins = 0;
+echo ecTemplate('clanwars', 'list', 'clanwarsHead');
+$ecClanwarsData = dbSelect('*', 1, 'clanwars,games,squads,clandb',"(clanwarsGameId = gamesId) AND (clanwarsSquadId = squadsId) AND (clanwarsEnemyId = clandbId)");
+while($clanwar = mysql_fetch_object($ecClanwarsData))
 {
-	$result = '';
-	//daten auslesen
-	$matchId = $clanwarInfos->clanwarsId;
-	$date = $clanwarInfos->clanwarsDate;
-		$date = date("d.m.Y", $date);
-	$squadId = $clanwarInfos->clanwarsSquadId;
-	$enemyId = $clanwarInfos->clanwarsEnemyId;
-	$results = $clanwarInfos->clanwarsResults;
-	$gameId = $clanwarInfos->clanwarsGameId;
-	
-	//Squadnamen durch die Id nehmen
-	$squadSql = dbSelect('squadsName', 1, 'squads', 'squadsId = '.$squadId);
-	while ($squadInfos = mysql_fetch_object($squadSql))
-	{
-		$squadName = $squadInfos->squadsName;
-	}
-	
-	//Gegnernamen durch die Id nehmen
-	$enemySql = dbSelect('*', 1, 'clandb', 'clanDbId = '.$enemyId);
-	while ($enemyInfos = mysql_fetch_object($enemySql))
-	{
-		$enemyName = $enemyInfos->clanDbName;
-		$enemyShortName = $enemyInfos->clanDbShortName;
-		$enemyTag = $enemyInfos->clanDbTag;
-		//$enemyCountry = $enemyInfos->clanDbCountry;
-		$enemyHomepage = $enemyInfos->clanDbHomepage;
-	
-		$popup = ecTemplate('clanwars', 'list', 'moreInfoClan');
-	}
-	
-	//Spielnamen anhand der Id holen
-	$gameSql = dbSelect('gamesName', 1, 'games', 'gamesId = '.$gameId);
-	while($gameInfos = mysql_fetch_object($gameSql))
-	{
-		$gameName = $gameInfos->gamesName;
-	}
-	
+	$clanwarsId = $clanwar->clanwarsId;
+	$clanwarsDate = ecDate($clanwar->clanwarsTime,2);
+	$clanwarsSquadId = $clanwar->clanwarsSquadId;
+	$clanwarsSquadName = $clanwar->squadsName;
+	$clanwarsGameId = $clanwar->gamesId;
+	$clanwarsGameName = $clanwar->gamesName;
+	$clanwarsGameImg = $clanwar->gamesIcon;
+	$clanwarsEnemyId = $clanwar->clandbId;
+	$clanwarsEnemyName = $clanwar->clandbName;
+	$cwTypes = array(	1 => 'Clanwar',
+						2 => 'Funwar',
+						3 => 'Friendlywar',
+						4 => 'Trainwar',
+						5 => 'Ligawar',
+						6 => 'Other');
+	$clanwarsTyp = $cwTypes[$clanwar->clanwarsTypId];
+	$clanwarsSquadNation = $ecSettings['squads']['clanNation'];
+	$clanwarsEnemyNation = $clanwar->clandbCountry;
+
 	//Ergebnisse aufsplitten nach Runden
-	$scorePerMapArray = explode('|µ|', $results);
-	$i = 0;
-	while($i < count($scorePerMapArray))
+	$totalScoreSquad = 0;
+	$totalScoreEnemy = 0;
+	$clanwarsResults = $clanwar->clanwarsResults;
+	$scorePerMapArray = explode('|µ|', $clanwarsResults);
+	foreach($scorePerMapArray as $roundScores)
 	{
-		//Jetzt die ergebnisse der 2 Runden aufsplitten auf die Beiden Teams
-		$scorePerRoundArray = explode(':', $scorePerMapArray[$i]);
-		$j = 1;
-		while($j < count($scorePerRoundArray))
+		if (!empty($roundScores))
 		{
-			//Runde 1 Team 1
-			$ergebnisTeam1 = $scorePerRoundArray[$j];
-			$j++;
-			
-			//Runde 1 Team 2
-			$ergebnisTeam2 = $scorePerRoundArray[$j];
-			$j++;
-			
-			//Runde 2 Team 1
-			$ergebnisTeam1_2 = $ergebnisTeam1+$scorePerRoundArray[$j];
-			$j++;
-			
-			//Runde 2 Team 1
-			$ergebnisTeam2_2 = $ergebnisTeam2+$scorePerRoundArray[$j];
-			$j++;
-			
-			//schauen ob es ein won, draw oder loos war
-			if($ergebnisTeam1_2 < $ergebnisTeam2_2)
+			$scorePerRoundArray = explode(':', $roundScores);
+			$i = 0;
+			while($i < count($scorePerRoundArray))
 			{
-				$lost++;
-				$result = "<font color=\"red\">".$ergebnisTeam1_2."</font> : <font color=\"green\">".$ergebnisTeam2_2."</font>";
+				$scoreSquadRound1 = $scorePerRoundArray[$i];
+				$i++;
+				$scoreEnemyRound1 = $scorePerRoundArray[$i];
+				$i++;
+				$scoreSquadRound2 = $scorePerRoundArray[$i];
+				$i++;
+				$scoreEnemyRound2 = $scorePerRoundArray[$i];
+				$i++;
+				// Total Scores
+				$totalScoreSquad += $scoreSquadRound1 + $scoreSquadRound2;
+				$totalScoreEnemy += $scoreEnemyRound1 + $scoreEnemyRound2;
 			}
-			elseif($ergebnisTeam1_2 == $ergebnisTeam2_2)
-			{
-				$draw++;
-				$result = "<font color=\"orange\">".$ergebnisTeam1_2." : ".$ergebnisTeam2_2."</font>";
-			}
-			else
-			{
-				$won++;
-				$result = "<font color=\"green\">".$ergebnisTeam1_2."</font> : <font color=\"red\">".$ergebnisTeam2_2."</font>";
-			}
-			
-			//Für Die Statistik
-			$statistikErgebnisTeam1 = $statistikErgebnisTeam1+$ergebnisTeam1_2;
-			$statistikErgebnisTeam2 = $statistikErgebnisTeam2+$ergebnisTeam2_2;
 		}
-		
-		//$clanwarList = ecTemplate('clanwars', 'list', 'liste');
-		$i++;
 	}
-	$wars .= ecTemplate('clanwars', 'list', 'wars');
-	$countWars++;
+	if($totalScoreSquad < $totalScoreEnemy)
+	{
+		$scoreLoses++;
+		$clanwarsResult = '<font color="#ff0000">'.$totalScoreSquad.' : '.$totalScoreEnemy.'</font>';
+	}
+	elseif($totalScoreSquad == $totalScoreEnemy)
+	{
+		$scoreDraws++;
+		$clanwarsResult = '<font color="#ff6600">'.$totalScoreSquad.' : '.$totalScoreEnemy.'</font>';
+	}
+	else
+	{
+		$scoreWins++;
+		$clanwarsResult = '<font color="#006600">'.$totalScoreSquad.' : '.$totalScoreEnemy.'</font>';
+	}
+	echo ecTemplate('clanwars', 'list', 'clanwarsData');
 }
-$wonPercent = round($won / $countWars * 100, 2);
-$drawPercent = round($draw / $countWars * 100, 2);
-$lostPercent = round($lost / $countWars * 100, 2);
+echo ecTemplate('clanwars', 'list', 'clanwarsFoot');
 
-$statistik = ecTemplate('clanwars', 'list', 'statistik');
-echo ecTemplate('clanwars', 'list', 'entry');
+$clanwarsCount = $scoreWins + $scoreDraws + $scoreLoses;
+$percentageWins = round($scoreWins / $clanwarsCount * 100, 2);
+$percentageDraws = round($scoreDraws / $clanwarsCount * 100, 2);
+$percentageLoses = round($scoreLoses / $clanwarsCount * 100, 2);
 
-
+echo ecTemplate('clanwars', 'list', 'clanwarsStats');
 ?>

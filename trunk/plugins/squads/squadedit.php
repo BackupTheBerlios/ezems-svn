@@ -56,6 +56,7 @@ if (isset($_POST['save']))
 				$insert2['squadplayerSquadId'] = $id;
 				$insert2['squadplayerTaskId'] = $squadPlayerTaskArray[$i];
 				$insert2['squadplayerUserId'] = $squadPlayerArray[$i];
+				$insert2['squadplayerTime'] = $ecLocal['timestamp'];
 				dbInsert(1, 'squadplayer', $insert2);
 			}
 			$vorhanden = 0;
@@ -132,7 +133,7 @@ else
 	
 	$taskOptions = '';
 	//Tasks auslesen
-	$ecTaskData = dbSelect('*', 1, 'squadtask');
+	$ecTaskData = dbSelect('*',1,'squadtask','','squadtaskPriority',1);
 	while ($task = mysql_fetch_object($ecTaskData))
 	{
 		$taskId = $task->squadtaskId;
@@ -140,7 +141,7 @@ else
 		$taskOptions .= ecTemplate('squads', 'squadedit', 'taskOption');
 	}
 	$squadPlayer = '';
-	$ecSquadMemberData = dbSelect('*', 1, 'squadplayer,users,squadtask',"(squadplayerSquadId = $id) && (squadplayerUserID = usersId) && (squadplayerTaskId = squadtaskId)", 'squadtaskId', 1);
+	$ecSquadMemberData = dbSelect('*', 1, 'squadplayer,users,squadtask',"(squadplayerSquadId = $id) AND (squadplayerUserID = usersId) AND (squadplayerTaskId = squadtaskId)", 'squadtaskPriority', 1);
 	while ($squadMember = mysql_fetch_object($ecSquadMemberData))
 	{
 		$squadPlayerId = $squadMember->squadplayerId;

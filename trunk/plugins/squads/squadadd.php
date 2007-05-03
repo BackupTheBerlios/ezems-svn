@@ -45,6 +45,7 @@ if (isset($_POST['save']))
 				$insert2['squadplayerSquadId'] = $id;
 				$insert2['squadplayerTaskId'] = $squadPlayerTaskArray[$i];
 				$insert2['squadplayerUserId'] = $squadPlayerArray[$i];
+				$insert2['squadplayerTime'] = $ecLocal['timestamp'];
 				dbInsert(1, 'squadplayer', $insert2);
 			}
 			$vorhanden = 0;
@@ -126,7 +127,7 @@ else
 	}
 	
 	$memberOptions = '';
-	//Games auslesen
+	//Users auslesen
 	$ecUserData = dbSelect('*', 1, 'users');
 	while ($users = mysql_fetch_object($ecUserData))
 	{
@@ -136,8 +137,8 @@ else
 	}
 	
 	$taskOptions = '';
-	//Games auslesen
-	$ecTaskData = dbSelect('*', 1, 'squadtask');
+	//Tasks auslesen
+	$ecTaskData = dbSelect('*',1,'squadtask','','squadtaskPriority',1);
 	while ($task = mysql_fetch_object($ecTaskData))
 	{
 		$taskId = $task->squadtaskId;

@@ -30,7 +30,7 @@ elseif ($action == 'uploadTypes')
 {
 	//UploadTypen senden
 	$data['pics'] = isset($_POST['pics']) ? 1 : 0;
-	$data['archiver'] = isset($_POST['archiver']) ? 1 : 0; 
+	$data['archives'] = isset($_POST['archives']) ? 1 : 0; 
 	//Daten in die Datenbank schreiben
 	ecSettings('clanwars', $data);
 	//Template laden
@@ -42,14 +42,16 @@ else
 	//Inhalt & Template laden
 	echo ecTemplate('clanwars', 'manage', 'clanwarsHead');
 	$ecClanwarsData = dbSelect('*', 1, 'clanwars,games,clandb', '(clanwarsGameId = gamesId) && (clanwarsEnemyId = clanDbId)');
-	while ($clanwars = mysql_fetch_object($ecClanwarsData))
+	while ($clanwar = mysql_fetch_object($ecClanwarsData))
 	{
 		//Clanwardaten auslesen
-		$clanwarsId = $clanwars->clanwarsId;
-		$enemyName = $clanwars->clanDbName;
-		$gameId = $clanwars->clanwarsGameId;
-		$clanwarsGame = $clanwars->gamesName;
-		$clanwarsDate = ecDate($clanwars->clanwarsDate, 2);
+		$clanwarsId = $clanwar->clanwarsId;
+		$gameId = $clanwar->clanwarsGameId;
+		$clanwarsGameName = $clanwar->gamesName;
+		$clanwarsGameImg = $clanwar->gamesIcon;
+		$clanwarsDate = ecDate($clanwar->clanwarsTime, 2);
+		$clanwarsEnemyId = $clanwar->clandbId;
+		$clanwarsEnemyName = $clanwar->clandbName;
 
 		//Template laden
 		echo ecTemplate('clanwars', 'manage', 'clanwarsData');
@@ -65,7 +67,6 @@ else
 		$description = $games->gamesName;
 		$options .= ecTemplate('clanwars', 'manage', 'select');
 	}
-	echo ecTemplate('clanwars', 'manage', 'clanwarsAdd');
 	
 	//Erlaubnisfelder
 	//Erlaubnisfelddaten auslesen
@@ -73,7 +74,7 @@ else
 	
 	//UploadTypen auslesen
 	$pics = ($ecSettings['clanwars']['pics'] == 1) ? 'checked="checked"' : '';
-	$archiver = ($ecSettings['clanwars']['archiver'] == 1) ? 'checked="checked"' : '';
+	$archives = ($ecSettings['clanwars']['archives'] == 1) ? 'checked="checked"' : '';
 
 	//Erlaubnisfeld Template laden
 	echo ecTemplate('clanwars', 'manage', 'clanwarsAccess');

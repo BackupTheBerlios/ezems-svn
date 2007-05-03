@@ -12,139 +12,123 @@
  trägt allein der Nutzer des Programmes.
 */ $ecFile = 'plugins/clanwars/details.php';
 
-$cwId = isset($_REQUEST['Id']) ? $_REQUEST['Id'] : '';
+$id = isset($_REQUEST['id']) ? $_REQUEST['id'] : '';
 
-$gameName = '';
-$gameTemplate = '';
+echo ecTemplate('clanwars', 'details', 'siteHead');
+$ecClanwarsData = dbSelect('*', 1, 'clanwars,games,squads,clandb',"(clanwarsGameId = gamesId) AND (clanwarsSquadId = squadsId) AND (clanwarsEnemyId = clandbId) AND (clanwarsId = $id)");
+$clanwar = mysql_fetch_assoc($ecClanwarsData);
+$clanwarsId = $clanwar['clanwarsId'];
+$clanwarsDate = ecDate($clanwar['clanwarsTime'],2);
+$clanwarsTime = ecDate($clanwar['clanwarsTime'],1);
+$clanwarsSquadId = $clanwar['clanwarsSquadId'];
+$clanwarsSquadName = $clanwar['squadsName'];
+$clanwarsSquadImg = !empty($clanwar['squadsPic']) ? $clanwar['squadsPic'] : 'default.png';
+$clanwarsGameId = $clanwar['gamesId'];
+$clanwarsGameName = $clanwar['gamesName'];
+$clanwarsGameImg = $clanwar['gamesIcon'];
+$clanwarsEnemyId = $clanwar['clandbId'];
+$clanwarsEnemyName = $clanwar['clandbName'];
+$clanwarsInfo = $clanwar['clanwarsInfo'];
+$clanwarsEnemyImg = !empty($clanwar['clandbImage']) ? $clanwar['clandbImage'] : 'default.png';
+$cwTypes = array(	1 => 'Clanwar',
+					2 => 'Funwar',
+					3 => 'Friendlywar',
+					4 => 'Trainwar',
+					5 => 'Ligawar',
+					6 => 'Other');
+$clanwarsTyp = $cwTypes[$clanwar['clanwarsTypId']];
+$clanwarsSquadNation = $ecSettings['squads']['clanNation'];
+$clanwarsEnemyNation = $clanwar['clandbCountry'];
 
-$ecClanwarData = dbSelect('*', 1, 'clanwars', 'clanwarsId ='.$cwId);
-while ($cwDetails = mysql_fetch_object($ecClanwarData))
+$squadLineup = '';
+$clanwarsSquadPlayerCount = 0;
+$squadPlayer = explode("|µ|", $clanwar['clanwarsSquadListId']);
+$ecSquadData = dbSelect('squadplayerId,usersId,usersUsername,squadsTag,usersNation', 1, 'squadplayer,squadtask,users,squads', "(squadplayerTaskId = squadtaskID) AND (squadplayerUserId = usersId) AND (squadsId = squadplayerSquadId)");
+while ($player  = mysql_fetch_object($ecSquadData)) 
 {
-	//Alle Informationen über diegewählte ID holen
-	//Hier holt er erst die Id des Clanwars und ermittelt das Spiel
-	$gameId = $cwDetails->clanwarsGameId;
-	$gameInfos = dbSelect('*', 1, 'games', 'gamesId ='.$gameId);
-	while ($gameInfo = mysql_fetch_object($gameInfos)) 
+	if (in_array($player->squadplayerId,$squadPlayer))
 	{
-		$gameName .= $gameInfo->gamesName;
-		$gameTemplate .= (file_exists('templates/'.$ecLocal['template'].'/clanwars/'.$gameName.'/details.html')) ? $gameName."/" : '';
-		$gameIcon = $gameInfo->gamesIcon;
+		$name = $player->squadsTag.$player->usersUsername;
+		$nation = $player->usersNation;
+		$userId = $player->usersId;
+		$squadLineup .= ecTemplate('clanwars', 'details', 'squadLineup');
+		$clanwarsSquadPlayerCount++;
 	}
-	
-	//Durch die Squadid die Squadinforamtionen bekommen
-	$squadId = $cwDetails->clanwarsSquadId;
-	$squad = dbSelect('*', 1, 'squads', 'squadsId ='.$squadId);
-	while ($squadInfo = mysql_fetch_object($squad)) 
-	{
-		$squadName = $squadInfo->squadsName;
-		$squadTag = $squadInfo->squadsTag;
-		$squadPic = !empty($squadInfo->squadsPic) ? $squadInfo->squadsPic : 'default.png';
-	}
-	
-	//Durch die Gegnerid die Gegnerinformationen aus der ClanDb holen
-	$enemyClanId = $cwDetails->clanwarsEnemyId;
-	$enemy = dbSelect('*', 1, 'clandb', 'clanDbId ='.$enemyClanId);
-	while ($enemyClanInfo = mysql_fetch_object($enemy))
-	{
-		$enemyName = $enemyClanInfo->clanDbName;
-		$enemyPic = !empty($enemyClanInfo->clanDbImage) ? $enemyClanInfo->clanDbImage : 'default.png';
-	}
-
-	//Datumausgabe im Script
-	$datum = $cwDetails->clanwarsDate;
-	$date = date("d.m.Y - H:i",$datum);
-	
-	//Player aus dem Squad suchen und Ausgeben mit seiner Funktion
-	$squadLineup = '';
-	$squadPlayer = explode("|µ|", $cwDetails->clanwarsSquadListPlayerId);
-	$i=1;
-	while ($i < count($squadPlayer))
-	{
-		$gamer = $squadPlayer[$i];
-		$squadPlayerInfo = dbSelect('*', 1, 'squadplayer,squadtask,users', "(squadplayerId = $gamer) && (squadplayerTaskId = squadtaskID) && (squadplayerUserId = usersId)");
-		while ($squadPlayerInfos  = mysql_fetch_object($squadPlayerInfo)) 
-		{
-			$gamerName = $squadTag.$squadPlayerInfos->usersUsername;
-			$squadLineup .= ecTemplate('clanwars', $gameTemplate.'details', 'squadLineup');	
-		}	
-		$i++;
-	}
-	
-	//Player aus dem Gegnersquad suchen und ausgeben
-	$enemyLineup = '';
-	$enemySquadPlayer = explode("|µ|", $cwDetails->clanwarsListEnemy);
-	$i=0;
-	while ($i < count($enemySquadPlayer))
-	{
-		$enemyGamerName = $enemySquadPlayer[$i];
-		$enemyLineup .= ecTemplate('clanwars', $gameTemplate.'details', 'enemyLineup');		
-		$i++;
-	}
-	
-	
-	//MAP und Ergebnisse
-	$maptemplate = '';
-	$mapArray = explode(":", $cwDetails->clanwarsMapsId);
-	$scoreArray = explode("|µ|", $cwDetails->clanwarsResults);
-	
-	$mapCount = 0;
-	$scoreCount = 0;
-	while($mapCount < count($mapArray) && $scoreCount < count($scoreArray))
-	{
-		$maparrays = $mapArray[$mapCount];
-		$mapDbSelect = dbSelect('*', 1, 'maps', 'mapsId ='.$maparrays);
-		while ($mapInfo = mysql_fetch_object($mapDbSelect)) 
-		{
-			$map = $mapInfo->mapsName;
-		}
-		
-		$scoreRoundArray = explode(':', $scoreArray[$scoreCount]);
-		$scorecount2 = 1;
-		while ($scorecount2 < count($scoreRoundArray))
-		{
-			//Ergebnisse aus der aktuellen Map holen
-			$score1 = $scoreRoundArray[$scorecount2];
-			$scorecount2++;
-			$score2 = $scoreRoundArray[$scorecount2];
-			$scorecount2++;
-			
-			$score3 = $scoreRoundArray[$scorecount2];
-			$scorecount2++;
-			$score4 = $scoreRoundArray[$scorecount2];
-			$scorecount2++;
-		}
-		
-		$mapCount++;
-		$scoreCount++;
-		$maptemplate .= ecTemplate('clanwars', $gameTemplate.'details', 'mapRound');
-	}
-	
-	//Files aus dem suchen und ausgeben
-	$medienImageTemplate = '';
-	$medienArchivTemplate = '';
-	$files = explode(":", $cwDetails->clanwarsFiles);
-	$i = 0;
-	while ($i < count($files)-1)
-	{
-		//Datei einer Variable zuweisen
-		$medien = $files[$i];
-		
-		//Datentyp herausbekommen:
-		$datatyp = pathinfo($medien);
-		$datatyp = $datatyp["extension"];
-		
-		//Überprüfen ob es sich um Bilder handelt
-		if($datatyp  == 'jpg' || $datatyp  == 'jpeg' || $datatyp  == 'png' || $datatyp  == 'gif' || $datatyp  == 'bmp')
-		{
-			$medienImageTemplate .= ecTemplate('clanwars', $gameTemplate.'details', 'medienImage');
-		}
-		else
-		{
-			$medienArchivTemplate .= ecTemplate('clanwars', $gameTemplate.'details', 'medienArchiv');
-		}
-		$i++;
-	}
-	$media = ($i != 0) ? ecTemplate('clanwars', $gameTemplate.'details', 'medien') : '';
-	echo ecTemplate('clanwars', $gameTemplate.'details', 'siteEntry');
 }
+$clanwarsEnemyPlayerCount = 0;
+$enemyLineup = '';
+$enemySquadPlayer = explode("|µ|", $clanwar['clanwarsListEnemy']);
+foreach ($enemySquadPlayer as $nick)
+{
+	if (!empty($nick))
+	{
+		$name = $clanwar['clandbTag'].$nick;
+		$enemyLineup .= ecTemplate('clanwars', 'details', 'enemyLineup');
+		$clanwarsEnemyPlayerCount++;	
+	}
+}
+$clanwarsXonX = $clanwarsSquadPlayerCount.' on '.$clanwarsEnemyPlayerCount;
+$clanwarsRounds = '';
+$totalScoreSquad = 0;
+$totalScoreEnemy = 0;
+$mapArray = explode("|µ|", $clanwar['clanwarsMaps']);
+$scoreArray = explode("|µ|", $clanwar['clanwarsResults']);
+foreach ($mapArray as $id => $map)
+{
+	if (!empty($map))
+	{
+		$scorePerRoundArray = explode(':', $scoreArray[$id]);
+		$scoreSquadRound1 = $scorePerRoundArray[0];
+		$scoreEnemyRound1 = $scorePerRoundArray[1];
+		$scoreSquadRound2 = $scorePerRoundArray[2];
+		$scoreEnemyRound2 = $scorePerRoundArray[3];
+		// Total Scores
+		$totalScoreSquad += $scoreSquadRound1 + $scoreSquadRound2;
+		$totalScoreEnemy += $scoreEnemyRound1 + $scoreEnemyRound2;
+		$clanwarsRounds.= ecTemplate('clanwars', 'details', 'mapRound');
+	}
+}
+$ecLang = ecGetLang('clanwars', 'details');
+if($totalScoreSquad < $totalScoreEnemy)
+{
+	$totalScoreSquad = '<font color="#ff0000">'.$totalScoreSquad.'</font>';
+	$totalScoreEnemy = '<font color="#006600">'.$totalScoreEnemy.'</font>';
+	$scoreStatus = '<font color="#ff0000">'.$ecLang['totalScoreStatusLost'].'</font>';
+}
+elseif($totalScoreSquad == $totalScoreEnemy)
+{
+	$totalScoreSquad = '<font color="#ff6600">'.$totalScoreSquad.'</font>';
+	$totalScoreEnemy = '<font color="#ff6600">'.$totalScoreEnemy.'</font>';
+	$scoreStatus = '<font color="#ff6600">'.$ecLang['totalScoreStatusDraw'].'</font>';
+}
+else
+{
+	$totalScoreSquad = '<font color="#006600">'.$totalScoreSquad.'</font>';
+	$totalScoreEnemy = '<font color="#ff0000">'.$totalScoreEnemy.'</font>';
+	$scoreStatus = '<font color="#006600">'.$ecLang['totalScoreStatusWon'].'</font>';
+}
+// Files
+$mediaImageTemplate = '';
+$mediaArchivTemplate = '';
+$files = explode(":", $clanwar['clanwarsFiles']);
+$i = 0;
+while ($i < count($files)-1)
+{
+	$medien = $files[$i];
+	// Datatype
+	$datatyp = pathinfo($medien);
+	$datatyp = $datatyp["extension"];
+	// Images
+	if($datatyp  == 'jpg' || $datatyp  == 'jpeg' || $datatyp  == 'png' || $datatyp  == 'gif' || $datatyp  == 'bmp')
+	{
+		$mediaImageTemplate .= ecTemplate('clanwars', 'details', 'mediaImages');
+	}
+	else
+	{
+		$mediaArchivTemplate .= ecTemplate('clanwars', 'details', 'mediaArchives');
+	}
+	$i++;
+}
+$media = ($i != 0) ? ecTemplate('clanwars', 'details', 'media') : '';
+echo ecTemplate('clanwars', 'details', 'clanwarsDetails');
 ?>

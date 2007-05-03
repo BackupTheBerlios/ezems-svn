@@ -27,7 +27,7 @@ while($squad = mysql_fetch_object($ecSquadData))
 	$squadGameImg = !empty($squad->gamesIcon) ? $squad->gamesIcon : 'default.png';	
 	$squadPlayersCount = 0;
 	$squadPlayers = '';
-	$ecPlayerData = dbSelect('*',1,'squadplayer,users', "(squadplayerUserId = usersId) AND (squadplayerSquadId = $squadId)",'',1);
+	$ecPlayerData = dbSelect('*', 1, 'squadplayer,users,squadtask',"(squadplayerSquadId = $squadId) && (squadplayerUserID = usersId) && (squadplayerTaskId = squadtaskId)", 'squadtaskPriority', 1);
 	while($player = mysql_fetch_object($ecPlayerData))
 	{
 		if ($squadPlayersCount != 0) $squadPlayers .= ', ';

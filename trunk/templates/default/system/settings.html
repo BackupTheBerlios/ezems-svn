@@ -2,6 +2,8 @@
 <div class="head">
 	<img src="{icon:32:admin}" alt="title" width="32" height="32" /> {?siteTitle}
 </div>
+<!-siteHead>
+<!+settingsSkript>
 <form id="form" name="form" method="post" action="index.php?view=system&amp;site=settings">
 <div class="clickTabBox">
 	<ul>
@@ -11,8 +13,7 @@
 		<li><a>{?titleOthers}</a></li>
 		<li><a>{?titleMail}</a></li>
 	</ul>
-<!-siteHead>
-<!+settingsSkript>
+
 	<div class="clickTab">
         <table width="100%" border="0">
           <tr>
@@ -116,13 +117,12 @@
 <option value="{$value}"{$checked}>{$description}</option>
 <!-select>
 <!+settingsSaved>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?titleSaved}</a></li>
+	</ul>
 	<div class="clickTab">
-		<table class="table">
-		  <tr>
-			<td>
-    <td class="cellmiddle"><strong>{?titleSaved}<br />
-      </strong><br />
-      {$next}</td>
-  </tr>
-</table></div></div>
+		{$next}
+	</div>
+</div>
 <!-settingsSaved>

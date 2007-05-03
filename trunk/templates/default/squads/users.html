@@ -42,8 +42,9 @@
 	<div class="clickTab">
 		<table class="table">
 			<tr>
-				<td width="50%"><strong>{?squadName}</strong></td>
-			    <td width="40%"><strong>{?squadTask}</strong></td>
+				<td width="30%"><strong>{?squadName}</strong></td>
+			    <td width="30%"><strong>{?squadTask}</strong></td>
+			    <td width="30%"><strong>{?squadTime}</strong></td>
 			    <td width="10%"><strong>{?squadGame}</strong></td>
 			</tr>
 			<!-squadHead>
@@ -51,6 +52,7 @@
 			<tr>
 			  <td><a href="?view=squads&amp;site=members&amp;id={$squadId}">{$squadName}</a></td>
 		      <td><a href="?view=games&amp;site=details&amp;id={$squadGameId}"></a>{$squadTask}</td>
+		      <td>{$squadTime}</td>
 		      <td><a href="?view=games&amp;site=details&amp;id={$squadGameId}"><img src="uploads/games/{$squadGameImg}" alt="{$squadGameImg}" width="16" height="16" border="0" /></a></td>
 		  </tr>
 		  	<!-squadData>

@@ -1,0 +1,93 @@
+<!+siteHead>
+<div class="head">
+	<img src="{icon:32:users}" alt="title" width="32" height="32" /> {?siteTitle}
+</div>
+<!-siteHead>
+<!+usersEdit>
+<form id="form1" name="form1" method="post" action="index.php?view=users&amp;site=edit">
+<span style="color:#FF0000">{$errorMsg}</span>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?usersLogin}</a></li>
+		<li><a>{?usersMain}</a></li>
+		<li><a>{?usersAccess}</a></li>
+	</ul>
+	<div class="clickTab">
+      <table class="table">
+        <tr>
+          <td width="40%">{?usersUsername}*</td>
+          <td width="60%">
+            <input name="usersUsername" type="text" id="usersUsername" value="{$usersUsername}" />
+          </td>
+        </tr>
+        <tr>
+          <td>{?usersPassword}</td>
+          <td><input name="usersPassword" type="password" id="usersPassword" style="ime-mode:disabled" onchange="ecPassword(this.value);" onclick="ecPassword(this.value);" onkeyup="ecPassword(this.value);" /></td>
+        </tr>
+        <tr>
+          <td>{?usersPassword2}</td>
+          <td><input name="usersPassword2" type="password" id="usersPassword2" /></td>
+        </tr>
+        <tr>
+          <td>{?usersPasswordSecure}</td>
+          <td><img src="{icon:16:shield2}" alt="secure" name="i1" width="16" height="16" id="i1" /><img src="{icon:16:shield2}" alt="secure" name="i2" width="16" height="16" id="i2" /><img src="{icon:16:shield2}" alt="secure" name="i3" width="16" height="16" id="i3" /></td>
+        </tr>
+      </table>
+	</div>
+	<div class="clickTab">
+      <table class="table">
+        <tr>
+          <td width="40%">{?usersEmail}*</td>
+          <td width="60%"><input name="usersEmail" type="text" id="usersEmail" value="{$usersEmail}" /></td>
+        </tr>
+        <tr>
+          <td>{?usersFirstname}</td>
+          <td><input name="usersFirstname" type="text" id="usersFirstname" value="{$usersFirstname}" /></td>
+        </tr>
+        <tr>
+          <td>{?usersLastname}</td>
+          <td><input name="usersLastname" type="text" id="usersLastname" value="{$usersLastname}" /></td>
+        </tr>
+        </tr>
+      </table>
+	</div>
+	<div class="clickTab">
+      <table class="table">
+        <tr>
+          <td width="40%">{?usersGroup}*</td>
+          <td width="60%"><select name="usersGroupId" id="usersGroupId">
+            {$dataGroups}
+          </select>
+          </td>
+          </tr>
+	  </table>
+	</div>
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?usersSave}</a></li>
+	</ul>
+	<div class="clickTab">
+	
+        <table class="table">
+          <tr>
+            <td colspan="2"><input name="save" type="submit" id="save" value="{?save}" />
+              <input name="reset"  type="reset" id="reset" value="{?reset}" />
+              <input name="id" type="hidden" id="id" value="{$id}" /></td>
+          </tr>
+        </table>
+	</div>
+</div>
+</form>
+<!-usersEdit>
+<!+usersEdited>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?usersEdited}</a></li>
+	</ul>
+	<div class="clickTab">{$next}</div>
+</div>
+<!-usersEdited>
+<!+select>
+<option value="{$value}"{$checked}>{$description}</option>
+<!-select>

@@ -1,12 +1,13 @@
-<!+siteEntry>
-<script>ecMapwahl([{$mapNamen}])</script>
+<!+siteTitle>
 <div class="head">
 	<img src="{icon:32:{$gamesName}}" alt="{$gamesName}" width="32" height="32" /> {?siteTitle}
 </div>
-<form name="Form" action="index.php?view=clanwars&site=add&amp;action=add" method="post" enctype="multipart/form-data">
+<!-siteTitle>
+<!+clanwarsAdd>
+<form name="form" action="index.php?view=clanwars&site=add&amp;action=add" method="post" enctype="multipart/form-data">
 <div class="clickTabBox">
 	<ul>
-		<li><a>{?menuGerneral}</a></li>
+		<li><a>{?menuGeneral}</a></li>
 		<li><a>{?menuPlayer}</a></li>
 		<li><a>{?menuMaps}</a></li>
 		<li><a>{?menuMisc}</a></li>
@@ -14,259 +15,181 @@
 	<div class="clickTab">
 	<table style="width:{ecTableWidth}" border="0" class="table">
 		<tr>
-			<td width="30%"><strong>{?matchtyp}</strong></td>
-			<td><select name="category">
+			<td width="30%">{?clanwarsGame}*</td>
+		    <td><select name="clanwarsGameId" id="clanwarsGameId">
+					{$clanwarsGames}
+		    
+		  
+		    </select>
+		  </td>
+		</tr>
+		<tr>
+		  <td>{?clanwarsTyp}*</td>
+		  <td><select name="clanwarsTypId" id="clanwarsTypId">
+					{$clanwarsTypes}
+		    
+		  
+		  </select>
+		  </td>
+	    </tr>
+	</table>
+	</div>
+	<div class="clickTab">
+	<table class="table">
+		<tr>
+			<td width="30%" valign="top">{?clanwarsEnemyClan}*</td>
+			<td><input type="hidden" name="clanHidden">
+			  <select name="clanwarsClanId" id="clanwarsClanId" onchange="ecMakeVisible('clanHidden','clanwars'+this.value)">
 				<option value="">- - -</option>
-					{$categoryOptions}
-				</select> - <input name="newCategory" type="text" />
+				<option value="OtherClan">{?clanwarsOtherClan}</option>
+						{$clanwarsEnemyClans}
+				</select><div style="display:none" id="clanwarsOtherClan">
+				<br />
+				<input type="text" name="clanwarsClanName" />
+				<br />
+				<select name="clanwarsClanCountry" id="clanwarsClanCountry">
+			  {$countries}
+				  
+				</select>
+				</div>
 			</td>
+		</tr>
+		<tr>
+			<td valign="top">{?clanwarsEnemyPlayers}*<br />
+		    <a href="javascript:void(0)" onclick="ecDynamicInput('clanwarsEnemyNames',1,0)"><img src="{icon:16:new}" alt="add" width="16" height="16" border="0" /></a> <a href="javascript:void(0)" onclick="ecDynamicInput('clanwarsEnemyNames',2,0)"><img src="{icon:16:minus}" alt="remove" width="16" height="16" border="0" /></a></td>
+		    <td><div id="clanwarsEnemyNames"><div name="id"><input type="text" name="clanwarsEnemyNames[]"></div></div>
+		  </td>
+		</tr>
+	</table>
+	<table class="table">
+		<tr>
+			<td width="30%">{?clanwarsSquads}*</td>
+			<td>
+				<input type="hidden" name="squadHidden">
+				<select name="clanwarsSquadId" id="clanwarsSquadId" onchange="ecMakeVisible('squadHidden',this.value)">
+			  <option value="">- - -</option>
+						{$clanwarsSquads}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">{?clanwarsSquadPlayer}*</td>
+			<td>{$clanwarsSquadPlayer}</td>
 		</tr>
 	</table>
 	</div>
 	<div class="clickTab">
 	<table class="table">
 		<tr>
-			<td valign="top" width="30%"><strong>{?enemyClan}</strong></td>
-			<td><input type="hidden" name="newClanHide"/>
-				<select name="clanDb">
-					<option value="">- - -</option>
-						{$clanDbOptions}
-					<option value="" onclick="ecMakeVisible('newClanHide','another')">{?anotherClan}</option>
-				</select>
-				<div style="display:none" id="another"><input name="newClan" type="text" /></div>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2"><strong>{?enemyList}</strong></td>
-		</tr>
-		<tr>
-			<td valign="bottom"></td>
-			<td><div id="enemyNames"><div name="id"><input type="text" name="enemyNames[]"></div></div>
-				<a href="javascript:void(0)" onclick="ecDynamicInput('enemyNames',1,0)"><img src="{icon:16:new}" /></a>
-				<a href="javascript:void(0)" onclick="ecDynamicInput('enemyNames',2,0)"><img src="{icon:16:minus}" /></a>
-			</td>
-		</tr>
-	</table>
-	<table class="table">
-		<tr>
-			<td width="30%"><strong>{?squads}</strong></td>
-			<td><input type="hidden" name="squadVersteckt">
-				<select name="squad" onchange="ecMakeVisible('squadVersteckt',this.value)">
-					<option value="">- - -</option>
-						{$squadOptions}
+			<td width="30%">{?clanwarsDate}*</td>
+			<td width="70%">
+				<input name="clanwarsDay" type="text" id="clanwarsDay" size="5" maxlength="2" style="width:25px;" />
+		      	. 
+		      	<input name="clanwarsMonth" type="text" id="clanwarsMonth" size="5" maxlength="2" style="width:25px;" />
+	            .
+	             <select name="clanwarsYear" id="clanwarsYear">
+						{$clanwarsYears}
 				</select>
 			</td>
 		</tr>
 		<tr>
-			<td valign="top"><strong>{?SquadPlayer}</strong></td>
-			<td>{$squadPlayer}</td>
-		</tr>
-	</table>
-	</div>
-	<div class="clickTab">
-	<table class="table">
-		<tr>
-			<td width="30%"><strong>{?Date}</strong></td>
-			<td><select name="day">
-					<option value="">- - -</option>
-						{$dayOption}
-				</select>
-				
-				<select name="month">
-					<option value="">- - -</option>
-						{$monthOption}
-				</select>
-				
-				<select name="year">
-					<option value="">- - -</option>
-						{$yearOption}
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td><strong>{?time}</strong></td>
-			<td><select name="hour">
-					<option value="">- - -</option>
-						{$hourOption}
-					</select>
+			<td>{?clanwarsTime}*</td>
+			<td><input name="clanwarsHour" type="text" id="clanwarsHour" size="5" maxlength="2" style="width:25px;" />
 				:
-				<select name="min">
-					<option value="">- - -</option>
-						{$minOption}
-				</select>
-			</td>
+				  <input name="clanwarsMin" type="text" id="clanwarsMin" size="5" maxlength="2" style="width:25px;" /></td>
 		</tr>
 	</table>
-	
-	<table class="table">
+	<table cellpadding="0" cellspacing="0" class="table">
 		<tr>
 			<td>
-				<table id="score">
+				<table id="score" style="width:100%;">
 					<tr>
-						<td valign="top"  width="30%"><strong>{?map}</strong></td>
-						<td><input name="map[]" /></td>
+					  <td width="30%">{?clanwarsMap}*</td>
+				      <td colspan="2"><input name="clanwarsMap[]" id="clanwarsMap[]" /></td>
+				  </tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td width="35%"><div align="center"><font color="green"><strong>{?teamSquad}</strong></font></div></td>
+					    <td width="35%"><div align="center"><font color="red"><strong>{?teamEnemy}</strong></font></div></td>
 					</tr>
 					<tr>
-						<td><strong>{?scoreTeam1}</strong></td>
-						<td><input type="text" name="score[]" size="5"> : <input type="text" name="score[]" size="5" /></td>
-					</tr>
+					  <td>{?clanwarsScore1}*</td>
+					  <td><div align="center">
+					    <input name="clanwarsScore[]4" type="text" id="clanwarsScore[]4"  style="width:30px;" />
+				      </div></td>
+				      <td width="35%"><div align="center">
+				        <input name="clanwarsScore[]2" type="text" id="clanwarsScore[]2"  style="width:30px;" />
+			          </div></td>
+				  </tr>
 					<tr>
-						<td><strong>{?scoreTeam2}</strong></td>
-						<td><input type="text" name="score[]" size="5"> : <input type="text" name="score[]" size="5" /></td>
+						<td>{?clanwarsScore2}*</td>
+						<td><div align="center">
+						  <input name="clanwarsScore[]" type="text" id="clanwarsScore[]"  style="width:30px;" />
+					    </div></td>
+					    <td><div align="center">
+					      <input name="clanwarsScore[]3" type="text" id="clanwarsScore[]3"  style="width:30px;" />
+				        </div></td>
 					</tr>
 				</table>
 			</td>
 		</tr>
 		<tr>
-			<td>
-				<input type="button" value="{?addRound}" id="add" onClick="ecDynamicMapInput('score',1,0)">
-				<input type="button" value="{?deleteRound}" id="remove" onClick="ecDynamicMapInput('score',2,0)">
-			</td>
+		  <td>
+			<a href="javascript:void(0)" onclick="ecDynamicMapInput('score',1,0)"><img src="{icon:16:new}" alt="add" width="16" height="16" border="0" /></a>
+			<a href="javascript:void(0)" onclick="ecDynamicMapInput('score',2,0)"><img src="{icon:16:minus}" alt="remove" width="16" height="16" border="0" /></a>			</td>
 		</tr>
 	</table>
 	</div>
 	<div class="clickTab">
-	<table class="table">
-		<tr>
-			<td><strong>{?bericht}</strong></td>
-		</tr>
-		<tr>
-			<td><textarea>DEMO noch nicht eingebaut, da ich auf den BBCODE warte</textarea></td>
-		</tr>
-	</table>
-	<table class="table">
-		{$uploadAllowed}
-	</table>
-	</div>
+	  {?clanwarsInfo} <br />
+	  <textarea name="clanwarsInfo" cols="55" rows="10" id="clanwarsInfo">DEMO noch nicht eingebaut, da ich auf den BBCODE warte</textarea>
+	  <br />
+	  <br />
+	  {$uploadAllowed}	</div>
 </div>
-
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?save}</a></li>
 	</ul>
 	<div class="clickTab">
-	<table class="table">
-		<tr>
-			<td colspan="2">
-				<input type="hidden" name="game" value="{$gameId}" />
-				<input name="save" type="submit" id="save" value="{?save}" />
-				<input name="reset"  type="reset" id="reset" value="{?reset}" />
-			</td>
-		</tr>
-	</table>
-	</div>
+	  <input name="save" type="submit" id="save" value="{?save}" />
+      <input name="reset"  type="reset" id="reset" value="{?reset}" />
+	  <span style="color:#FF0000">{$errorMsg}</span></div>
 </div>
 </form>
-
-<!-siteEntry>
-<!+categoryOptions><option value="{$categoryId}">{$categoryName}</option><!-categoryOptions>
-<!+clanDbOptions><option value="{$clanId}">{$clanName}</option><!-clanDbOptions>
-<!+squadOptions><option value="{$squadId}">{$squadName}</option><!-squadOptions>
+<!-clanwarsAdd>
+<!+select>
+	<option value="{$value}">{$name}</option>
+<!-select>
 <!+squadView>
-<div style="display:none" id="{$squadId}">
-{$squadNames}
+<div style="display:none" id="{$value}">
+	{$squadNames}
 </div>
 <!-squadView>
-<!+squadPlayer><input name="squadPlayer[]" type="checkbox" value="{$playerIds}" class="checkbox">{$playerName}<br /><!-squadPlayer>
-<!+day><option value="{$d}">{$d}</option><!-day>
-<!+month><option value="{$m}">{$m}</option><!-month>
-<!+years><option value="{$y}">{$y}</option><!-years>
-<!+hour><option value="{$h}">{$h}</option><!-hour>
-<!+min><option value="{$mi}">{$mi}</option><!-min
-
+<!+squadPlayer>
+	<input name="clanwarsSquadPlayer[]" type="checkbox" value="{$playerId}" class="checkbox">{$playerName}<br />
+<!-squadPlayer>
 <!+uploadAllowed>
+<table class="table">
 	<tr>
-		<td valign="top"><strong>{?allowed}</strong></td>
-		<td>{$pics}<br />{$archiver}</td>
+		<td valign="top"><strong>{?allowedTypes}</strong></td>
+		<td>{$uploadPictures}<br />{$uploadArchives}</td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<tbody id='uploads'></tbody>
+  <tbody id='uploads'></tbody>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2"><input type="button" value="{?fileAdd}" id="add" onClick="ecFileInput('uploads')"></td>
 	</tr>
+</table>
 <!-uploadAllowed>
-
-<!+pics>
-	{?pics}
-<!-pics>
-
-<!+archiver>
-	{?archiver}
-<!-archiver>
-
-<!+Error>
+<!+clanwarsSaved>
 <div class="clickTabBox">
 	<ul>
-		<li><a>{?warning}</a></li>
+		<li><a>{?clanwarSaved}</a></li>
 	</ul>
-	
-	<div class="clickTab">
-	<table class="table">
-		<tr>
-			<td><span style="color:#FF0000">
-			    {$enemyError}<br />
-				{$enemyPlayerError}<br />
-				{$playerError}<br />
-				{$mapError}<br />
-				</span>
-			</td>
-		</tr>
-		<tr>
-			<td><a href="javascript:history.back()"><strong>{?back}</strong></a></td>
-		</tr>
-	</table>
-	</div>
+	<div class="clickTab">{$next}</div>
 </div>
-<!-Error>
-
-<!+enemyError>
-	{?enemyError}
-<!-enemyError>
-<!+enemyPlayerError>
-	{?enemyPlayerError}
-<!-enemyPlayerError>
-<!+playerError>
-	{?playerError}
-<!-playerError>
-<!+mapError>
-	{?mapError}
-<!-mapError>
-
-<!+saved>
-<div class="clickTabBox">
-	<ul>
-		<li><a>{?clanwarSavedHeader}</a></li>
-	</ul>
-	<div class="clickTab">
-	<table class="table">
-		<tr>
-			<td class="cellmiddle"><strong>{?clanwarSaved}</strong></td>
-		</tr>
-		<tr>
-			<td>{$next}</td>
-		</tr>
-	</table>
-	</div>
-</div>
-<!-saved>
-
-<!+noGame>
-<div class="clickTabBox">
-	<ul>
-		<li><a>{?noGameHead}</a></li>
-	</ul>
-	<div class="clickTab">
-	<table class="table">
-		<tr>
-			<td class="cellmiddle"><strong>{?noGameError}</strong></td>
-		</tr>
-		<tr>
-			<td>{$next}</td>
-		</tr>
-	</table>
-	</div>
-</div>
-<!-noGame>
+<!-clanwarsSaved>

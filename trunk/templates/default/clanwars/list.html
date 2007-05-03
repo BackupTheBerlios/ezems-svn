@@ -1,91 +1,82 @@
-<!+head>
-
-<!-head>
-
-<!+entry>
-
-	{$statistik}
-<div class="clickTabBox">
-	<ul>
-		<li><a>{?plays}</a></li>
-	</ul>
-	<div class="clickTab">
-	
-        <table width="100%" border="0">
-	<tr>
-		<td>
-	<table style="width:{ecTableWidth}" border="0" class="table">
-		<tr>
-			<td width="20%"><strong>{?game}</strong></td>
-			<td width="10%"><strong>{?date}</strong></td>
-			<td width="20%"><strong>{?squad}</strong></td>
-			<td width="20%"><strong>{?enemy}</strong></td>
-			<td width="20%"><strong>{?typ}</strong></td>
-			<td width="10%"><strong>{?result}</strong></td>
-		</tr>
-		{$wars}
-	</table>
-	</td>
-	</tr>
-        </table>
-	</div>
-</div>
-<!-entry>
-
-<!+wars>
-	<tr>
-		<td>{$gameName}</td>
-		<td>{$date}</td>
-		<td>{$squadName}</td>
-		<td><a onclick="ecOpenPopup('{$enemyName}','{$popup}','{?close}')" href="javascript:void(0)">{$enemyName}</a></td>
-		<td></td>
-		<td><a href="index.php?view=clanwars&amp;site=details&Id={$matchId}">{$result}</a></td>
-	</tr>
-<!-wars>
-
-<!+statistik>
+<!+siteTitle>
 <div class="head">
 	<img src="{icon:32:clanwars}" alt="clanwars" width="32" height="32" /> {?siteTitle}
 </div>
-
+<!-siteTitle>
+<!+clanwarsHead>
 <div class="clickTabBox">
 	<ul>
-		<li><a>{?statistik}</a></li>
+		<li><a>{?clanwarsWars}</a></li>
 	</ul>
 	<div class="clickTab">
-	
-        <table width="100%" border="0">
-	<tr>
-		<td>	<table style="width:{ecTableWidth}" border="0" class="table">
-		<tr>
-			<td colspan="4" align="center">{?warsDone} <b>{$countWars}</b> {?warsDone2}</td>
-		</tr>
-		<tr>
-			<td colspan="4" align="center">{?score} <font color="Green">{$statistikErgebnisTeam1}</font> : <font color="Red">{$statistikErgebnisTeam2}</font></td>
-		</tr>
-		<tr>
-			<td width="15%"><font color="Green">{?won}</font></td>
-			<td width="65%"><div style="position:absolute;width:{$wonPercent}px;height:5px;background-color:green;"></div></td>
-			<td width="5%"><font color="Green">{$won}</font></td>
-			<td width="15%"><font color="Green">{$wonPercent}%</font></td>
-		</tr>
-		<tr>
-			<td><font color="Orange">{?draw}</font></td>
-			<td><div style="position:absolute;width:{$drawPercent}px;height:5px;background-color:orange;"></div></td>
-			<td><font color="Orange">{$draw}</font></td>
-			<td><font color="Orange">{$drawPercent}%</font></td>
-		</tr>
-		<tr>
-			<td><font color="Red">{?lost}</font></td>
-			<td><div style="position:absolute;width:{$lostPercent}px;height:5px;background-color:red;"></div></td>
-			<td><font color="Red">{$lost}</font></td>
-			<td><font color="Red">{$lostPercent}%</font></td>
-		</tr>
-	</table></td>
-	</tr>
-        </table>
+	  <table class="table">
+        <tr>
+          <td width="5%"><strong>{?clanwarsGame}</strong></td>
+          <td width="20%"><strong>{?clanwarsDate}</strong></td>
+          <td width="25%"><strong>{?clanwarsSquad}</strong></td>
+          <td width="25%"><strong>{?clanwarsEnemy}</strong></td>
+          <td width="15%"><strong>{?clanwarsTyp}</strong></td>
+          <td width="10%"><strong>{?clanwarsResult}</strong></td>
+        </tr>
+        <!-clanwarsHead>
+        <!+clanwarsData>
+        <tr>
+          <td><span class="head"><a href="?view=games&amp;site=details&amp;id={$clanwarsGameId}"><img src="uploads/games/{$clanwarsGameImg}" alt="{$clanwarsGameName}" width="16" height="16" border="0" /></a></span></td>
+          <td>{$clanwarsDate}</td>
+          <td><img src="{icon:country:{$clanwarsSquadNation}}" alt="{$clanwarsSquadNation}" width="16" height="11" /> <a href="?view=squads&amp;site=members&amp;id={$clanwarsSquadId}">{$clanwarsSquadName}</a></td>
+          <td><img src="{icon:country:{$clanwarsEnemyNation}}" alt="{$clanwarsEnemyNation}" width="16" height="11" /> <a href="?view=clandb&amp;site=details&amp;id={$clanwarsEnemyId}">{$clanwarsEnemyName}</a></td>
+          <td>{$clanwarsTyp}</td>
+          <td><a href="index.php?view=clanwars&amp;site=details&amp;id={$clanwarsId}">{$clanwarsResult}</a></td>
+        </tr>
+        <!-clanwarsData>
+        <!+clanwarsFoot>
+      </table>
 	</div>
 </div>
-<!-statistik>
-
-<!+moreInfoClan>{?ClanInfo}<br /><br /><strong>{?clanDbName}:</strong> {$enemyName}<br /><strong>{?clanDbShortName}:</strong>{$enemyShortName}<br /><strong>{?clanDbTag}:</strong> {$enemyTag}<br /><strong>{?clanDbCountry}:</strong> {$clanDbCountry}<br /><strong>{?clanDbHomepage}:</strong> {$enemyHomepage}<br /><!-moreInfoClan>
+<!-clanwarsFoot>
+<!+clanwarsStats>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?clanwarsStatistic}</a></li>
+	</ul>
+	<div class="clickTab">
+	  <table class="table">
+        <tr>
+          <td colspan="4">{?statsWarsDone} <b>{$clanwarsCount}</b> {?statsWarsDone2}</td>
+        </tr>
+        <tr>
+          <td width="15%"><font color="#006600">{?statsWon}</font></td>
+          <td width="65%"><table cellpadding="0" cellspacing="0" style="border:0px;width:{$percentageWins}%;height:5px;background-color:#006600;">
+            <tr>
+              <td></td>
+            </tr>
+          </table></td>
+          <td width="5%"><font color="#006600">{$scoreWins}</font></td>
+          <td width="15%"><font color="#006600">{$percentageWins}%</font></td>
+        </tr>
+        <tr>
+          <td><font color="#ff6600">{?statsDraw}</font></td>
+          <td>
+		  	<table cellpadding="0" cellspacing="0" style="border:0px;width:{$percentageDraws}%;height:5px;background-color:#ff6600;">
+  			  <tr>
+    			<td></td>
+ 			  </tr>
+			</table>
+		  </td>
+          <td><font color="#ff6600">{$scoreDraws}</font></td>
+          <td><font color="#ff6600">{$percentageDraws}%</font></td>
+        </tr>
+        <tr>
+          <td><font color="#FF0000">{?statsLost}</font></td>
+          <td><table cellpadding="0" cellspacing="0" style="border:0px;width:{$percentageLoses}%;height:5px;background-color:#FF0000;">
+            <tr>
+              <td></td>
+            </tr>
+          </table></td>
+          <td><font color="#FF0000">{$scoreLoses}</font></td>
+          <td><font color="#FF0000">{$percentageLoses}%</font></td>
+        </tr>
+      </table>
+	</div>
+</div>
+<!-clanwarsStats>

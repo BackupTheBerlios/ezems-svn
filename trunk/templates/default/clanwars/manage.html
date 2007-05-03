@@ -7,17 +7,16 @@
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?clanwarsTitle}</a></li>
-		<li><a>{?addTitle}</a></li>
 		<li><a>{?accessTitle}</a></li>
 		<li><a>{?uploadAccessTitle}</a></li>
 	</ul>
-	<div class="clickTab">
+  <div class="clickTab">
 		<table class="table">
 		  <tr>
 			<td width="20%"><strong>{?clanwarsId}</strong></td>
 			<td width="30%"><strong>{?clanwarsDate}</strong></td>
-			<td><strong>{?clanwarsEnemy}</strong></td>
-			<td><strong>{?clanwarsGame}</strong></td>
+			<td width="35%"><strong>{?clanwarsEnemy}</strong></td>
+			<td width="5%"><strong>{?clanwarsGame}</strong></td>
 			<td width="5%"><img src="{icon:16:edit}" width="16" height="16" /></td>
 		    <td width="5%"><img src="{icon:16:delete}" width="16" height="16" /></td>
 		  </tr>
@@ -26,15 +25,17 @@
 		  <tr>
 			<td># {$clanwarsId}</td>
 			<td>{$clanwarsDate}</td>
-			<td width="30%"><a href="index.php?view=clanwars&site=details&Id={$clanwarsId}">{$enemyName}</a></td>
-			<td width="10%"><img src="uploads/games/{$clanwarsGame}" alt="{$gamesIcon}" width="16" height="16"/></td>
-			<td><a href="index.php?view=clanwars&site=edit&amp;id={$clanwarsId}" ><img src="{icon:16:edit}" width="16" height="16" /></a></td>
-		    <td><a href="index.php?view=clanwars&site=remove&amp;id={$clanwarsId}"><img src="{icon:16:delete}" width="16" height="16" /></a></td>
+			<td><a href="?view=clandb&amp;site=details&amp;id={$clanwarsEnemyId}">{$clanwarsEnemyName}</a></td>
+			<td><img src="uploads/games/{$clanwarsGameImg}" alt="{$clanwarsGameImg}" width="16" height="16"/></td>
+			<td><a href="index.php?view=clanwars&site=edit&amp;id={$clanwarsId}" ><img src="{icon:16:edit}" width="16" height="16" border="0" /></a></td>
+		    <td><a href="index.php?view=clanwars&site=remove&amp;id={$clanwarsId}"><img src="{icon:16:delete}" width="16" height="16" border="0" /></a></td>
 		  </tr>
 		<!-clanwarsData>
 		<!+clanwarsFoot>
 		</table>
-	</div>
+		<br />
+	  <img src="{icon:16:new}" width="16" height="16" border="0" />
+	  <a href="index.php?view=clanwars&amp;site=add">{?clanwarsAdd}</a>	</div>
 <!-clanwarsFoot>
 <!+clanwarsAccess>
 	<div class="clickTab">
@@ -59,8 +60,8 @@
 <!+clanwarsAccessUpload>
 	<div class="clickTab">
 		<form action="index.php?view=clanwars&site=manage&amp;action=uploadTypes" method="post">
-<strong>{?uploadAccessDescription}:</strong><br />
-<table class="table">
+		<strong>{?uploadAccessDescription}:</strong><br />
+		<table class="table">
 		  <tr>
 			<td width="50%"><strong>{?uploadDescription}</strong></td>
 		    <td><strong>{?activate}</strong></td>
@@ -71,7 +72,7 @@
 		  </tr>
 		  <tr>
 			<td width="30%">{?uploadArchives}</td>
-			<td><input name="archiver" type="checkbox" value="1" class="checkbox" {$archiver} /></td>
+			<td><input name="archives" type="checkbox" class="checkbox" id="archives" value="1" {$archives} /></td>
 		  </tr>
 		  <tr>
 			<td colspan="2"><input name="save" type="submit" id="save" value="{?save}" /> 
@@ -81,29 +82,18 @@
 		</form>
 	</div>
 <!-clanwarsAccessUpload>
-<!+clanwarsAdd>
-	<div class="clickTab">
-		<form method="post" action="index.php?view=clanwars&site=add">
-		<strong>{?clanwarsAddGame}:</strong> 
-		   <select name="gameId">
-			{$options}	
-	      </select>
-		   <br />
-	      <br />
-		  <input name="add" type="submit" id="add" value="{?add}" />
-		</form>
-	</div>
-<!-clanwarsAdd>
 <!+siteFoot>
 </div>
 <!-siteFoot>
 <!+clanwarsSaved>
-	<div class="clickTabBox">
-		<ul>
-			<li><a>{?clanwarsSaved}</a></li>
-		</ul>
-		<div class="clickTab">{$next}</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?clanwarsSaved}</a></li>
+	</ul>
+	<div class="clickTab">
+		{$next}
 	</div>
+</div>
 <!-clanwarsSaved>
 <!+select>
 	<option value="{$value}"{$checked}>{$description}</option>

@@ -1,25 +1,48 @@
-<!+siteEntry>
+<!+siteHead>
 <div class="head">
 	<img src="{icon:32:clanwars}" alt="clanwars" width="32" height="32" /> {?siteTitle}
 </div>
-
+<!-siteHead>
+<!+clanwarsDetails>
 <div class="clickTabBox">
 	<ul>
-		<li><a>{?squads}</a></li>
+		<li><a>{?clanwarsSquads}</a></li>
 	</ul>
 	<div class="clickTab">
 	<table class="table">
 		<tr>
-			<td colspan=3><strong>{$gameName}</strong></td>
+			<td colspan=3><a href="?view=games&amp;site=details&amp;id={$clanwarsGameId}"><img src="uploads/games/{$clanwarsGameImg}" alt="{$clanwarsGameImg}" width="16" height="16" border="0" /></a> <strong>{$clanwarsGameName}</strong></td>
 		</tr>
 		<tr>
-			<td align="center" width="40%"><img src="uploads/squads/{$squadPic}" width="100px" height="100px"><br />
-				{$squadName}
+		  <td width="40%" align="center"><img src="uploads/squads/{$clanwarsSquadImg}" alt="{$clanwarsSquadImg}" width="100px" height="100px"><br /></td>
+			<td width="10%" rowspan="2" align="center"><img src="{icon:48:versus}" alt="versus" width="48" height="48" />
+				<br />
+			  	<br />
+		    	{$clanwarsXonX}
 			</td>
-			<td align="center" width="10%">{?vs}</td>
-			<td align="center" width="40%"><img src="uploads/clandb/{$enemyPic}" width="100px" height="100px"><br />
-				{$enemyName}
-			</td>
+		  <td align="center" width="40%"><img src="uploads/clandb/{$clanwarsEnemyImg}" alt="{$clanwarsEnemyImg}" width="100px" height="100px"></td>
+		</tr>
+		<tr>
+		  <td width="40%" align="center"><img src="{icon:country:{$clanwarsSquadNation}}" alt="{$clanwarsSquadNation}" width="16" height="11" /> <a href="?view=squads&amp;site=members&amp;id={$clanwarsSquadId}">{$clanwarsSquadName}</a></td>
+		  <td align="center"><img src="{icon:country:{$clanwarsEnemyNation}}" alt="{$clanwarsEnemyNation}" width="16" height="11" /> <a href="?view=clandb&amp;site=details&amp;id={$clanwarsEnemyId}">{$clanwarsEnemyName}</a></td>
+	  </tr>
+	</table>
+	</div>
+</div>
+
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?clanwarsDetails}</a></li>
+	</ul>
+	<div class="clickTab">
+	<table class="table">
+		<tr>
+			<td><strong><img src="{icon:16:typ}" alt="typ" width="16" height="16" /> {?clanwarsTyp}</strong></td>
+			<td colspan="2">{$clanwarsTyp}</td>
+		</tr>
+		<tr>
+			<td><strong><img src="{icon:16:date}" alt="date" width="16" height="16" /> {?clanwarsDate}</strong></td>
+			<td colspan="2">{$clanwarsDate} {?at} {$clanwarsTime}</td>
 		</tr>
 	</table>
 	</div>
@@ -27,142 +50,132 @@
 
 <div class="clickTabBox">
 	<ul>
-		<li><a>{?matchDetails}</a></li>
+		<li><a>{?clanwarsLineup}</a></li>
 	</ul>
-	<div class="clickTab">
+  <div class="clickTab">
 	<table class="table">
 		<tr>
-			<td>{?matchtyp}</td>
-			<td colspan="2">{$matchTyp}</td>
-		</tr>
-		<tr>
-			<td>{?date}</td>
-			<td colspan="2">{$date} {?hour}</td>
-		</tr>
-	</table>
-	</div>
-</div>
-
-<div class="clickTabBox">
-	<ul>
-		<li><a>{?lineup}</a></li>
-	</ul>
-	<div class="clickTab">
-	<table class="table">
-		<tr>
-			<td valign="top" width="60%">
-				<table>
+			<td width="50%" valign="top">
+				<table style="width:100%">
 					<tr>
-						<td><b>{?SquadLineup}</b></td>
+						<td width="25%"><b>{?squadLineup}</b></td>
 					</tr>
 					<tr>
-						<td width="25%"><b>{?nick}</b></td>
-					</tr>
-					{$squadLineup}
+					  <td>{$squadLineup}</td>
+				  </tr>
 				</table>
 			</td>
-			<td></td>
-			<td valign="top">
-				<table>
-					<tr>
-						<td><b>{?enemyLineup}</b></td>
-					</tr>
-					<tr>
-						<td><b>{?nick}</b></td>
-					</tr>
-					{$enemyLineup}
-				</table>
-			</td>
+		    <td valign="top"><table style="width:100%">
+            <tr>
+              <td><b>{?enemyLineup}</b></td>
+            </tr>
+            <tr>
+              <td>{$enemyLineup}</td>
+            </tr>
+		    
+	      </table></td>
 		</tr>
+	</table>
+  </div>
+</div>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?clanwarsRounds}</a></li>
+	</ul>
+	<div class="clickTab">
+	<table class="table">
+		{$clanwarsRounds}
+		<tr>
+		  <td>&nbsp;</td>
+		  <td>&nbsp;</td>
+		  <td><strong><font color="##006600">{?clanwarsSquad}</font></strong></td>
+		  <td><strong><font color="#ff0000">{?clanwarsEnemy}</font></strong></td>
+		</tr>
+		<tr>
+		  <td><strong>{?clanwarsTotal}</strong></td>
+		  <td><strong>{$scoreStatus}</strong></td>
+		  <td><strong>{$totalScoreSquad}</strong></td>
+		  <td><strong>{$totalScoreEnemy}</strong></td>
+	  </tr>
 	</table>
 	</div>
 </div>
 
 <div class="clickTabBox">
 	<ul>
-		<li><a>{?Rounds}</a></li>
-	</ul>
-	<div class="clickTab">
-	<table class="table">
-		{$maptemplate}
-	</table>
-	</div>
-</div>
-
-<div class="clickTabBox">
-	<ul>
-		<li><a>{?misc}</a></li>
+		<li><a>{?clanwarsMisc}</a></li>
 	</ul>
 	<div class="clickTab">
 	<table class="table">
 		<tr>
-			<td colspan="3"><b>{?Report}</b></td>
+			<td colspan="3"><b>{?clanwarsReport}</b></td>
 		</tr>
 		<tr>
-			<td colspan="3">{$bericht}</td>
+			<td colspan="3">{$clanwarsInfo}</td>
 		</tr>
 		{$media}
 	</table>
 	</div>
 </div>
-<!-siteEntry>
-
-<!+squadLineup>
-<tr>
-	<td>{$gamerName}</td>
-</tr>
-<!-squadLineup>
-
-<!+enemyLineup>
-<tr>
-	<td>{$enemyGamerName}</td>
-</tr>
-<!-enemyLineup>
+<!-clanwarsDetails>
+<table>
 <!+mapRound>
 <tr>
-	<td colspan="5">{$map}</td>
+	<td width="30%"><strong>{?clanwarsMap}</strong></td>
+	<td width="30%"><strong>{?clanwarsRound}</strong></td>
+	<td width="20%"><strong><font color="#006600">{?clanwarsSquad}</font></strong></td>
+	<td width="20%"><strong><font color="#ff0000">{?clanwarsEnemy}</font></strong></td>
 </tr>
 <tr>
-	<td width="5%">{?Team1}</td>
-	<td width="20%">{$score1}</td>
-	<td width="20%"></td>
-	<td width="5%">{?Team2}</td>
-	<td width="20%">{$score2}</td>
+  <td width="30%" rowspan="2"><strong>{$map}</strong></td>
+	<td><em>{?clanwarsRound1}</em></td>
+	<td>{$scoreSquadRound1}</td>
+	<td>{$scoreEnemyRound1}</td>
 </tr>
 <tr>
-	<td>{?Team2}</td>
-	<td>{$score3}</td>
-	<td></td>
-	<td>{?Team1}</td>
-	<td>{$score4}</td>
+  <td><em>{?clanwarsRound2}</em></td>
+  <td>{$scoreSquadRound2}</td>
+  <td>{$scoreEnemyRound2}</td>
 </tr>
 <!-mapRound>
-
-<!+medienArchiv>
+</table>
+<table>
+<!+mediaArchives>
 <tr>
-	<td><a href="uploads/clanwars/archives/{$medien}">{$medien}</a></td>
+	<td><img src="{icon:extensions:rar}" alt="archive" width="16" height="16" /> <a href="uploads/clanwars/archives/{$medien}">{$medien}</a></td>
 <tr>
-<!-medienArchiv>
-<!+medienImage>
+<!-mediaArchives>
+</table>
+<table>
+<!+mediaImages>
 <tr>
-	<td><a href="uploads/clanwars/images/{$medien}" target="_blank">{$medien}</a></td>
+	<td><img src="{icon:extensions:jpg}" alt="archive" width="16" height="16" /> <a href="uploads/clanwars/images/{$medien}" target="_blank">{$medien}</a></td>
 <tr>
-<!-medienImage>
-
-<!+medien>
+<!-mediaImages>
+</table>
+<table>
+<!+media>
 <tr>
-	<td colspan="3"><strong>{?Medien}</strong></td>
+	<td colspan="3"><strong>{?clanwarsMedia}</strong></td>
 </tr>
 <tr>
-	<td valign="top"><strong>{?images}</strong>
+	<td valign="top"><strong>{?clanwarsImages}</strong>
 		<table class="table">
-			{$medienImageTemplate}
+			{$mediaImageTemplate}
 		</table>	
 	</td>
-	<td colspan="2" valign="top"><strong>{?archives}</strong>
+	<td colspan="2" valign="top"><strong>{?clanwarsArchives}</strong>
 		<table class="table">
-			{$medienArchivTemplate}
+			{$mediaArchivTemplate}
 		</table>
 	</td>
 </tr>
-<!-medien>
+<!-media>
+</table>
+<!+squadLineup>
+	<img src="{icon:country:{$nation}}" alt="{$nation}" width="16" height="11" /> <a href="?view=users&amp;site=details&amp;id={$userId}">{$name}</a><br />
+<!-squadLineup>
+<!+enemyLineup>
+	<img src="{icon:country:{$clanwarsEnemyNation}}" alt="{$clanwarsEnemyNation}" width="16" height="11" /> {$name}
+	<br />
+<!-enemyLineup>

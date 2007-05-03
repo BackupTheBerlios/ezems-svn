@@ -7,16 +7,15 @@
 <div class="clickTabBox">
 	<ul>
 		<li><a>{?menuTitle}</a></li>
-		<li><a>{?menuAdd}</a></li>
 		<li><a>{?menuTask}</a></li>
-		<li><a>{?menuTaskAdd}</a></li>
+		<li><a>{?menuNation}</a></li>
 	</ul>
 	<div class="clickTab">
 		<table class="table">
 			<tr>
 				<td width="20%"><strong>{?squadId}</strong></td>
-				<td><strong>{?squadName}</strong></td>
-				<td><strong>{?squadGame}</strong></td>
+				<td width="30%"><strong>{?squadName}</strong></td>
+				<td width="40%"><strong>{?squadGame}</strong></td>
 				<td width="5%"><img src="{icon:16:edit}" width="16" height="16" /></td>
 		    	<td width="5%"><img src="{icon:16:delete}" width="16" height="16" /></td>
 			</tr>
@@ -24,30 +23,26 @@
 		<!+squadData>
 			<tr>
 				<td># {$squadId}</td>
-				<td width="50%">{$squadName}</td>
-				<td width="20"><img src="uploads/games/{$squadGame}" alt="{$squadGame}" width="16" height="16"/></td>
+				<td>{$squadName}</td>
+				<td><img src="uploads/games/{$squadGameImg}" alt="{$squadGameImg}" width="16" height="16"/> <a href="?view=games&amp;site=details&amp;id={$squadGameId}">{$squadGameName} - {$squadGameVersion}</a> </td>
 				<td><a href="index.php?view=squads&site=squadedit&id={$squadId}"/><img src="{icon:16:edit}" width="16" height="16" /></td>
 		    	<td><a href="index.php?view=squads&site=squadremove&id={$squadId}"/><img src="{icon:16:delete}" width="16" height="16" /></td>
 			</tr>
 		<!-squadData>
-	<!+squadFoot>
-	</table>
+		<!+squadFoot>
+		</table>
+		<br />
+		<img src="{icon:16:new}" width="16" height="16" border="0" />
+		<a href="index.php?view=squads&amp;site=squadadd">{?squadAdd}</a>
 	</div>
 <!-squadFoot>
-<!+squadAdd>
-	<div class="clickTab">
-		<img src="{icon:16:new}" width="16" height="16" border="0" />
-		<a href="index.php?view=squads&amp;site=squadadd"><strong>{?squadAdd}</strong></a>
-	</div>
-<!-squadAdd>
-
 <!+taskHead>
 	<div class="clickTab">
 	<table class="table">
 		<tr>
 			<td width="20%"><strong>{?taskId}</strong></td>
-			<td><strong>{?taskName}</strong></td>
-			<td><strong>{?taskPriority}</strong></td>
+			<td width="40%"><strong>{?taskName}</strong></td>
+			<td width="30%"><strong>{?taskPriority}</strong></td>
 			<td width="5%"><img src="{icon:16:edit}" width="16" height="16" /></td>
 		   	<td width="5%"><img src="{icon:16:delete}" width="16" height="16" /></td>
 		</tr>
@@ -55,24 +50,56 @@
 <!+taskData>
 		<tr>
 			<td># {$taskId}</td>
-			<td width="50%">{$taskName}</td>
-			<td width="20">{$taskPriority}</td>
-			<td><a href="index.php?view=squads&site=taskedit&id={$taskId}"/><img src="{icon:16:edit}" width="16" height="16" /></td></a>
+			<td>{$taskName}</td>
+			<td>{$taskPriority}</td>
+			<td><a href="index.php?view=squads&site=taskedit&id={$taskId}"/><img src="{icon:16:edit}" width="16" height="16" /></a></td>
 		   	<td><a href="index.php?view=squads&site=taskremove&id={$taskId}"/><img src="{icon:16:delete}" width="16" height="16" /></a></td>
 		</tr>
-<!-taskData>
-<!+taskFoot>
-	</table>
+		<!-taskData>
+		<!+taskFoot>
+		</table>
+		<br />
+		<img src="{icon:16:new}" width="16" height="16" border="0" />
+		<a href="index.php?view=squads&site=taskadd">{?taskAdd}</a>	
 	</div>
 <!-taskFoot>
-
-<!+taskAdd>
+<!+clanNation>
 	<div class="clickTab">
-		<img src="{icon:16:new}" width="16" height="16" border="0" />
-		<a href="index.php?view=squads&site=taskadd"/><strong>{?taskAdd}</strong></a>	
+	  <form id="form1" name="form1" method="post" action="">
+	    <table class="table">
+          <tr>
+            <td width="30%">{?clanName}</td>
+            <td width="70%">
+              <input name="clanName" type="text" value="{$clanName}" />
+            </td>
+          </tr>
+          <tr>
+            <td>{?clanNation}</td>
+            <td><select name="clanNation" id="clanNation">
+              <option value="{$clanNationId}">{$clanNationName}</option>
+              <option value="">- - -</option>
+			  {$countries}
+            </select></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><input name="save" type="submit" id="save" value="{?save}" />
+              <input name="reset"  type="reset" id="reset" value="{?reset}" /></td>
+          </tr>
+        </table>
+	  </form>	
 	</div>
-<!-taskAdd>
-
+<!-clanNation>
+<!+settingsSaved>
+<div class="clickTabBox">
+	<ul>
+		<li><a>{?titleSaved}</a></li>
+	</ul>
+	<div class="clickTab">
+		{$next}
+	</div>
+</div>
+<!-settingsSaved>
 <!+siteFoot>
 </div>
 <!-siteFoot>

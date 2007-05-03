@@ -13,5 +13,6 @@ $ecLang['detailsBar']	= 'Unterseiten';
 $ecLang['squadMember'] 			= 'Mitgliedschaften';
 	$ecLang['squadName'] 		= 'Name';
 	$ecLang['squadGame'] 		= 'Spiel';
+	$ecLang['squadTime'] 		= 'Mitglied seit';
 	$ecLang['squadTask'] 		= 'Aufgabe';
 ?>

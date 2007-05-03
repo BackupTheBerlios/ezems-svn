@@ -1,11 +1,10 @@
 <?php
-$ecFile = 'langs/german_de/clanwars/add.php';
+$ecFile = 'langs/german_de/clanwars/remove.php';
 
-$ecLang['siteTitle'] 	= 'Clanwars';
+$ecLang['siteTitle'] 		= 'Clanwars';
 
-$ecLang['clanwarsRemove'] 	= 'Bist du sicher, dass du den Clanwar entfernen möchtest?';
+$ecLang['remove'] 			= 'Entfernen';
+	$ecLang['clanwarsRemove'] 	= 'Bist du sicher, dass du den Clanwar entfernen möchtest?';
 
-$ecLang['clanwarsRemoved'] = 'Clanwar erfolgreich entfernt';
-
-$ecLang['remove'] = 'Entfernen';
+$ecLang['clanwarsRemoved'] 	= 'Clanwar erfolgreich entfernt';
 ?>

@@ -1,7 +1,7 @@
 <?php
 $ecFile = 'languages/german_ch/clanwars/add.php';
 
-$ecLang['siteTitle']			= 'War editieren';
+$ecLang['siteTitle']			= 'Clanwars';
 
 $ecLang['menuGerneral']			= 'Generell';
 	$ecLang['category']			= 'Matchtyp';

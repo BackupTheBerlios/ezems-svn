@@ -219,25 +219,19 @@ function createTabTpl(jsObject, jsClassPraefix, jsTplCount, jsType) {
 	jsTempTpl.innerHTML = jsTempObjectContent;
 }
 
-
-
-
-
-
-
-
+//Make Visible
 function ecMakeVisible(inputname,object)
 {
-	if (document.Form.elements[inputname].value != "")
+	if (document.form.elements[inputname].value != "")
 	{
-		var ID = document.Form.elements[inputname].value;
+		var ID = document.form.elements[inputname].value;
 		document.getElementById(ID).style.display='none';
-		document.Form.elements[inputname].value = "";
+		document.form.elements[inputname].value = "";
 	}
 	if(document.getElementById(object).style.display=='none')
 	{
 		document.getElementById(object).style.display='block';
-		document.Form.elements[inputname].value = object;
+		document.form.elements[inputname].value = object;
 	}
 	else document.getElementById(object).style.display='none';
 }

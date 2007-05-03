@@ -262,4 +262,16 @@ function ecICQ($uin)
 	return $return;
 }
 
+//
+function ecMakeYear()
+{
+	global $ecLocal;
+	$start = date('Y', $ecLocal['timestamp']);
+	for($i = 1; $i < 100; $i++)
+	{
+		$year[$i] = $start;
+		$start--;
+	}
+	return $year;
+}
 ?>

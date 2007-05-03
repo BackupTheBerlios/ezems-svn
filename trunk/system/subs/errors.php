@@ -15,7 +15,7 @@
 function ecError($file, $error, $fatal = 0)
 {
 	global $ecLocal,$ecUser;
-	$fatalMessage = ($fatal == 1) ? 'Fatal error' : 'Error';
+	$fatalMessage = ($fatal == 1) ? 'Fatal error' : 'Skript Error';
 	$message = $fatalMessage.' in file '.$file.': '.$error;
 	array_push($ecLocal['errors'], $message);
 	if ($ecLocal['errorLog'] == 1)
